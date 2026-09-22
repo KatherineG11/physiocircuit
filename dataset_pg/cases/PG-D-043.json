@@ -1,0 +1,185 @@
+{
+  "case_id": "PG-D-043",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 67,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "prior stroke",
+      "hypothyroidism",
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "unintentional weight loss, right upper quadrant discomfort",
+    "duration_days": 14,
+    "vital_signs": {
+      "hr": 112,
+      "map": 86,
+      "temp": 36.3,
+      "spo2": 91
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 0.62,
+        "ALP": 0.98,
+        "WBC": 1.31,
+        "total bilirubin": 3.06
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "total bilirubin": 0.79,
+        "lactate": 3.02,
+        "ALP": 3.08,
+        "ALT": 1.79
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "ALT": 0.54,
+        "lactate": 0.92,
+        "lipase": 1.02,
+        "total bilirubin": 2.54
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-03",
+      "name": "Reduced CCK drive",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.73,
+      "evidence": [
+        "low post-prandial CCK",
+        "gallbladder ejection fraction < 35%"
+      ],
+      "confounder": "prokinetic agents"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.131,
+          "intestine": 0.103,
+          "gallbladder": 0.166
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.131,
+          "intestine": 0.103,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.131,
+          "intestine": 0.103,
+          "gallbladder": 0.293
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.131,
+          "intestine": 0.103,
+          "gallbladder": 0.374
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.131,
+          "intestine": 0.103,
+          "gallbladder": 0.456
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "gallbladder",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-03",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-03",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-03",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-03",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-03"
+    }
+  },
+  "fingerprint": "7d415a6ba70eed7c"
+}

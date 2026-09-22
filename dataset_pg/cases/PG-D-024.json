@@ -1,0 +1,183 @@
+{
+  "case_id": "PG-D-024",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 43,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "surgical ward",
+    "comorbidities": [
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "unintentional weight loss, post-prandial epigastric fullness",
+    "duration_days": 7,
+    "vital_signs": {
+      "hr": 84,
+      "map": 84,
+      "temp": 37.5,
+      "spo2": 95
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lipase": 0.86,
+        "CRP": 2.22,
+        "total bilirubin": 1.91,
+        "albumin": 0.92
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "total bilirubin": 1.35,
+        "WBC": 2.0,
+        "albumin": 2.44,
+        "ALT": 2.1
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "ALT": 1.07,
+        "WBC": 0.85,
+        "lipase": 2.54,
+        "creatinine": 0.52
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-03",
+      "name": "Reduced CCK drive",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.58,
+      "evidence": [
+        "low post-prandial CCK",
+        "gallbladder ejection fraction < 35%"
+      ],
+      "confounder": "prokinetic agents"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.229,
+          "intestine": 0.235,
+          "gallbladder": 0.109
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.229,
+          "intestine": 0.235,
+          "gallbladder": 0.064
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.229,
+          "intestine": 0.235,
+          "gallbladder": 0.048
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.229,
+          "intestine": 0.235,
+          "gallbladder": 0.032
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.229,
+          "intestine": 0.235,
+          "gallbladder": 0.016
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "gallbladder",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-03",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-03",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-03",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-03",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-03"
+    }
+  },
+  "fingerprint": "12cd457f93744ffb"
+}

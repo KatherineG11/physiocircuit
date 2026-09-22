@@ -1,0 +1,19 @@
+{
+ "n_cases": 100,
+ "pg_vs_random": {
+  "diff_pp": 8.2,
+  "ci95": [
+   6.3,
+   10.2
+  ],
+  "method": "cluster bootstrap over cases (items pooled within resampled cases), 20000 resamples, seed=20260992",
+  "mcnemar": {
+   "pg_only": 18,
+   "random_only": 0,
+   "n_discordant": 18,
+   "p_exact": 7.63e-06,
+   "note": "Case-level "fully correct per case" pairing; two-sided exact binomial test"
+  }
+ },
+ "note": "All paired statistics are computed from the per-item bitmaps in l1/direction.json."
+}

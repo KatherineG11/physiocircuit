@@ -1,0 +1,1 @@
+{"0.3": {"flips_sum": 240, "err1_sum": 500, "err5_sum": 155, "acc1_k": 1598, "osc_sum": 600}, "0.6": {"flips_sum": 310, "err1_sum": 500, "err5_sum": 210, "acc1_k": 1597, "osc_sum": 800}, "0.8": {"flips_sum": 480, "err1_sum": 500, "err5_sum": 305, "acc1_k": 1595, "osc_sum": 1500}, "1.0": {"flips_sum": 710, "err1_sum": 500, "err5_sum": 445, "acc1_k": 1591, "osc_sum": 2400}}

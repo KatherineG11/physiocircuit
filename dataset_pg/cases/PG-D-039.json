@@ -1,0 +1,185 @@
+{
+  "case_id": "PG-D-039",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 49,
+    "sex": "F",
+    "frailty": "mild",
+    "setting": "ICU",
+    "comorbidities": [
+      "chronic kidney disease stage 3",
+      "rheumatoid arthritis",
+      "chronic obstructive pulmonary disease"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "bilious vomiting, post-prandial epigastric fullness",
+    "duration_days": 10,
+    "vital_signs": {
+      "hr": 78,
+      "map": 85,
+      "temp": 37.1,
+      "spo2": 99
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "WBC": 3.16,
+        "lactate": 2.39,
+        "lipase": 1.64,
+        "albumin": 1.2
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "ALP": 0.43,
+        "ALT": 0.62,
+        "albumin": 1.15,
+        "CRP": 2.6
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "total bilirubin": 1.68,
+        "lipase": 1.03,
+        "CRP": 1.87,
+        "albumin": 3.02
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-02",
+      "name": "Bile acid malabsorption",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.69,
+      "evidence": [
+        "elevated faecal bile acid",
+        "watery stools after meals"
+      ],
+      "confounder": "bile acid sequestrant use"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.224,
+          "intestine": 0.23,
+          "gallbladder": 0.288
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.224,
+          "intestine": 0.265,
+          "gallbladder": 0.288
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.224,
+          "intestine": 0.334,
+          "gallbladder": 0.288
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.224,
+          "intestine": 0.404,
+          "gallbladder": 0.288
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.224,
+          "intestine": 0.473,
+          "gallbladder": 0.288
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-02",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-02",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-02",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-02",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-02"
+    }
+  },
+  "fingerprint": "a91ab44500b18b13"
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "physiograph.cards.v1",
+  "domain": "cardio",
+  "cards": [
+    {
+      "mechanism_id": "CM-01", "source": "vasculature", "target": "heart",
+      "source_variables": ["systemic_vascular_resistance", "vascular_tone"],
+      "target_variables": ["heart_rate", "cardiac_work"],
+      "allowed_directions": ["worsen"], "lag_steps": [0, 0],
+      "activation_evidence": ["falling systemic vascular resistance", "rising heart rate"],
+      "counterevidence": ["restored vascular tone"],
+      "treatment_bindings": [{"treatment": "vasopressor", "action": "suppress"}],
+      "mechanism_description": "Loss of vascular tone triggers compensatory cardiac work."
+    },
+    {
+      "mechanism_id": "CM-02", "source": "vasculature", "target": "kidney",
+      "source_variables": ["effective_circulating_volume", "preload"],
+      "target_variables": ["renal_perfusion", "urine_output"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["rising lactate", "falling urine output"],
+      "counterevidence": ["adequate circulating volume"],
+      "treatment_bindings": [{"treatment": "fluid resuscitation", "action": "suppress"}],
+      "mechanism_description": "Venodilation and capillary leak reduce renal perfusion."
+    },
+    {
+      "mechanism_id": "CM-03", "source": "heart", "target": "vasculature",
+      "source_variables": ["myocardial_contractility", "cardiac_output"],
+      "target_variables": ["peripheral_perfusion", "vascular_flow"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["falling ejection fraction", "widened arteriovenous oxygen gap"],
+      "counterevidence": ["preserved myocardial function"],
+      "treatment_bindings": [{"treatment": "inotrope", "action": "suppress"}],
+      "mechanism_description": "Septic myocardial depression worsens peripheral perfusion."
+    },
+    {
+      "mechanism_id": "CM-04", "source": "kidney", "target": "vasculature",
+      "source_variables": ["urine_output", "fluid_retention"],
+      "target_variables": ["venous_pressure", "circulating_volume"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["positive cumulative balance", "rising central venous pressure"],
+      "counterevidence": ["effective diuresis"],
+      "treatment_bindings": [{"treatment": "diuretic", "action": "suppress"}],
+      "mechanism_description": "Oliguric kidney injury expands vascular volume and pressure."
+    },
+    {
+      "mechanism_id": "CM-05", "source": "liver", "target": "coagulation",
+      "source_variables": ["acute_phase_signalling", "hepatic_protein_synthesis"],
+      "target_variables": ["coagulation_activation", "antithrombin"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["rising fibrinogen", "falling antithrombin"],
+      "counterevidence": ["stable coagulation profile"],
+      "treatment_bindings": [{"treatment": "anticoagulation", "action": "suppress"}],
+      "mechanism_description": "Hepatic acute-phase signalling shifts synthesis toward procoagulant factors."
+    },
+    {
+      "mechanism_id": "CM-06", "source": "coagulation", "target": "liver",
+      "source_variables": ["microthrombi", "platelet_consumption"],
+      "target_variables": ["hepatic_microcirculation", "liver_injury"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["rising transaminases", "falling platelet count"],
+      "counterevidence": ["absence of coagulopathy"],
+      "treatment_bindings": [{"treatment": "heparin prophylaxis", "action": "suppress"}],
+      "mechanism_description": "Microthrombi occlude hepatic sinusoids and worsen liver injury."
+    },
+    {
+      "mechanism_id": "CM-07", "source": "coagulation", "target": "vasculature",
+      "source_variables": ["coagulation_activation", "glycocalyx_shedding"],
+      "target_variables": ["endothelial_permeability", "fluid_requirement"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["rising syndecan-1", "increasing fluid requirement"],
+      "counterevidence": ["intact endothelial barrier"],
+      "treatment_bindings": [{"treatment": "albumin", "action": "suppress"}],
+      "mechanism_description": "Coagulation activation degrades the endothelial glycocalyx."
+    },
+    {
+      "mechanism_id": "CM-08", "source": "vasculature", "target": "lung",
+      "source_variables": ["pulmonary_capillary_leak", "endothelial_injury"],
+      "target_variables": ["gas_exchange", "shunt_fraction"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["falling PaO2/FiO2", "increasing shunt fraction"],
+      "counterevidence": ["stable gas exchange"],
+      "treatment_bindings": [{"treatment": "lung-protective ventilation", "action": "suppress"}],
+      "mechanism_description": "Pulmonary capillary leak reduces gas exchange."
+    },
+    {
+      "mechanism_id": "CM-09", "source": "lung", "target": "heart",
+      "source_variables": ["oxygenation", "oxygen_saturation"],
+      "target_variables": ["cardiac_work", "myocardial_injury"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["falling oxygen saturation", "rising troponin"],
+      "counterevidence": ["normal oxygenation"],
+      "treatment_bindings": [{"treatment": "oxygen therapy", "action": "suppress"}],
+      "mechanism_description": "Hypoxaemia increases cardiac workload."
+    },
+    {
+      "mechanism_id": "CM-10", "source": "liver", "target": "heart",
+      "source_variables": ["lactate_clearance", "metabolic_acidosis"],
+      "target_variables": ["cardiac_metabolic_load", "contractility"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["rising lactate", "falling bicarbonate"],
+      "counterevidence": ["normalising lactate"],
+      "treatment_bindings": [{"treatment": "renal replacement therapy", "action": "suppress"}],
+      "mechanism_description": "Impaired hepatic lactate clearance increases cardiac metabolic load."
+    },
+    {
+      "mechanism_id": "CM-11", "source": "kidney", "target": "liver",
+      "source_variables": ["renal_clearance", "uraemic_solutes"],
+      "target_variables": ["hepatic_injury", "transaminases"],
+      "allowed_directions": ["improve"], "lag_steps": [3, 3],
+      "activation_evidence": ["rising urine output", "falling transaminases"],
+      "counterevidence": ["nephrotoxic exposure"],
+      "treatment_bindings": [{"treatment": "nephrotoxin withdrawal", "action": "activate"}],
+      "mechanism_description": "Recovering renal clearance removes solutes that drive hepatic injury."
+    },
+    {
+      "mechanism_id": "CM-12", "source": "liver", "target": "vasculature",
+      "source_variables": ["mediator_clearance", "hepatic_recovery"],
+      "target_variables": ["vascular_tone", "systemic_vascular_resistance"],
+      "allowed_directions": ["improve"], "lag_steps": [2, 2],
+      "activation_evidence": ["falling CRP", "rising systemic vascular resistance"],
+      "counterevidence": ["ongoing infectious source"],
+      "treatment_bindings": [{"treatment": "source control", "action": "activate"}],
+      "mechanism_description": "Restored hepatic clearance lowers mediator levels and improves vascular tone."
+    }
+  ]
+}

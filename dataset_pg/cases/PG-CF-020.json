@@ -1,0 +1,173 @@
+{
+ "pair_id": "PG-CF-020",
+ "stratum": "turning",
+ "mechanism": {
+  "id": "MC-01",
+  "name": "Bile reflux mucosal injury",
+  "source": "gallbladder",
+  "target": "stomach",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "replace",
+  "edge": "MC-01",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-CF-020-a",
+  "arm": "observed",
+  "stratum": "turning",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.127,
+     "intestine": 0.288,
+     "gallbladder": 0.135
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.165,
+     "intestine": 0.297,
+     "gallbladder": 0.136
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.241,
+     "intestine": 0.305,
+     "gallbladder": 0.138
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.214,
+     "intestine": 0.287,
+     "gallbladder": 0.135
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.186,
+     "intestine": 0.269,
+     "gallbladder": 0.132
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.127,
+     "intestine": 0.251,
+     "gallbladder": 0.129
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.068,
+     "intestine": 0.233,
+     "gallbladder": 0.126
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-01",
+    "onset": 1,
+    "strength": 0.75
+   },
+   {
+    "id": "MC-08",
+    "onset": 3,
+    "strength": 0.64,
+    "note": "therapeutic response at the turning point"
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-CF-020-b",
+  "arm": "counterfactual",
+  "stratum": "turning",
+  "horizon": 6,
+  "intervention": {
+   "type": "replace",
+   "edge": "MC-01",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.127,
+     "intestine": 0.288,
+     "gallbladder": 0.135
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.165,
+     "intestine": 0.297,
+     "gallbladder": 0.136
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.181,
+     "intestine": 0.245,
+     "gallbladder": 0.078
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.154,
+     "intestine": 0.227,
+     "gallbladder": 0.075
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.126,
+     "intestine": 0.209,
+     "gallbladder": 0.072
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.067,
+     "intestine": 0.191,
+     "gallbladder": 0.069
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.008,
+     "intestine": 0.173,
+     "gallbladder": 0.066
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-08",
+    "onset": 3,
+    "strength": 0.64,
+    "note": "therapeutic response at the turning point"
+   }
+  ]
+ },
+ "gold_agreement": true,
+ "family": "coexisting bile reflux and improving fat absorption"
+}

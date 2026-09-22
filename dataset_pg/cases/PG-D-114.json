@@ -1,0 +1,213 @@
+{
+  "case_id": "PG-D-114",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "nonmono",
+  "horizon": 5,
+  "patient": {
+    "age": 51,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "ICU",
+    "comorbidities": [
+      "ischaemic heart disease"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "nausea after fatty meals, watery diarrhoea",
+    "duration_days": 13,
+    "vital_signs": {
+      "hr": 99,
+      "map": 93,
+      "temp": 38.7,
+      "spo2": 91
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "CRP": 1.76,
+        "ALP": 2.44,
+        "creatinine": 2.77,
+        "albumin": 2.1
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "CRP": 1.46,
+        "albumin": 0.96,
+        "total bilirubin": 2.24,
+        "WBC": 3.13
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "ALP": 2.14,
+        "creatinine": 1.67,
+        "CRP": 1.26,
+        "albumin": 2.82
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-09",
+      "name": "Biliary obstruction cascade",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.59,
+      "evidence": [
+        "dilated bile duct",
+        "rising conjugated bilirubin"
+      ],
+      "confounder": "stent patency"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.79,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    },
+    {
+      "id": "MC-04",
+      "name": "Acid load to the small bowel",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 3,
+      "strength": 0.51,
+      "evidence": [
+        "duodenal erosions",
+        "gastric pH < 2"
+      ],
+      "confounder": "H2 blocker timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.267,
+          "intestine": 0.345,
+          "gallbladder": 0.247
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.274,
+          "intestine": 0.394,
+          "gallbladder": 0.247
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.241,
+          "intestine": 0.444,
+          "gallbladder": 0.246
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.208,
+          "intestine": 0.519,
+          "gallbladder": 0.245
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.176,
+          "intestine": 0.594,
+          "gallbladder": 0.244
+        },
+        "phase": "conflict_emerges"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 4,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-09",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-09",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-09",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-09",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-09"
+    }
+  },
+  "fingerprint": "d64acef28571d75a"
+}

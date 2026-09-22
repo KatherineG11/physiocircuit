@@ -1,0 +1,252 @@
+{
+  "case_id": "PG-P-011",
+  "split": "dev",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 6,
+  "patient": {
+    "age": 72,
+    "sex": "F",
+    "frailty": "moderate",
+    "setting": "high-dependency unit",
+    "comorbidities": [
+      "chronic kidney disease stage 3",
+      "ischaemic heart disease",
+      "cirrhosis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "increasing oxygen requirement, reduced exercise tolerance",
+    "duration_days": 14,
+    "vital_signs": {
+      "hr": 78,
+      "map": 89,
+      "temp": 37.1,
+      "spo2": 86
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "procalcitonin": 2.76,
+        "lactate": 0.61,
+        "creatinine": 1.67,
+        "PaO2/FiO2": 1.0
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "WBC": 1.07,
+        "CRP": 0.94,
+        "urea": 1.78,
+        "PaO2/FiO2": 0.83
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "urea": 3.18,
+        "WBC": 3.09,
+        "PaO2/FiO2": 1.49,
+        "creatinine": 1.56
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-08",
+      "name": "Uraemic mucosal injury",
+      "source": "kidney",
+      "target": "airway",
+      "sign": "+",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.63,
+      "evidence": [
+        "rising urea",
+        "inspissated secretions"
+      ],
+      "confounder": "renal replacement timing"
+    },
+    {
+      "id": "PM-11",
+      "name": "Alveolar macrophage recruitment",
+      "source": "alveoli",
+      "target": "systemic_inflammation",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.89,
+      "evidence": [
+        "bronchoalveolar lavage cytokines",
+        "rising white cell count"
+      ],
+      "confounder": "antibiotic adequacy"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "improve"
+        },
+        "severity": {
+          "airway": 0.161,
+          "alveoli": 0.233,
+          "pulmonary_vessels": 0.342,
+          "heart": 0.212,
+          "kidney": 0.255,
+          "systemic_inflammation": 0.116
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.211,
+          "alveoli": 0.233,
+          "pulmonary_vessels": 0.342,
+          "heart": 0.212,
+          "kidney": 0.255,
+          "systemic_inflammation": 0.126
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.26,
+          "alveoli": 0.233,
+          "pulmonary_vessels": 0.342,
+          "heart": 0.212,
+          "kidney": 0.255,
+          "systemic_inflammation": 0.135
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.341,
+          "alveoli": 0.233,
+          "pulmonary_vessels": 0.342,
+          "heart": 0.212,
+          "kidney": 0.255,
+          "systemic_inflammation": 0.144
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.422,
+          "alveoli": 0.233,
+          "pulmonary_vessels": 0.342,
+          "heart": 0.212,
+          "kidney": 0.255,
+          "systemic_inflammation": 0.154
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.503,
+          "alveoli": 0.233,
+          "pulmonary_vessels": 0.342,
+          "heart": 0.212,
+          "kidney": 0.255,
+          "systemic_inflammation": 0.163
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 5,
+      "organ": "airway",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-08",
+        "expect": "target organ airway no longer tracks source kidney after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-08",
+        "expect": "direction of airway flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-08",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-08",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives airway?",
+      "expected": "PM-08"
+    }
+  },
+  "fingerprint": "35af47be0911e582"
+}

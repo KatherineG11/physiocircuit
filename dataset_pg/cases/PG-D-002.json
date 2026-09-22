@@ -1,0 +1,184 @@
+{
+  "case_id": "PG-D-002",
+  "split": "dev",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 41,
+    "sex": "F",
+    "frailty": "fit",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "atrial fibrillation",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "bilious vomiting, nocturnal abdominal cramping, unintentional weight loss",
+    "duration_days": 6,
+    "vital_signs": {
+      "hr": 81,
+      "map": 69,
+      "temp": 36.3,
+      "spo2": 93
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lactate": 1.62,
+        "albumin": 0.84,
+        "creatinine": 3.19,
+        "CRP": 0.77
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "lactate": 0.83,
+        "WBC": 1.62,
+        "ALT": 0.75,
+        "CRP": 0.76
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lipase": 2.95,
+        "lactate": 0.42,
+        "CRP": 1.02,
+        "WBC": 2.75
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-06",
+      "name": "Post-cholecystectomy bile insufficiency",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.75,
+      "evidence": [
+        "steatorrhoea",
+        "history of cholecystectomy"
+      ],
+      "confounder": "dietary fat content"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "improve",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.143,
+          "intestine": 0.152,
+          "gallbladder": 0.343
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.143,
+          "intestine": 0.144,
+          "gallbladder": 0.343
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.143,
+          "intestine": 0.137,
+          "gallbladder": 0.343
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.143,
+          "intestine": 0.129,
+          "gallbladder": 0.343
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.143,
+          "intestine": 0.122,
+          "gallbladder": 0.343
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "intestine",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-06",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-06",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-06",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-06",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-06"
+    }
+  },
+  "fingerprint": "31496da00c1cd8a0"
+}

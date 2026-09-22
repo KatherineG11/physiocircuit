@@ -1,0 +1,251 @@
+{
+  "case_id": "PG-P-067",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 6,
+  "patient": {
+    "age": 39,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "ICU",
+    "comorbidities": [
+      "type 2 diabetes",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "fever with rigors, tachypnoea at rest, reduced exercise tolerance",
+    "duration_days": 19,
+    "vital_signs": {
+      "hr": 63,
+      "map": 49,
+      "temp": 39.4,
+      "spo2": 99
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "procalcitonin": 1.81,
+        "urea": 0.66,
+        "creatinine": 3.14,
+        "lactate": 0.97
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "urea": 1.11,
+        "CRP": 2.7,
+        "procalcitonin": 3.05,
+        "lactate": 1.31
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "CRP": 2.28,
+        "WBC": 1.84,
+        "PaO2/FiO2": 0.68,
+        "urea": 1.99
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-10",
+      "name": "Systemic inflammatory drive",
+      "source": "systemic_inflammation",
+      "target": "heart",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.67,
+      "evidence": [
+        "falling ejection fraction",
+        "persistent fever"
+      ],
+      "confounder": "vasopressor dose"
+    },
+    {
+      "id": "PM-14",
+      "name": "Metabolic compensation",
+      "source": "kidney",
+      "target": "systemic_inflammation",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.61,
+      "evidence": [
+        "normalising bicarbonate",
+        "stable base excess"
+      ],
+      "confounder": "renal replacement timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "worsen",
+          "kidney": "stable",
+          "systemic_inflammation": "improve"
+        },
+        "severity": {
+          "airway": 0.336,
+          "alveoli": 0.19,
+          "pulmonary_vessels": 0.148,
+          "heart": 0.201,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.072
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "worsen",
+          "kidney": "stable",
+          "systemic_inflammation": "improve"
+        },
+        "severity": {
+          "airway": 0.336,
+          "alveoli": 0.19,
+          "pulmonary_vessels": 0.148,
+          "heart": 0.242,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.038
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "worsen",
+          "kidney": "stable",
+          "systemic_inflammation": "improve"
+        },
+        "severity": {
+          "airway": 0.336,
+          "alveoli": 0.19,
+          "pulmonary_vessels": 0.148,
+          "heart": 0.316,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.004
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "worsen",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.336,
+          "alveoli": 0.19,
+          "pulmonary_vessels": 0.148,
+          "heart": 0.39,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.0
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "worsen",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.336,
+          "alveoli": 0.19,
+          "pulmonary_vessels": 0.148,
+          "heart": 0.464,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.0
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "worsen",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.336,
+          "alveoli": 0.19,
+          "pulmonary_vessels": 0.148,
+          "heart": 0.538,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.0
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "heart",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-10",
+        "expect": "target organ heart no longer tracks source systemic_inflammation after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-10",
+        "expect": "direction of heart flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-10",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-10",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives heart?",
+      "expected": "PM-10"
+    }
+  },
+  "fingerprint": "16892d14f35aa916"
+}

@@ -1,0 +1,199 @@
+{
+  "case_id": "PG-D-075",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 5,
+  "patient": {
+    "age": 76,
+    "sex": "F",
+    "frailty": "severe",
+    "setting": "ICU",
+    "comorbidities": [
+      "ischaemic heart disease",
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "bilious vomiting, unintentional weight loss",
+    "duration_days": 21,
+    "vital_signs": {
+      "hr": 103,
+      "map": 59,
+      "temp": 38.7,
+      "spo2": 91
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lipase": 2.16,
+        "total bilirubin": 2.49,
+        "creatinine": 1.12,
+        "albumin": 2.97
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "ALP": 1.02,
+        "lipase": 0.63,
+        "creatinine": 2.4,
+        "WBC": 1.19
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lactate": 1.96,
+        "albumin": 1.22,
+        "total bilirubin": 3.14,
+        "ALP": 1.36
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-09",
+      "name": "Biliary obstruction cascade",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.79,
+      "evidence": [
+        "dilated bile duct",
+        "rising conjugated bilirubin"
+      ],
+      "confounder": "stent patency"
+    },
+    {
+      "id": "MC-03",
+      "name": "Reduced CCK drive",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.86,
+      "evidence": [
+        "low post-prandial CCK",
+        "gallbladder ejection fraction < 35%"
+      ],
+      "confounder": "prokinetic agents"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.249,
+          "intestine": 0.385,
+          "gallbladder": 0.164
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.249,
+          "intestine": 0.47,
+          "gallbladder": 0.117
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.249,
+          "intestine": 0.555,
+          "gallbladder": 0.112
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.249,
+          "intestine": 0.64,
+          "gallbladder": 0.107
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.249,
+          "intestine": 0.724,
+          "gallbladder": 0.103
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 2,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-09",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-09",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-09",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-09",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-09"
+    }
+  },
+  "fingerprint": "04c01d5d1fb8c6a3"
+}

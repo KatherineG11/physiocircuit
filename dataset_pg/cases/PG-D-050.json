@@ -1,0 +1,226 @@
+{
+  "case_id": "PG-D-050",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 8,
+  "patient": {
+    "age": 41,
+    "sex": "F",
+    "frailty": "mild",
+    "setting": "surgical ward",
+    "comorbidities": [
+      "atrial fibrillation",
+      "hypothyroidism"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "early satiety, post-prandial epigastric fullness, nausea after fatty meals",
+    "duration_days": 12,
+    "vital_signs": {
+      "hr": 80,
+      "map": 92,
+      "temp": 36.2,
+      "spo2": 98
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -9",
+      "labs": {
+        "total bilirubin": 1.82,
+        "ALP": 3.01,
+        "lipase": 1.48,
+        "CRP": 0.53
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -8",
+      "labs": {
+        "CRP": 2.01,
+        "ALP": 2.9,
+        "lipase": 2.38,
+        "ALT": 1.84
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -7",
+      "labs": {
+        "WBC": 1.69,
+        "lipase": 0.74,
+        "ALT": 2.5,
+        "CRP": 2.67
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-03",
+      "name": "Reduced CCK drive",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.83,
+      "evidence": [
+        "low post-prandial CCK",
+        "gallbladder ejection fraction < 35%"
+      ],
+      "confounder": "prokinetic agents"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.076
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.041
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.048
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.054
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.061
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.067
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.074
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 8,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.282,
+          "intestine": 0.215,
+          "gallbladder": 0.08
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "gallbladder",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-03",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-03",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-03",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-03",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-03"
+    }
+  },
+  "fingerprint": "ae50fcd1cf9d9966"
+}

@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-024",
+ "stratum": "nonmono",
+ "family": "renal retention with uraemic airway injury",
+ "mechanism": {
+  "id": "PM-14",
+  "name": "Metabolic compensation",
+  "source": "kidney",
+  "target": "systemic_inflammation",
+  "sign": "-",
+  "lag": 3
+ },
+ "intervention": {
+  "type": "mask",
+  "edge": "PM-14",
+  "expect": "macro trajectory is unchanged by the removed local evidence"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-024-observed",
+  "arm": "observed",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.156,
+     "alveoli": 0.286,
+     "pulmonary_vessels": 0.223,
+     "heart": 0.219,
+     "kidney": 0.175,
+     "systemic_inflammation": 0.243
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.158,
+     "alveoli": 0.292,
+     "pulmonary_vessels": 0.237,
+     "heart": 0.232,
+     "kidney": 0.161,
+     "systemic_inflammation": 0.244
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.163,
+     "alveoli": 0.311,
+     "pulmonary_vessels": 0.265,
+     "heart": 0.252,
+     "kidney": 0.158,
+     "systemic_inflammation": 0.243
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.175,
+     "alveoli": 0.33,
+     "pulmonary_vessels": 0.275,
+     "heart": 0.281,
+     "kidney": 0.151,
+     "systemic_inflammation": 0.235
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.186,
+     "alveoli": 0.348,
+     "pulmonary_vessels": 0.284,
+     "heart": 0.295,
+     "kidney": 0.145,
+     "systemic_inflammation": 0.236
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.188,
+     "alveoli": 0.354,
+     "pulmonary_vessels": 0.313,
+     "heart": 0.303,
+     "kidney": 0.149,
+     "systemic_inflammation": 0.236
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.198,
+     "alveoli": 0.38,
+     "pulmonary_vessels": 0.324,
+     "heart": 0.332,
+     "kidney": 0.139,
+     "systemic_inflammation": 0.238
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-14",
+    "name": "Metabolic compensation",
+    "source": "kidney",
+    "target": "systemic_inflammation",
+    "sign": "-",
+    "lag": 3
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-024-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.156,
+     "alveoli": 0.286,
+     "pulmonary_vessels": 0.223,
+     "heart": 0.219,
+     "kidney": 0.175,
+     "systemic_inflammation": 0.243
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.158,
+     "alveoli": 0.292,
+     "pulmonary_vessels": 0.237,
+     "heart": 0.232,
+     "kidney": 0.161,
+     "systemic_inflammation": 0.244
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.163,
+     "alveoli": 0.311,
+     "pulmonary_vessels": 0.265,
+     "heart": 0.252,
+     "kidney": 0.158,
+     "systemic_inflammation": 0.243
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.175,
+     "alveoli": 0.33,
+     "pulmonary_vessels": 0.275,
+     "heart": 0.281,
+     "kidney": 0.151,
+     "systemic_inflammation": 0.21
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.186,
+     "alveoli": 0.348,
+     "pulmonary_vessels": 0.284,
+     "heart": 0.295,
+     "kidney": 0.145,
+     "systemic_inflammation": 0.211
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.188,
+     "alveoli": 0.354,
+     "pulmonary_vessels": 0.313,
+     "heart": 0.303,
+     "kidney": 0.149,
+     "systemic_inflammation": 0.211
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.198,
+     "alveoli": 0.38,
+     "pulmonary_vessels": 0.324,
+     "heart": 0.332,
+     "kidney": 0.139,
+     "systemic_inflammation": 0.213
+    }
+   }
+  ],
+  "intervention": {
+   "type": "mask",
+   "edge": "PM-14",
+   "expect": "macro trajectory is unchanged by the removed local evidence"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

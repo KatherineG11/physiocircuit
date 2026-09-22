@@ -1,0 +1,200 @@
+{
+  "case_id": "PG-D-016",
+  "split": "dev",
+  "field": "digestive",
+  "stratum": "turning",
+  "horizon": 5,
+  "patient": {
+    "age": 45,
+    "sex": "M",
+    "frailty": "mild",
+    "setting": "general medicine ward",
+    "comorbidities": [
+      "ischaemic heart disease"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "bilious vomiting, early satiety",
+    "duration_days": 6,
+    "vital_signs": {
+      "hr": 85,
+      "map": 81,
+      "temp": 36.7,
+      "spo2": 90
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "ALP": 1.34,
+        "ALT": 0.64,
+        "lipase": 2.93,
+        "total bilirubin": 2.47
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "albumin": 2.08,
+        "WBC": 2.08,
+        "ALP": 1.48,
+        "CRP": 2.08
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "WBC": 1.54,
+        "ALP": 1.42,
+        "total bilirubin": 0.88,
+        "albumin": 0.67
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-11",
+      "name": "Acid suppression benefit",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.65,
+      "evidence": [
+        "falling duodenal eosinophilia",
+        "improved absorption"
+      ],
+      "confounder": "PPI adherence"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 2,
+      "strength": 0.54,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.278,
+          "intestine": 0.166,
+          "gallbladder": 0.097
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "improve",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.284,
+          "intestine": 0.092,
+          "gallbladder": 0.108
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "improve",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.291,
+          "intestine": 0.0,
+          "gallbladder": 0.119
+        },
+        "phase": "residual_state"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.27,
+          "intestine": 0.0,
+          "gallbladder": 0.129
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.249,
+          "intestine": 0.0,
+          "gallbladder": 0.14
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      2
+    ],
+    "design_card": {
+      "step": 3,
+      "organ": "intestine",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-11",
+        "expect": "target organ intestine no longer tracks source stomach after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-11",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-11",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-11"
+    }
+  },
+  "fingerprint": "5a92ea828d27a53e"
+}

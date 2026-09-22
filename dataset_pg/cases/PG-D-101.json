@@ -1,0 +1,200 @@
+{
+  "case_id": "PG-D-101",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "turning",
+  "horizon": 5,
+  "patient": {
+    "age": 61,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "ICU",
+    "comorbidities": [
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "watery diarrhoea, nausea after fatty meals, early satiety",
+    "duration_days": 18,
+    "vital_signs": {
+      "hr": 108,
+      "map": 98,
+      "temp": 36.9,
+      "spo2": 94
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 2.9,
+        "lactate": 2.52,
+        "total bilirubin": 3.07,
+        "lipase": 0.61
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "total bilirubin": 2.67,
+        "lipase": 0.59,
+        "ALT": 2.27,
+        "CRP": 1.81
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lactate": 1.64,
+        "ALT": 2.52,
+        "total bilirubin": 2.68,
+        "ALP": 0.69
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.62,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 3,
+      "strength": 0.51,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.336,
+          "intestine": 0.177,
+          "gallbladder": 0.245
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.385,
+          "intestine": 0.18,
+          "gallbladder": 0.24
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.272,
+          "intestine": 0.174,
+          "gallbladder": 0.248
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.158,
+          "intestine": 0.168,
+          "gallbladder": 0.256
+        },
+        "phase": "residual_state"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.019,
+          "intestine": 0.162,
+          "gallbladder": 0.265
+        },
+        "phase": "residual_state"
+      }
+    ],
+    "turning_points": [
+      3
+    ],
+    "design_card": {
+      "step": 5,
+      "organ": "stomach",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-08",
+        "expect": "target organ stomach no longer tracks source stomach after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-08",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-08",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-08",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-08"
+    }
+  },
+  "fingerprint": "39edc051013b3cb9"
+}

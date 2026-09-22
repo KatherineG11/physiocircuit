@@ -1,0 +1,252 @@
+{
+  "case_id": "PG-P-087",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 6,
+  "patient": {
+    "age": 82,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "high-dependency unit",
+    "comorbidities": [
+      "chronic obstructive pulmonary disease",
+      "atrial fibrillation",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "productive cough, increasing oxygen requirement, confusion in the evening",
+    "duration_days": 9,
+    "vital_signs": {
+      "hr": 63,
+      "map": 85,
+      "temp": 39.6,
+      "spo2": 91
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "urea": 0.99,
+        "CRP": 2.01,
+        "WBC": 2.93,
+        "procalcitonin": 2.25
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "PaO2/FiO2": 1.42,
+        "CRP": 2.13,
+        "WBC": 2.72,
+        "lactate": 1.57
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "PaO2/FiO2": 1.43,
+        "lactate": 0.44,
+        "urea": 1.98,
+        "CRP": 0.75
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-14",
+      "name": "Metabolic compensation",
+      "source": "kidney",
+      "target": "systemic_inflammation",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.95,
+      "evidence": [
+        "normalising bicarbonate",
+        "stable base excess"
+      ],
+      "confounder": "renal replacement timing"
+    },
+    {
+      "id": "PM-02",
+      "name": "Alveolar flooding",
+      "source": "alveoli",
+      "target": "pulmonary_vessels",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.8,
+      "evidence": [
+        "bilateral infiltrates",
+        "falling PaO2/FiO2"
+      ],
+      "confounder": "diuretic dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "improve",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.216,
+          "pulmonary_vessels": 0.296,
+          "heart": 0.335,
+          "kidney": 0.191,
+          "systemic_inflammation": 0.17
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.216,
+          "pulmonary_vessels": 0.301,
+          "heart": 0.335,
+          "kidney": 0.191,
+          "systemic_inflammation": 0.205
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.216,
+          "pulmonary_vessels": 0.305,
+          "heart": 0.335,
+          "kidney": 0.191,
+          "systemic_inflammation": 0.24
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.216,
+          "pulmonary_vessels": 0.31,
+          "heart": 0.335,
+          "kidney": 0.191,
+          "systemic_inflammation": 0.228
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.216,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.335,
+          "kidney": 0.191,
+          "systemic_inflammation": 0.216
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.216,
+          "pulmonary_vessels": 0.319,
+          "heart": 0.335,
+          "kidney": 0.191,
+          "systemic_inflammation": 0.203
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "pulmonary_vessels",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-14",
+        "expect": "target organ systemic_inflammation no longer tracks source kidney after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-14",
+        "expect": "direction of systemic_inflammation flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-14",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-14",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives pulmonary_vessels?",
+      "expected": "PM-14"
+    }
+  },
+  "fingerprint": "7c4a01e2ac963ace"
+}

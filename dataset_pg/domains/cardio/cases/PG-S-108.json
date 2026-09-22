@@ -1,0 +1,259 @@
+{
+  "case_id": "PG-S-108",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "turning",
+  "horizon": 7,
+  "patient": {
+    "age": 78,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "general medicine ward",
+    "comorbidities": [
+      "chronic obstructive pulmonary disease",
+      "immunosuppressive therapy",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "cool extremities, reduced capillary refill, tachycardia at rest",
+    "duration_days": 8,
+    "vital_signs": {
+      "hr": 90,
+      "map": 71,
+      "temp": 39.2,
+      "spo2": 88
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "platelets": 0.87,
+        "lactate": 2.49,
+        "creatinine": 1.48,
+        "troponin": 0.74
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "creatinine": 2.56,
+        "CRP": 2.79,
+        "bilirubin": 1.7,
+        "lactate": 2.39
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 0.69,
+        "platelets": 2.39,
+        "troponin": 2.27,
+        "bilirubin": 2.13
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-08",
+      "name": "Pulmonary endothelial injury",
+      "source": "vasculature",
+      "target": "lung",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.67,
+      "evidence": [
+        "falling PaO2/FiO2",
+        "increasing shunt fraction"
+      ],
+      "confounder": "ventilator settings"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.228,
+          "vasculature": 0.258,
+          "kidney": 0.188,
+          "liver": 0.317,
+          "coagulation": 0.215,
+          "lung": 0.254
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.227,
+          "vasculature": 0.251,
+          "kidney": 0.195,
+          "liver": 0.324,
+          "coagulation": 0.213,
+          "lung": 0.329
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.225,
+          "vasculature": 0.245,
+          "kidney": 0.202,
+          "liver": 0.331,
+          "coagulation": 0.211,
+          "lung": 0.405
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.224,
+          "vasculature": 0.239,
+          "kidney": 0.209,
+          "liver": 0.338,
+          "coagulation": 0.209,
+          "lung": 0.481
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "improve"
+        },
+        "severity": {
+          "heart": 0.227,
+          "vasculature": 0.25,
+          "kidney": 0.197,
+          "liver": 0.323,
+          "coagulation": 0.213,
+          "lung": 0.434
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "improve"
+        },
+        "severity": {
+          "heart": 0.229,
+          "vasculature": 0.26,
+          "kidney": 0.185,
+          "liver": 0.309,
+          "coagulation": 0.217,
+          "lung": 0.387
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "improve"
+        },
+        "severity": {
+          "heart": 0.232,
+          "vasculature": 0.271,
+          "kidney": 0.173,
+          "liver": 0.294,
+          "coagulation": 0.222,
+          "lung": 0.341
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [
+      5
+    ],
+    "design_card": {
+      "step": 3,
+      "organ": "lung",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-08",
+        "expect": "target organ lung no longer tracks source vasculature after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-08",
+        "expect": "direction of lung flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-08",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-08",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives lung?",
+      "expected": "CM-08"
+    }
+  },
+  "fingerprint": "7866a81dafc50914"
+}

@@ -1,0 +1,184 @@
+{
+  "case_id": "PG-D-040",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 68,
+    "sex": "F",
+    "frailty": "mild",
+    "setting": "ICU",
+    "comorbidities": [
+      "atrial fibrillation",
+      "ischaemic heart disease"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "bilious vomiting, nocturnal abdominal cramping, early satiety",
+    "duration_days": 21,
+    "vital_signs": {
+      "hr": 104,
+      "map": 86,
+      "temp": 38.1,
+      "spo2": 90
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "albumin": 3.13,
+        "total bilirubin": 1.02,
+        "creatinine": 2.05,
+        "lactate": 1.57
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "CRP": 2.85,
+        "albumin": 1.62,
+        "WBC": 2.04,
+        "lactate": 2.19
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "WBC": 1.38,
+        "ALP": 1.43,
+        "lactate": 0.46,
+        "total bilirubin": 2.71
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-11",
+      "name": "Acid suppression benefit",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.52,
+      "evidence": [
+        "falling duodenal eosinophilia",
+        "improved absorption"
+      ],
+      "confounder": "PPI adherence"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.261,
+          "intestine": 0.147,
+          "gallbladder": 0.33
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.261,
+          "intestine": 0.192,
+          "gallbladder": 0.33
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.261,
+          "intestine": 0.211,
+          "gallbladder": 0.33
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.261,
+          "intestine": 0.23,
+          "gallbladder": 0.33
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.261,
+          "intestine": 0.249,
+          "gallbladder": 0.33
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-11",
+        "expect": "target organ intestine no longer tracks source stomach after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-11",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-11",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-11"
+    }
+  },
+  "fingerprint": "64567c6d1d66b671"
+}

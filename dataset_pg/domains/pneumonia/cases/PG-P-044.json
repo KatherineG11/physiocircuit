@@ -1,0 +1,255 @@
+{
+  "case_id": "PG-P-044",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "simple",
+  "horizon": 7,
+  "patient": {
+    "age": 60,
+    "sex": "F",
+    "frailty": "moderate",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "purulent sputum, productive cough",
+    "duration_days": 7,
+    "vital_signs": {
+      "hr": 137,
+      "map": 64,
+      "temp": 37.4,
+      "spo2": 90
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "urea": 3.05,
+        "CRP": 1.42,
+        "WBC": 3.2,
+        "PaO2/FiO2": 3.01
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "CRP": 3.15,
+        "creatinine": 1.42,
+        "WBC": 0.96,
+        "PaO2/FiO2": 0.64
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "WBC": 2.41,
+        "procalcitonin": 2.35,
+        "CRP": 2.27,
+        "lactate": 1.85
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-06",
+      "name": "Reduced cardiac output",
+      "source": "heart",
+      "target": "kidney",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.65,
+      "evidence": [
+        "falling urine output",
+        "rising lactate"
+      ],
+      "confounder": "fluid balance"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.37,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.448,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.525,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.603,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.68,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.758,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.345,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.129,
+          "heart": 0.117,
+          "kidney": 0.835,
+          "systemic_inflammation": 0.332
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "kidney",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-06",
+        "expect": "target organ kidney no longer tracks source heart after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-06",
+        "expect": "direction of kidney flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-06",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-06",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives kidney?",
+      "expected": "PM-06"
+    }
+  },
+  "fingerprint": "b152d8a40e7561a6"
+}

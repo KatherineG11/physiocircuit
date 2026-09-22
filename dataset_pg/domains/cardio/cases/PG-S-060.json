@@ -1,0 +1,232 @@
+{
+  "case_id": "PG-S-060",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "conflict",
+  "horizon": 5,
+  "patient": {
+    "age": 53,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "coronary care unit",
+    "comorbidities": [
+      "chronic obstructive pulmonary disease",
+      "chronic kidney disease stage 3",
+      "immunosuppressive therapy"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "rising vasopressor requirement, mottled peripheries, cool extremities",
+    "duration_days": 3,
+    "vital_signs": {
+      "hr": 122,
+      "map": 80,
+      "temp": 36.9,
+      "spo2": 95
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "platelets": 2.12,
+        "lactate": 1.7,
+        "INR": 1.62,
+        "creatinine": 1.31
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "lactate": 2.37,
+        "platelets": 0.96,
+        "INR": 1.84,
+        "troponin": 3.02
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "creatinine": 3.08,
+        "platelets": 0.69,
+        "troponin": 1.35,
+        "bilirubin": 2.04
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-05",
+      "name": "Hepatic acute phase response",
+      "source": "liver",
+      "target": "coagulation",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.77,
+      "evidence": [
+        "rising fibrinogen",
+        "falling antithrombin"
+      ],
+      "confounder": "anticoagulation"
+    },
+    {
+      "id": "CM-10",
+      "name": "Metabolic acidosis load",
+      "source": "liver",
+      "target": "heart",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.81,
+      "evidence": [
+        "rising lactate",
+        "falling bicarbonate"
+      ],
+      "confounder": "renal replacement timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "improve",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "worsen",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.215,
+          "vasculature": 0.243,
+          "kidney": 0.286,
+          "liver": 0.153,
+          "coagulation": 0.257,
+          "lung": 0.101
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "improve",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "worsen",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.178,
+          "vasculature": 0.243,
+          "kidney": 0.286,
+          "liver": 0.153,
+          "coagulation": 0.333,
+          "lung": 0.101
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "worsen",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.182,
+          "vasculature": 0.243,
+          "kidney": 0.286,
+          "liver": 0.153,
+          "coagulation": 0.41,
+          "lung": 0.101
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "worsen",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.186,
+          "vasculature": 0.243,
+          "kidney": 0.286,
+          "liver": 0.153,
+          "coagulation": 0.486,
+          "lung": 0.101
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "worsen",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.19,
+          "vasculature": 0.243,
+          "kidney": 0.286,
+          "liver": 0.153,
+          "coagulation": 0.562,
+          "lung": 0.101
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "coagulation",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-05",
+        "expect": "target organ coagulation no longer tracks source liver after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-05",
+        "expect": "direction of coagulation flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-05",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-05",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives coagulation?",
+      "expected": "CM-05"
+    }
+  },
+  "fingerprint": "a85fec2b32655874"
+}

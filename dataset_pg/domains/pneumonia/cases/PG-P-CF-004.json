@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-004",
+ "stratum": "simple",
+ "family": "airway clearance failure",
+ "mechanism": {
+  "id": "PM-01",
+  "name": "Mucus plugging and airway closure",
+  "source": "airway",
+  "target": "alveoli",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "lag",
+  "edge": "PM-01",
+  "expect": "macro response shifts later inside the extended window"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-004-observed",
+  "arm": "observed",
+  "stratum": "simple",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.139,
+     "alveoli": 0.223,
+     "pulmonary_vessels": 0.126,
+     "heart": 0.285,
+     "kidney": 0.222,
+     "systemic_inflammation": 0.125
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.161,
+     "alveoli": 0.235,
+     "pulmonary_vessels": 0.149,
+     "heart": 0.3,
+     "kidney": 0.231,
+     "systemic_inflammation": 0.137
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.168,
+     "alveoli": 0.24,
+     "pulmonary_vessels": 0.165,
+     "heart": 0.317,
+     "kidney": 0.251,
+     "systemic_inflammation": 0.144
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.181,
+     "alveoli": 0.256,
+     "pulmonary_vessels": 0.176,
+     "heart": 0.333,
+     "kidney": 0.252,
+     "systemic_inflammation": 0.165
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.198,
+     "alveoli": 0.271,
+     "pulmonary_vessels": 0.208,
+     "heart": 0.356,
+     "kidney": 0.262,
+     "systemic_inflammation": 0.184
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.219,
+     "alveoli": 0.266,
+     "pulmonary_vessels": 0.225,
+     "heart": 0.367,
+     "kidney": 0.27,
+     "systemic_inflammation": 0.187
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.243,
+     "alveoli": 0.279,
+     "pulmonary_vessels": 0.247,
+     "heart": 0.392,
+     "kidney": 0.277,
+     "systemic_inflammation": 0.205
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-01",
+    "name": "Mucus plugging and airway closure",
+    "source": "airway",
+    "target": "alveoli",
+    "sign": "+",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-004-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "simple",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.139,
+     "alveoli": 0.223,
+     "pulmonary_vessels": 0.126,
+     "heart": 0.285,
+     "kidney": 0.222,
+     "systemic_inflammation": 0.125
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.161,
+     "alveoli": 0.205,
+     "pulmonary_vessels": 0.149,
+     "heart": 0.3,
+     "kidney": 0.231,
+     "systemic_inflammation": 0.137
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.168,
+     "alveoli": 0.21,
+     "pulmonary_vessels": 0.165,
+     "heart": 0.317,
+     "kidney": 0.251,
+     "systemic_inflammation": 0.144
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.181,
+     "alveoli": 0.226,
+     "pulmonary_vessels": 0.176,
+     "heart": 0.333,
+     "kidney": 0.252,
+     "systemic_inflammation": 0.165
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.198,
+     "alveoli": 0.241,
+     "pulmonary_vessels": 0.208,
+     "heart": 0.356,
+     "kidney": 0.262,
+     "systemic_inflammation": 0.184
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.219,
+     "alveoli": 0.236,
+     "pulmonary_vessels": 0.225,
+     "heart": 0.367,
+     "kidney": 0.27,
+     "systemic_inflammation": 0.187
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.243,
+     "alveoli": 0.249,
+     "pulmonary_vessels": 0.247,
+     "heart": 0.392,
+     "kidney": 0.277,
+     "systemic_inflammation": 0.205
+    }
+   }
+  ],
+  "intervention": {
+   "type": "lag",
+   "edge": "PM-01",
+   "expect": "macro response shifts later inside the extended window"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

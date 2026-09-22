@@ -1,0 +1,213 @@
+{
+  "case_id": "PG-D-026",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 7,
+  "patient": {
+    "age": 65,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "surgical ward",
+    "comorbidities": [
+      "hypothyroidism",
+      "prior stroke",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "post-prandial epigastric fullness, unintentional weight loss",
+    "duration_days": 2,
+    "vital_signs": {
+      "hr": 109,
+      "map": 89,
+      "temp": 38.6,
+      "spo2": 99
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "total bilirubin": 1.11,
+        "CRP": 1.71,
+        "albumin": 0.64,
+        "WBC": 1.48
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "CRP": 1.06,
+        "ALP": 2.42,
+        "albumin": 1.01,
+        "WBC": 0.56
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "ALT": 1.87,
+        "total bilirubin": 3.08,
+        "ALP": 0.57,
+        "creatinine": 2.94
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-07",
+      "name": "Enterohepatic feedback",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.6,
+      "evidence": [
+        "normalising bile acid pool",
+        "falling ALP"
+      ],
+      "confounder": "ileal resection length"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.306
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.341
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.376
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.381
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.386
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.391
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.149,
+          "gallbladder": 0.396
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "gallbladder",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-07",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-07",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-07",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-07",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-07"
+    }
+  },
+  "fingerprint": "014128391167ca96"
+}

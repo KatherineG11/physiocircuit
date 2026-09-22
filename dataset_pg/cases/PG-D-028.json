@@ -1,0 +1,184 @@
+{
+  "case_id": "PG-D-028",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 48,
+    "sex": "F",
+    "frailty": "moderate",
+    "setting": "ICU",
+    "comorbidities": [
+      "atrial fibrillation",
+      "hypothyroidism"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "nocturnal abdominal cramping, unintentional weight loss, right upper quadrant discomfort",
+    "duration_days": 17,
+    "vital_signs": {
+      "hr": 93,
+      "map": 104,
+      "temp": 38.8,
+      "spo2": 92
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "total bilirubin": 2.72,
+        "albumin": 1.38,
+        "lipase": 1.76,
+        "ALP": 1.97
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "ALT": 1.04,
+        "albumin": 0.84,
+        "lactate": 0.61,
+        "total bilirubin": 2.09
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lactate": 1.46,
+        "CRP": 1.73,
+        "albumin": 0.94,
+        "WBC": 2.36
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-12",
+      "name": "Gallbladder stasis injury",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.86,
+      "evidence": [
+        "gallbladder sludge",
+        "fasting > 72 h"
+      ],
+      "confounder": "parenteral nutrition"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.334,
+          "intestine": 0.185,
+          "gallbladder": 0.185
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.334,
+          "intestine": 0.185,
+          "gallbladder": 0.263
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.334,
+          "intestine": 0.185,
+          "gallbladder": 0.341
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.334,
+          "intestine": 0.185,
+          "gallbladder": 0.419
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.334,
+          "intestine": 0.185,
+          "gallbladder": 0.497
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 2,
+      "organ": "gallbladder",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-12",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-12",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-12",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-12",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-12"
+    }
+  },
+  "fingerprint": "d23fac86b7b4e4c0"
+}

@@ -1,0 +1,36 @@
+{
+  "domain": "pneumonia",
+  "nodes": ["airway", "alveoli", "pulmonary_vessels", "heart", "kidney", "systemic_inflammation"],
+  "core_organs": ["airway", "alveoli", "pulmonary_vessels", "heart", "kidney", "systemic_inflammation"],
+  "edges": [
+    {"source": "airway", "target": "alveoli", "mechanism_ids": ["PM-01", "PM-12"]},
+    {"source": "alveoli", "target": "pulmonary_vessels", "mechanism_ids": ["PM-02", "PM-03"]},
+    {"source": "pulmonary_vessels", "target": "heart", "mechanism_ids": ["PM-04"]},
+    {"source": "heart", "target": "pulmonary_vessels", "mechanism_ids": ["PM-05"]},
+    {"source": "heart", "target": "kidney", "mechanism_ids": ["PM-06"]},
+    {"source": "kidney", "target": "pulmonary_vessels", "mechanism_ids": ["PM-07"]},
+    {"source": "kidney", "target": "airway", "mechanism_ids": ["PM-08"]},
+    {"source": "systemic_inflammation", "target": "alveoli", "mechanism_ids": ["PM-09"]},
+    {"source": "systemic_inflammation", "target": "heart", "mechanism_ids": ["PM-10"]},
+    {"source": "alveoli", "target": "systemic_inflammation", "mechanism_ids": ["PM-11"]},
+    {"source": "systemic_inflammation", "target": "kidney", "mechanism_ids": ["PM-13"]},
+    {"source": "kidney", "target": "systemic_inflammation", "mechanism_ids": ["PM-14"]}
+  ],
+  "aggregation_weights": {
+    "airway": 0.14,
+    "alveoli": 0.22,
+    "pulmonary_vessels": 0.17,
+    "heart": 0.16,
+    "kidney": 0.14,
+    "systemic_inflammation": 0.17
+  },
+  "phase_thresholds": {
+    "baseline": 0.58,
+    "load_accumulation": 0.43,
+    "compensation": 0.36,
+    "conflict_emerges": 0.08,
+    "decompensation": 0.58,
+    "recovery": 0.52,
+    "residual_state": 0.48
+  }
+}

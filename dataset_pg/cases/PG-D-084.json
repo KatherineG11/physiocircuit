@@ -1,0 +1,213 @@
+{
+  "case_id": "PG-D-084",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 6,
+  "patient": {
+    "age": 49,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "chronic kidney disease stage 3",
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "post-prandial epigastric fullness, right upper quadrant discomfort, unintentional weight loss",
+    "duration_days": 21,
+    "vital_signs": {
+      "hr": 104,
+      "map": 96,
+      "temp": 36.7,
+      "spo2": 92
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "total bilirubin": 2.86,
+        "creatinine": 2.02,
+        "ALP": 1.92,
+        "lactate": 1.28
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "total bilirubin": 1.62,
+        "CRP": 2.73,
+        "ALP": 3.15,
+        "lactate": 2.65
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "creatinine": 0.9,
+        "total bilirubin": 3.02,
+        "WBC": 3.17,
+        "lactate": 2.95
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-10",
+      "name": "Dysbiosis drive",
+      "source": "intestine",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.88,
+      "evidence": [
+        "breath test positive",
+        "rising gastric residual"
+      ],
+      "confounder": "antibiotic exposure"
+    },
+    {
+      "id": "MC-07",
+      "name": "Enterohepatic feedback",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.62,
+      "evidence": [
+        "normalising bile acid pool",
+        "falling ALP"
+      ],
+      "confounder": "ileal resection length"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.263,
+          "intestine": 0.295,
+          "gallbladder": 0.262
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.302,
+          "intestine": 0.295,
+          "gallbladder": 0.214
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.341,
+          "intestine": 0.295,
+          "gallbladder": 0.166
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.424,
+          "intestine": 0.295,
+          "gallbladder": 0.087
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.506,
+          "intestine": 0.295,
+          "gallbladder": 0.009
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.589,
+          "intestine": 0.295,
+          "gallbladder": 0.0
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 5,
+      "organ": "stomach",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-10",
+        "expect": "target organ stomach no longer tracks source intestine after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-10",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-10",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-10",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-10"
+    }
+  },
+  "fingerprint": "8d51bb501f356515"
+}

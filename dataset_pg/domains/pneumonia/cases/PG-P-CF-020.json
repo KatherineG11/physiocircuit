@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-020",
+ "stratum": "conflict",
+ "family": "renal retention with uraemic airway injury",
+ "mechanism": {
+  "id": "PM-07",
+  "name": "Renal sodium retention",
+  "source": "kidney",
+  "target": "pulmonary_vessels",
+  "sign": "+",
+  "lag": 2
+ },
+ "intervention": {
+  "type": "replace",
+  "edge": "PM-07",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-020-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.212,
+     "alveoli": 0.276,
+     "pulmonary_vessels": 0.189,
+     "heart": 0.148,
+     "kidney": 0.13,
+     "systemic_inflammation": 0.207
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.233,
+     "alveoli": 0.294,
+     "pulmonary_vessels": 0.195,
+     "heart": 0.139,
+     "kidney": 0.148,
+     "systemic_inflammation": 0.224
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.257,
+     "alveoli": 0.324,
+     "pulmonary_vessels": 0.213,
+     "heart": 0.138,
+     "kidney": 0.163,
+     "systemic_inflammation": 0.228
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.281,
+     "alveoli": 0.352,
+     "pulmonary_vessels": 0.225,
+     "heart": 0.132,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.238
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.306,
+     "alveoli": 0.369,
+     "pulmonary_vessels": 0.242,
+     "heart": 0.124,
+     "kidney": 0.202,
+     "systemic_inflammation": 0.257
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.313,
+     "alveoli": 0.398,
+     "pulmonary_vessels": 0.253,
+     "heart": 0.115,
+     "kidney": 0.215,
+     "systemic_inflammation": 0.267
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.344,
+     "alveoli": 0.418,
+     "pulmonary_vessels": 0.259,
+     "heart": 0.114,
+     "kidney": 0.235,
+     "systemic_inflammation": 0.277
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-07",
+    "name": "Renal sodium retention",
+    "source": "kidney",
+    "target": "pulmonary_vessels",
+    "sign": "+",
+    "lag": 2
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-020-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.212,
+     "alveoli": 0.276,
+     "pulmonary_vessels": 0.189,
+     "heart": 0.148,
+     "kidney": 0.13,
+     "systemic_inflammation": 0.207
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.233,
+     "alveoli": 0.294,
+     "pulmonary_vessels": 0.195,
+     "heart": 0.139,
+     "kidney": 0.148,
+     "systemic_inflammation": 0.224
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.257,
+     "alveoli": 0.324,
+     "pulmonary_vessels": 0.173,
+     "heart": 0.138,
+     "kidney": 0.163,
+     "systemic_inflammation": 0.228
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.281,
+     "alveoli": 0.352,
+     "pulmonary_vessels": 0.185,
+     "heart": 0.132,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.238
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.306,
+     "alveoli": 0.369,
+     "pulmonary_vessels": 0.202,
+     "heart": 0.124,
+     "kidney": 0.202,
+     "systemic_inflammation": 0.257
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.313,
+     "alveoli": 0.398,
+     "pulmonary_vessels": 0.213,
+     "heart": 0.115,
+     "kidney": 0.215,
+     "systemic_inflammation": 0.267
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.344,
+     "alveoli": 0.418,
+     "pulmonary_vessels": 0.219,
+     "heart": 0.114,
+     "kidney": 0.235,
+     "systemic_inflammation": 0.277
+    }
+   }
+  ],
+  "intervention": {
+   "type": "replace",
+   "edge": "PM-07",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

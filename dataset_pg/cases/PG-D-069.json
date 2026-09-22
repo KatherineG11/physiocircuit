@@ -1,0 +1,198 @@
+{
+  "case_id": "PG-D-069",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 5,
+  "patient": {
+    "age": 34,
+    "sex": "F",
+    "frailty": "severe",
+    "setting": "general medicine ward",
+    "comorbidities": [
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "nausea after fatty meals, nocturnal abdominal cramping, watery diarrhoea",
+    "duration_days": 21,
+    "vital_signs": {
+      "hr": 82,
+      "map": 103,
+      "temp": 36.8,
+      "spo2": 94
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "total bilirubin": 2.71,
+        "WBC": 1.39,
+        "ALT": 2.1,
+        "albumin": 3.17
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "creatinine": 2.54,
+        "total bilirubin": 0.85,
+        "lactate": 2.94,
+        "albumin": 0.66
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lipase": 2.32,
+        "albumin": 1.9,
+        "ALT": 1.95,
+        "CRP": 3.11
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-11",
+      "name": "Acid suppression benefit",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.66,
+      "evidence": [
+        "falling duodenal eosinophilia",
+        "improved absorption"
+      ],
+      "confounder": "PPI adherence"
+    },
+    {
+      "id": "MC-12",
+      "name": "Gallbladder stasis injury",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.83,
+      "evidence": [
+        "gallbladder sludge",
+        "fasting > 72 h"
+      ],
+      "confounder": "parenteral nutrition"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.319,
+          "intestine": 0.295,
+          "gallbladder": 0.28
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.319,
+          "intestine": 0.329,
+          "gallbladder": 0.274
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.319,
+          "intestine": 0.33,
+          "gallbladder": 0.267
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.319,
+          "intestine": 0.331,
+          "gallbladder": 0.261
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.319,
+          "intestine": 0.333,
+          "gallbladder": 0.254
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "gallbladder",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-11",
+        "expect": "target organ intestine no longer tracks source stomach after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-11",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-11",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-11"
+    }
+  },
+  "fingerprint": "e6a9aaba3ce3c7db"
+}

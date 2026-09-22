@@ -1,0 +1,173 @@
+{
+ "pair_id": "PG-CF-022",
+ "stratum": "turning",
+ "mechanism": {
+  "id": "MC-09",
+  "name": "Biliary obstruction cascade",
+  "source": "gallbladder",
+  "target": "intestine",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "reverse",
+  "edge": "MC-09",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-CF-022-a",
+  "arm": "observed",
+  "stratum": "turning",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.289,
+     "intestine": 0.343,
+     "gallbladder": 0.345
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.284,
+     "intestine": 0.373,
+     "gallbladder": 0.35
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.279,
+     "intestine": 0.436,
+     "gallbladder": 0.354
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.275,
+     "intestine": 0.499,
+     "gallbladder": 0.358
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.282,
+     "intestine": 0.485,
+     "gallbladder": 0.352
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.288,
+     "intestine": 0.472,
+     "gallbladder": 0.345
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.263,
+     "intestine": 0.459,
+     "gallbladder": 0.339
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-09",
+    "onset": 1,
+    "strength": 0.65
+   },
+   {
+    "id": "MC-08",
+    "onset": 4,
+    "strength": 0.64,
+    "note": "therapeutic response at the turning point"
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-CF-022-b",
+  "arm": "counterfactual",
+  "stratum": "turning",
+  "horizon": 6,
+  "intervention": {
+   "type": "reverse",
+   "edge": "MC-09",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.289,
+     "intestine": 0.343,
+     "gallbladder": 0.345
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.284,
+     "intestine": 0.373,
+     "gallbladder": 0.35
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.219,
+     "intestine": 0.376,
+     "gallbladder": 0.294
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.215,
+     "intestine": 0.439,
+     "gallbladder": 0.298
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.222,
+     "intestine": 0.425,
+     "gallbladder": 0.292
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.228,
+     "intestine": 0.412,
+     "gallbladder": 0.285
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.203,
+     "intestine": 0.399,
+     "gallbladder": 0.279
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-08",
+    "onset": 4,
+    "strength": 0.64,
+    "note": "therapeutic response at the turning point"
+   }
+  ]
+ },
+ "gold_agreement": true,
+ "family": "high-fat diet with partial biliary obstruction"
+}

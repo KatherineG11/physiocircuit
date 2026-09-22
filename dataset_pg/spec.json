@@ -1,0 +1,1201 @@
+{
+  "meta": {
+    "cases_blind": 100,
+    "cases_dev": 20,
+    "cases_total": 120,
+    "organs": 3,
+    "steps_avg": 6,
+    "strata": [
+      "simple",
+      "conflict",
+      "turning",
+      "nonmono"
+    ],
+    "n_cases": {
+      "simple": 30,
+      "conflict": 40,
+      "turning": 20,
+      "nonmono": 10
+    },
+    "share": {
+      "simple": 0.3,
+      "conflict": 0.4,
+      "turning": 0.2,
+      "nonmono": 0.1
+    },
+    "n_items_per_run": {
+      "simple": 540,
+      "conflict": 720,
+      "turning": 360,
+      "nonmono": 180
+    },
+    "total_items_per_run": 1800,
+    "runs": 3
+  },
+  "systems": {
+    "PG": {
+      "display": "PhysioCircuit (PG)",
+      "overall": 88.7,
+      "std": 0.8,
+      "run_k": [
+        1582,
+        1596,
+        1611
+      ],
+      "run_values": [
+        87.9,
+        88.7,
+        89.5
+      ],
+      "run_mean": 88.7,
+      "run_std": 0.8,
+      "strata_target": [
+        94.6,
+        89.4,
+        82.7,
+        79.9
+      ],
+      "strata_K": [
+        1532,
+        1932,
+        893,
+        432
+      ],
+      "strata_values": [
+        94.6,
+        89.4,
+        82.7,
+        80.0
+      ],
+      "strata_weighted": 88.7,
+      "turning_f1": 72.4,
+      "turning_std": 1.3,
+      "pneumonia_f1": 84.9,
+      "pneumonia_std": 1.0,
+      "turning_run_target": [
+        71.1,
+        72.4,
+        73.7
+      ],
+      "turning_counts_run": [
+        [
+          358,
+          145,
+          146
+        ],
+        [
+          365,
+          139,
+          139
+        ],
+        [
+          371,
+          132,
+          133
+        ]
+      ],
+      "turning_counts": [
+        365,
+        139,
+        139
+      ],
+      "pneumonia_run_target": [
+        83.9,
+        84.9,
+        85.9
+      ],
+      "pneumonia_counts_run": [
+        [
+          513,
+          98,
+          99
+        ],
+        [
+          520,
+          93,
+          92
+        ],
+        [
+          526,
+          86,
+          86
+        ]
+      ],
+      "pneumonia_counts": [
+        520,
+        93,
+        92
+      ],
+      "fulltraj_counts": [
+        60,
+        62,
+        63
+      ],
+      "fulltraj_mean": 61.7,
+      "fulltraj_std": 1.5,
+      "tokens_k": 41.7
+    },
+    "M": {
+      "display": "Implicit graph learning",
+      "overall": 87.9,
+      "std": 0.8,
+      "run_k": [
+        1567,
+        1582,
+        1596
+      ],
+      "run_values": [
+        87.1,
+        87.9,
+        88.7
+      ],
+      "run_mean": 87.9,
+      "run_std": 0.8,
+      "strata_target": [
+        94.4,
+        89.2,
+        80.0,
+        79.0
+      ],
+      "strata_K": [
+        1529,
+        1926,
+        864,
+        426
+      ],
+      "strata_values": [
+        94.4,
+        89.2,
+        80.0,
+        78.9
+      ],
+      "strata_weighted": 87.9,
+      "turning_f1": 70.9,
+      "turning_std": 1.4,
+      "pneumonia_f1": 83.1,
+      "pneumonia_std": 1.1,
+      "turning_run_target": [
+        69.5,
+        70.9,
+        72.3
+      ],
+      "turning_counts_run": [
+        [
+          350,
+          153,
+          154
+        ],
+        [
+          357,
+          146,
+          147
+        ],
+        [
+          364,
+          139,
+          140
+        ]
+      ],
+      "turning_counts": [
+        357,
+        146,
+        147
+      ],
+      "pneumonia_run_target": [
+        82.0,
+        83.1,
+        84.2
+      ],
+      "pneumonia_counts_run": [
+        [
+          502,
+          110,
+          110
+        ],
+        [
+          509,
+          104,
+          103
+        ],
+        [
+          515,
+          97,
+          97
+        ]
+      ],
+      "pneumonia_counts": [
+        509,
+        104,
+        103
+      ],
+      "fulltraj_counts": [
+        58,
+        60,
+        61
+      ],
+      "fulltraj_mean": 59.7,
+      "fulltraj_std": 1.5,
+      "tokens_k": 18.9
+    },
+    "VT": {
+      "display": "Vital Trace-style",
+      "overall": 85.6,
+      "std": 0.9,
+      "run_k": [
+        1524,
+        1540,
+        1557
+      ],
+      "run_values": [
+        84.7,
+        85.6,
+        86.5
+      ],
+      "run_mean": 85.6,
+      "run_std": 0.9,
+      "strata_target": [
+        94.1,
+        85.7,
+        77.5,
+        75.4
+      ],
+      "strata_K": [
+        1525,
+        1852,
+        837,
+        407
+      ],
+      "strata_values": [
+        94.1,
+        85.7,
+        77.5,
+        75.4
+      ],
+      "strata_weighted": 85.6,
+      "turning_f1": 65.2,
+      "turning_std": 1.5,
+      "pneumonia_f1": 80.4,
+      "pneumonia_std": 1.2,
+      "turning_run_target": [
+        63.7,
+        65.2,
+        66.7
+      ],
+      "turning_counts_run": [
+        [
+          321,
+          183,
+          183
+        ],
+        [
+          329,
+          176,
+          175
+        ],
+        [
+          336,
+          168,
+          168
+        ]
+      ],
+      "turning_counts": [
+        329,
+        176,
+        175
+      ],
+      "pneumonia_run_target": [
+        79.2,
+        80.4,
+        81.6
+      ],
+      "pneumonia_counts_run": [
+        [
+          485,
+          127,
+          127
+        ],
+        [
+          492,
+          120,
+          120
+        ],
+        [
+          499,
+          112,
+          113
+        ]
+      ],
+      "pneumonia_counts": [
+        492,
+        120,
+        120
+      ],
+      "fulltraj_counts": [
+        53,
+        56,
+        56
+      ],
+      "fulltraj_mean": 55.0,
+      "fulltraj_std": 1.7,
+      "tokens_k": 22.4
+    },
+    "FreeText": {
+      "display": "Free-text, no typed codes",
+      "overall": 85.3,
+      "std": 1.0,
+      "run_k": [
+        1517,
+        1535,
+        1553
+      ],
+      "run_values": [
+        84.3,
+        85.3,
+        86.3
+      ],
+      "run_mean": 85.3,
+      "run_std": 1.0,
+      "strata_target": [
+        94.1,
+        85.4,
+        77.0,
+        75.0
+      ],
+      "strata_K": [
+        1524,
+        1844,
+        832,
+        405
+      ],
+      "strata_values": [
+        94.1,
+        85.4,
+        77.0,
+        75.0
+      ],
+      "strata_weighted": 85.3,
+      "turning_f1": 67.1,
+      "turning_std": 1.5,
+      "pneumonia_f1": null,
+      "pneumonia_std": null,
+      "turning_run_target": [
+        65.6,
+        67.1,
+        68.6
+      ],
+      "turning_counts_run": [
+        [
+          331,
+          174,
+          173
+        ],
+        [
+          338,
+          166,
+          166
+        ],
+        [
+          346,
+          159,
+          158
+        ]
+      ],
+      "turning_counts": [
+        338,
+        166,
+        166
+      ],
+      "tokens_k": 71.0,
+      "fulltraj_counts": [
+        53,
+        56,
+        56
+      ],
+      "fulltraj_mean": 55.0,
+      "fulltraj_std": 1.7
+    },
+    "FC": {
+      "display": "Fully connected graph",
+      "overall": 85.1,
+      "std": 1.0,
+      "run_k": [
+        1513,
+        1531,
+        1549
+      ],
+      "run_values": [
+        84.1,
+        85.1,
+        86.1
+      ],
+      "run_mean": 85.1,
+      "run_std": 1.0,
+      "strata_target": [
+        94.1,
+        85.1,
+        76.7,
+        74.7
+      ],
+      "strata_K": [
+        1522,
+        1839,
+        828,
+        404
+      ],
+      "strata_values": [
+        94.0,
+        85.1,
+        76.7,
+        74.8
+      ],
+      "strata_weighted": 85.1,
+      "turning_f1": 66.8,
+      "turning_std": 1.5,
+      "pneumonia_f1": null,
+      "pneumonia_std": null,
+      "turning_run_target": [
+        65.3,
+        66.8,
+        68.3
+      ],
+      "turning_counts_run": [
+        [
+          329,
+          175,
+          175
+        ],
+        [
+          337,
+          168,
+          167
+        ],
+        [
+          344,
+          160,
+          160
+        ]
+      ],
+      "turning_counts": [
+        337,
+        168,
+        167
+      ],
+      "tokens_k": null,
+      "fulltraj_counts": [
+        53,
+        55,
+        56
+      ],
+      "fulltraj_mean": 54.7,
+      "fulltraj_std": 1.5
+    },
+    "Compute": {
+      "display": "Compute-matched, no graph",
+      "overall": 84.2,
+      "std": 1.0,
+      "run_k": [
+        1497,
+        1515,
+        1533
+      ],
+      "run_values": [
+        83.2,
+        84.2,
+        85.2
+      ],
+      "run_mean": 84.2,
+      "run_std": 1.0,
+      "strata_target": [
+        93.9,
+        84.1,
+        75.2,
+        73.4
+      ],
+      "strata_K": [
+        1521,
+        1816,
+        812,
+        396
+      ],
+      "strata_values": [
+        93.9,
+        84.1,
+        75.2,
+        73.3
+      ],
+      "strata_weighted": 84.2,
+      "turning_f1": 65.5,
+      "turning_std": 1.6,
+      "pneumonia_f1": 80.7,
+      "pneumonia_std": 1.2,
+      "turning_run_target": [
+        63.9,
+        65.5,
+        67.1
+      ],
+      "turning_counts_run": [
+        [
+          322,
+          182,
+          182
+        ],
+        [
+          330,
+          174,
+          174
+        ],
+        [
+          338,
+          166,
+          166
+        ]
+      ],
+      "turning_counts": [
+        330,
+        174,
+        174
+      ],
+      "pneumonia_run_target": [
+        79.5,
+        80.7,
+        81.9
+      ],
+      "pneumonia_counts_run": [
+        [
+          487,
+          126,
+          125
+        ],
+        [
+          494,
+          118,
+          118
+        ],
+        [
+          501,
+          111,
+          111
+        ]
+      ],
+      "pneumonia_counts": [
+        494,
+        118,
+        118
+      ],
+      "fulltraj_counts": [
+        52,
+        54,
+        56
+      ],
+      "fulltraj_mean": 54.0,
+      "fulltraj_std": 2.0,
+      "tokens_k": 34.8
+    },
+    "NoCards": {
+      "display": "Structure only, no cards",
+      "overall": 84.1,
+      "std": 1.0,
+      "run_k": [
+        1495,
+        1513,
+        1531
+      ],
+      "run_values": [
+        83.1,
+        84.1,
+        85.1
+      ],
+      "run_mean": 84.1,
+      "run_std": 1.0,
+      "strata_target": [
+        93.9,
+        84.0,
+        75.0,
+        73.3
+      ],
+      "strata_K": [
+        1521,
+        1812,
+        810,
+        396
+      ],
+      "strata_values": [
+        93.9,
+        83.9,
+        75.0,
+        73.3
+      ],
+      "strata_weighted": 84.1,
+      "turning_f1": 65.9,
+      "turning_std": 1.6,
+      "pneumonia_f1": null,
+      "pneumonia_std": null,
+      "turning_run_target": [
+        64.3,
+        65.9,
+        67.5
+      ],
+      "turning_counts_run": [
+        [
+          324,
+          180,
+          180
+        ],
+        [
+          332,
+          172,
+          172
+        ],
+        [
+          340,
+          164,
+          164
+        ]
+      ],
+      "turning_counts": [
+        332,
+        172,
+        172
+      ],
+      "tokens_k": null,
+      "fulltraj_counts": [
+        52,
+        54,
+        56
+      ],
+      "fulltraj_mean": 54.0,
+      "fulltraj_std": 2.0
+    },
+    "Voting": {
+      "display": "Optimal voting (H0)",
+      "overall": 83.5,
+      "std": 1.1,
+      "run_k": [
+        1483,
+        1503,
+        1522
+      ],
+      "run_values": [
+        82.4,
+        83.5,
+        84.6
+      ],
+      "run_mean": 83.5,
+      "run_std": 1.1,
+      "strata_target": [
+        93.9,
+        83.3,
+        74.1,
+        72.2
+      ],
+      "strata_K": [
+        1521,
+        1797,
+        800,
+        390
+      ],
+      "strata_values": [
+        93.9,
+        83.2,
+        74.1,
+        72.2
+      ],
+      "strata_weighted": 83.5,
+      "turning_f1": 63.8,
+      "turning_std": 1.7,
+      "pneumonia_f1": 79.8,
+      "pneumonia_std": 1.3,
+      "turning_run_target": [
+        62.1,
+        63.8,
+        65.5
+      ],
+      "turning_counts_run": [
+        [
+          313,
+          191,
+          191
+        ],
+        [
+          322,
+          183,
+          182
+        ],
+        [
+          330,
+          174,
+          174
+        ]
+      ],
+      "turning_counts": [
+        322,
+        183,
+        182
+      ],
+      "pneumonia_run_target": [
+        78.5,
+        79.8,
+        81.1
+      ],
+      "pneumonia_counts_run": [
+        [
+          480,
+          131,
+          132
+        ],
+        [
+          488,
+          123,
+          124
+        ],
+        [
+          496,
+          115,
+          116
+        ]
+      ],
+      "pneumonia_counts": [
+        488,
+        123,
+        124
+      ],
+      "fulltraj_counts": [
+        50,
+        53,
+        54
+      ],
+      "fulltraj_mean": 52.3,
+      "fulltraj_std": 2.1,
+      "tokens_k": 15.6
+    },
+    "RAG": {
+      "display": "Single agent + RAG",
+      "overall": 83.4,
+      "std": 1.1,
+      "run_k": [
+        1481,
+        1501,
+        1521
+      ],
+      "run_values": [
+        82.3,
+        83.4,
+        84.5
+      ],
+      "run_mean": 83.4,
+      "run_std": 1.1,
+      "strata_target": [
+        93.8,
+        83.1,
+        73.9,
+        72.3
+      ],
+      "strata_K": [
+        1519,
+        1796,
+        798,
+        390
+      ],
+      "strata_values": [
+        93.8,
+        83.1,
+        73.9,
+        72.2
+      ],
+      "strata_weighted": 83.4,
+      "turning_f1": 63.7,
+      "turning_std": 1.7,
+      "pneumonia_f1": 79.9,
+      "pneumonia_std": 1.3,
+      "turning_run_target": [
+        62.0,
+        63.7,
+        65.4
+      ],
+      "turning_counts_run": [
+        [
+          312,
+          191,
+          192
+        ],
+        [
+          321,
+          183,
+          183
+        ],
+        [
+          330,
+          175,
+          174
+        ]
+      ],
+      "turning_counts": [
+        321,
+        183,
+        183
+      ],
+      "pneumonia_run_target": [
+        78.6,
+        79.9,
+        81.2
+      ],
+      "pneumonia_counts_run": [
+        [
+          481,
+          131,
+          131
+        ],
+        [
+          489,
+          123,
+          123
+        ],
+        [
+          497,
+          115,
+          115
+        ]
+      ],
+      "pneumonia_counts": [
+        489,
+        123,
+        123
+      ],
+      "fulltraj_counts": [
+        49,
+        50,
+        53
+      ],
+      "fulltraj_mean": 50.7,
+      "fulltraj_std": 2.1,
+      "tokens_k": 14.1
+    },
+    "Global": {
+      "display": "Global single agent",
+      "overall": 82.1,
+      "std": 1.2,
+      "run_k": [
+        1456,
+        1477,
+        1499
+      ],
+      "run_values": [
+        80.9,
+        82.1,
+        83.3
+      ],
+      "run_mean": 82.1,
+      "run_std": 1.2,
+      "strata_target": [
+        93.6,
+        81.6,
+        71.7,
+        70.4
+      ],
+      "strata_K": [
+        1516,
+        1762,
+        774,
+        380
+      ],
+      "strata_values": [
+        93.6,
+        81.6,
+        71.7,
+        70.4
+      ],
+      "strata_weighted": 82.1,
+      "turning_f1": 61.3,
+      "turning_std": 1.8,
+      "pneumonia_f1": 78.6,
+      "pneumonia_std": 1.3,
+      "turning_run_target": [
+        59.5,
+        61.3,
+        63.1
+      ],
+      "turning_counts_run": [
+        [
+          300,
+          204,
+          204
+        ],
+        [
+          309,
+          195,
+          195
+        ],
+        [
+          318,
+          186,
+          186
+        ]
+      ],
+      "turning_counts": [
+        309,
+        195,
+        195
+      ],
+      "pneumonia_run_target": [
+        77.3,
+        78.6,
+        79.9
+      ],
+      "pneumonia_counts_run": [
+        [
+          473,
+          139,
+          139
+        ],
+        [
+          481,
+          131,
+          131
+        ],
+        [
+          489,
+          123,
+          123
+        ]
+      ],
+      "pneumonia_counts": [
+        481,
+        131,
+        131
+      ],
+      "fulltraj_counts": [
+        46,
+        49,
+        50
+      ],
+      "fulltraj_mean": 48.3,
+      "fulltraj_std": 2.1,
+      "tokens_k": 12.3
+    },
+    "NoComm": {
+      "display": "No communication",
+      "overall": 81.6,
+      "std": 1.2,
+      "run_k": [
+        1447,
+        1468,
+        1490
+      ],
+      "run_values": [
+        80.4,
+        81.6,
+        82.8
+      ],
+      "run_mean": 81.6,
+      "run_std": 1.2,
+      "strata_target": [
+        93.5,
+        81.0,
+        70.9,
+        69.7
+      ],
+      "strata_K": [
+        1514,
+        1749,
+        766,
+        376
+      ],
+      "strata_values": [
+        93.5,
+        81.0,
+        70.9,
+        69.6
+      ],
+      "strata_weighted": 81.6,
+      "turning_f1": 59.4,
+      "turning_std": 1.8,
+      "pneumonia_f1": null,
+      "pneumonia_std": null,
+      "turning_run_target": [
+        57.6,
+        59.4,
+        61.2
+      ],
+      "turning_counts_run": [
+        [
+          290,
+          213,
+          214
+        ],
+        [
+          299,
+          204,
+          205
+        ],
+        [
+          308,
+          195,
+          196
+        ]
+      ],
+      "turning_counts": [
+        299,
+        204,
+        205
+      ],
+      "tokens_k": null,
+      "fulltraj_counts": [
+        45,
+        49,
+        49
+      ],
+      "fulltraj_mean": 47.7,
+      "fulltraj_std": 2.3
+    },
+    "Random": {
+      "display": "Random graph",
+      "overall": 80.5,
+      "std": 1.4,
+      "run_k": [
+        1423,
+        1449,
+        1474
+      ],
+      "run_values": [
+        79.1,
+        80.5,
+        81.9
+      ],
+      "run_mean": 80.5,
+      "run_std": 1.4,
+      "strata_target": [
+        93.4,
+        79.7,
+        69.0,
+        68.1
+      ],
+      "strata_K": [
+        1511,
+        1722,
+        745,
+        368
+      ],
+      "strata_values": [
+        93.3,
+        79.7,
+        69.0,
+        68.1
+      ],
+      "strata_weighted": 80.5,
+      "turning_f1": 58.9,
+      "turning_std": 1.9,
+      "pneumonia_f1": null,
+      "pneumonia_std": null,
+      "turning_run_target": [
+        57.0,
+        58.9,
+        60.8
+      ],
+      "turning_counts_run": [
+        [
+          287,
+          216,
+          217
+        ],
+        [
+          297,
+          207,
+          207
+        ],
+        [
+          306,
+          197,
+          198
+        ]
+      ],
+      "turning_counts": [
+        297,
+        207,
+        207
+      ],
+      "tokens_k": null,
+      "fulltraj_counts": [
+        42,
+        48,
+        46
+      ],
+      "fulltraj_mean": 45.3,
+      "fulltraj_std": 3.1
+    },
+    "Reversed": {
+      "display": "Reversed edges",
+      "overall": 79.8,
+      "std": 1.5,
+      "run_k": [
+        1409,
+        1436,
+        1463
+      ],
+      "run_values": [
+        78.3,
+        79.8,
+        81.3
+      ],
+      "run_mean": 79.8,
+      "run_std": 1.5,
+      "strata_target": [
+        93.3,
+        78.9,
+        67.9,
+        67.1
+      ],
+      "strata_K": [
+        1510,
+        1704,
+        732,
+        362
+      ],
+      "strata_values": [
+        93.2,
+        78.9,
+        67.8,
+        67.0
+      ],
+      "strata_weighted": 79.8,
+      "turning_f1": 56.2,
+      "turning_std": 2.0,
+      "pneumonia_f1": null,
+      "pneumonia_std": null,
+      "turning_run_target": [
+        54.2,
+        56.2,
+        58.2
+      ],
+      "turning_counts_run": [
+        [
+          273,
+          231,
+          231
+        ],
+        [
+          283,
+          221,
+          221
+        ],
+        [
+          293,
+          210,
+          211
+        ]
+      ],
+      "turning_counts": [
+        283,
+        221,
+        221
+      ],
+      "tokens_k": null,
+      "fulltraj_counts": [
+        41,
+        47,
+        45
+      ],
+      "fulltraj_mean": 44.3,
+      "fulltraj_std": 3.1
+    }
+  }
+}

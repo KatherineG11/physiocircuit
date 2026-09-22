@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-012",
+ "stratum": "nonmono",
+ "family": "alveolar flooding with vascular loading",
+ "mechanism": {
+  "id": "PM-03",
+  "name": "Hypoxic pulmonary vasoconstriction",
+  "source": "alveoli",
+  "target": "pulmonary_vessels",
+  "sign": "+",
+  "lag": 0
+ },
+ "intervention": {
+  "type": "mask",
+  "edge": "PM-03",
+  "expect": "macro trajectory is unchanged by the removed local evidence"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-012-observed",
+  "arm": "observed",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.289,
+     "alveoli": 0.234,
+     "pulmonary_vessels": 0.207,
+     "heart": 0.12,
+     "kidney": 0.13,
+     "systemic_inflammation": 0.227
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.317,
+     "alveoli": 0.261,
+     "pulmonary_vessels": 0.211,
+     "heart": 0.114,
+     "kidney": 0.161,
+     "systemic_inflammation": 0.215
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.355,
+     "alveoli": 0.273,
+     "pulmonary_vessels": 0.205,
+     "heart": 0.101,
+     "kidney": 0.175,
+     "systemic_inflammation": 0.204
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.38,
+     "alveoli": 0.298,
+     "pulmonary_vessels": 0.217,
+     "heart": 0.106,
+     "kidney": 0.203,
+     "systemic_inflammation": 0.207
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.41,
+     "alveoli": 0.316,
+     "pulmonary_vessels": 0.207,
+     "heart": 0.094,
+     "kidney": 0.216,
+     "systemic_inflammation": 0.192
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.438,
+     "alveoli": 0.329,
+     "pulmonary_vessels": 0.203,
+     "heart": 0.081,
+     "kidney": 0.24,
+     "systemic_inflammation": 0.182
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.464,
+     "alveoli": 0.358,
+     "pulmonary_vessels": 0.2,
+     "heart": 0.068,
+     "kidney": 0.268,
+     "systemic_inflammation": 0.18
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-03",
+    "name": "Hypoxic pulmonary vasoconstriction",
+    "source": "alveoli",
+    "target": "pulmonary_vessels",
+    "sign": "+",
+    "lag": 0
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-012-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.289,
+     "alveoli": 0.234,
+     "pulmonary_vessels": 0.182,
+     "heart": 0.12,
+     "kidney": 0.13,
+     "systemic_inflammation": 0.227
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.317,
+     "alveoli": 0.261,
+     "pulmonary_vessels": 0.186,
+     "heart": 0.114,
+     "kidney": 0.161,
+     "systemic_inflammation": 0.215
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.355,
+     "alveoli": 0.273,
+     "pulmonary_vessels": 0.18,
+     "heart": 0.101,
+     "kidney": 0.175,
+     "systemic_inflammation": 0.204
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.38,
+     "alveoli": 0.298,
+     "pulmonary_vessels": 0.192,
+     "heart": 0.106,
+     "kidney": 0.203,
+     "systemic_inflammation": 0.207
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.41,
+     "alveoli": 0.316,
+     "pulmonary_vessels": 0.182,
+     "heart": 0.094,
+     "kidney": 0.216,
+     "systemic_inflammation": 0.192
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.438,
+     "alveoli": 0.329,
+     "pulmonary_vessels": 0.178,
+     "heart": 0.081,
+     "kidney": 0.24,
+     "systemic_inflammation": 0.182
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.464,
+     "alveoli": 0.358,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.068,
+     "kidney": 0.268,
+     "systemic_inflammation": 0.18
+    }
+   }
+  ],
+  "intervention": {
+   "type": "mask",
+   "edge": "PM-03",
+   "expect": "macro trajectory is unchanged by the removed local evidence"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

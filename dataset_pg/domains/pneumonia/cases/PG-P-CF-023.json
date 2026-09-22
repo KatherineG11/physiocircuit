@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-023",
+ "stratum": "conflict",
+ "family": "renal retention with uraemic airway injury",
+ "mechanism": {
+  "id": "PM-07",
+  "name": "Renal sodium retention",
+  "source": "kidney",
+  "target": "pulmonary_vessels",
+  "sign": "+",
+  "lag": 2
+ },
+ "intervention": {
+  "type": "inject",
+  "edge": "PM-07",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-023-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.218,
+     "alveoli": 0.17,
+     "pulmonary_vessels": 0.193,
+     "heart": 0.207,
+     "kidney": 0.244,
+     "systemic_inflammation": 0.155
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.203,
+     "alveoli": 0.155,
+     "pulmonary_vessels": 0.202,
+     "heart": 0.225,
+     "kidney": 0.23,
+     "systemic_inflammation": 0.151
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.198,
+     "alveoli": 0.152,
+     "pulmonary_vessels": 0.217,
+     "heart": 0.244,
+     "kidney": 0.215,
+     "systemic_inflammation": 0.161
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.194,
+     "alveoli": 0.151,
+     "pulmonary_vessels": 0.233,
+     "heart": 0.25,
+     "kidney": 0.211,
+     "systemic_inflammation": 0.16
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.2,
+     "alveoli": 0.142,
+     "pulmonary_vessels": 0.257,
+     "heart": 0.262,
+     "kidney": 0.19,
+     "systemic_inflammation": 0.161
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.181,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.256,
+     "heart": 0.283,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.165
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.18,
+     "alveoli": 0.124,
+     "pulmonary_vessels": 0.283,
+     "heart": 0.301,
+     "kidney": 0.171,
+     "systemic_inflammation": 0.17
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-07",
+    "name": "Renal sodium retention",
+    "source": "kidney",
+    "target": "pulmonary_vessels",
+    "sign": "+",
+    "lag": 2
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-023-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.218,
+     "alveoli": 0.17,
+     "pulmonary_vessels": 0.193,
+     "heart": 0.207,
+     "kidney": 0.244,
+     "systemic_inflammation": 0.155
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.203,
+     "alveoli": 0.155,
+     "pulmonary_vessels": 0.202,
+     "heart": 0.225,
+     "kidney": 0.23,
+     "systemic_inflammation": 0.151
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.198,
+     "alveoli": 0.152,
+     "pulmonary_vessels": 0.157,
+     "heart": 0.244,
+     "kidney": 0.215,
+     "systemic_inflammation": 0.161
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.194,
+     "alveoli": 0.151,
+     "pulmonary_vessels": 0.173,
+     "heart": 0.25,
+     "kidney": 0.211,
+     "systemic_inflammation": 0.16
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.2,
+     "alveoli": 0.142,
+     "pulmonary_vessels": 0.197,
+     "heart": 0.262,
+     "kidney": 0.19,
+     "systemic_inflammation": 0.161
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.181,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.196,
+     "heart": 0.283,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.165
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.18,
+     "alveoli": 0.124,
+     "pulmonary_vessels": 0.223,
+     "heart": 0.301,
+     "kidney": 0.171,
+     "systemic_inflammation": 0.17
+    }
+   }
+  ],
+  "intervention": {
+   "type": "inject",
+   "edge": "PM-07",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-009",
+ "stratum": "turning",
+ "family": "alveolar flooding with vascular loading",
+ "mechanism": {
+  "id": "PM-04",
+  "name": "Pulmonary vascular resistance rise",
+  "source": "pulmonary_vessels",
+  "target": "heart",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "reverse",
+  "edge": "PM-04",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-009-observed",
+  "arm": "observed",
+  "stratum": "turning",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.143,
+     "alveoli": 0.197,
+     "pulmonary_vessels": 0.199,
+     "heart": 0.261,
+     "kidney": 0.236,
+     "systemic_inflammation": 0.163
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.132,
+     "alveoli": 0.2,
+     "pulmonary_vessels": 0.22,
+     "heart": 0.276,
+     "kidney": 0.231,
+     "systemic_inflammation": 0.169
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.125,
+     "alveoli": 0.185,
+     "pulmonary_vessels": 0.24,
+     "heart": 0.304,
+     "kidney": 0.214,
+     "systemic_inflammation": 0.15
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.119,
+     "alveoli": 0.174,
+     "pulmonary_vessels": 0.255,
+     "heart": 0.326,
+     "kidney": 0.21,
+     "systemic_inflammation": 0.145
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.126,
+     "alveoli": 0.166,
+     "pulmonary_vessels": 0.275,
+     "heart": 0.344,
+     "kidney": 0.197,
+     "systemic_inflammation": 0.135
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.119,
+     "alveoli": 0.16,
+     "pulmonary_vessels": 0.297,
+     "heart": 0.357,
+     "kidney": 0.185,
+     "systemic_inflammation": 0.135
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.106,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.309,
+     "heart": 0.375,
+     "kidney": 0.178,
+     "systemic_inflammation": 0.119
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-04",
+    "name": "Pulmonary vascular resistance rise",
+    "source": "pulmonary_vessels",
+    "target": "heart",
+    "sign": "+",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-009-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "turning",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.143,
+     "alveoli": 0.197,
+     "pulmonary_vessels": 0.199,
+     "heart": 0.261,
+     "kidney": 0.236,
+     "systemic_inflammation": 0.163
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.132,
+     "alveoli": 0.2,
+     "pulmonary_vessels": 0.22,
+     "heart": 0.206,
+     "kidney": 0.231,
+     "systemic_inflammation": 0.169
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.125,
+     "alveoli": 0.185,
+     "pulmonary_vessels": 0.24,
+     "heart": 0.234,
+     "kidney": 0.214,
+     "systemic_inflammation": 0.15
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.119,
+     "alveoli": 0.174,
+     "pulmonary_vessels": 0.255,
+     "heart": 0.256,
+     "kidney": 0.21,
+     "systemic_inflammation": 0.145
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.126,
+     "alveoli": 0.166,
+     "pulmonary_vessels": 0.275,
+     "heart": 0.274,
+     "kidney": 0.197,
+     "systemic_inflammation": 0.135
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.119,
+     "alveoli": 0.16,
+     "pulmonary_vessels": 0.297,
+     "heart": 0.287,
+     "kidney": 0.185,
+     "systemic_inflammation": 0.135
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.106,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.309,
+     "heart": 0.305,
+     "kidney": 0.178,
+     "systemic_inflammation": 0.119
+    }
+   }
+  ],
+  "intervention": {
+   "type": "reverse",
+   "edge": "PM-04",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

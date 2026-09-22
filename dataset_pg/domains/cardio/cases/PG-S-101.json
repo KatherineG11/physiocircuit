@@ -1,0 +1,218 @@
+{
+  "case_id": "PG-S-101",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "turning",
+  "horizon": 5,
+  "patient": {
+    "age": 58,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "ICU",
+    "comorbidities": [
+      "prior stroke",
+      "atrial fibrillation"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "tachycardia at rest, hypotension after fluids",
+    "duration_days": 20,
+    "vital_signs": {
+      "hr": 118,
+      "map": 53,
+      "temp": 36.8,
+      "spo2": 94
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lactate": 1.27,
+        "CRP": 2.05,
+        "creatinine": 2.08,
+        "troponin": 2.57
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "platelets": 1.04,
+        "creatinine": 2.66,
+        "bilirubin": 2.05,
+        "troponin": 1.45
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "platelets": 1.11,
+        "CRP": 1.77,
+        "troponin": 3.2,
+        "INR": 0.99
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-03",
+      "name": "Myocardial depression",
+      "source": "heart",
+      "target": "vasculature",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.77,
+      "evidence": [
+        "falling ejection fraction",
+        "widened arteriovenous oxygen gap"
+      ],
+      "confounder": "inotrope support"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.28,
+          "vasculature": 0.235,
+          "kidney": 0.282,
+          "liver": 0.279,
+          "coagulation": 0.139,
+          "lung": 0.109
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "improve",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.266,
+          "vasculature": 0.189,
+          "kidney": 0.275,
+          "liver": 0.274,
+          "coagulation": 0.13,
+          "lung": 0.105
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.252,
+          "vasculature": 0.182,
+          "kidney": 0.267,
+          "liver": 0.269,
+          "coagulation": 0.121,
+          "lung": 0.101
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.238,
+          "vasculature": 0.176,
+          "kidney": 0.259,
+          "liver": 0.264,
+          "coagulation": 0.112,
+          "lung": 0.098
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.224,
+          "vasculature": 0.169,
+          "kidney": 0.252,
+          "liver": 0.259,
+          "coagulation": 0.103,
+          "lung": 0.094
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      2
+    ],
+    "design_card": {
+      "step": 2,
+      "organ": "vasculature",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-03",
+        "expect": "target organ vasculature no longer tracks source heart after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-03",
+        "expect": "direction of vasculature flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-03",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-03",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives vasculature?",
+      "expected": "CM-03"
+    }
+  },
+  "fingerprint": "3c3c8393fa57e870"
+}

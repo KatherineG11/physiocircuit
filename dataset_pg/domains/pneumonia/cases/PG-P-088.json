@@ -1,0 +1,291 @@
+{
+  "case_id": "PG-P-088",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 8,
+  "patient": {
+    "age": 37,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "high-dependency unit",
+    "comorbidities": [
+      "ischaemic heart disease",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "confusion in the evening, tachypnoea at rest, increasing oxygen requirement",
+    "duration_days": 2,
+    "vital_signs": {
+      "hr": 110,
+      "map": 62,
+      "temp": 38.1,
+      "spo2": 94
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -9",
+      "labs": {
+        "lactate": 0.76,
+        "procalcitonin": 2.67,
+        "PaO2/FiO2": 2.29,
+        "WBC": 1.42
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -8",
+      "labs": {
+        "urea": 2.41,
+        "lactate": 0.71,
+        "WBC": 1.48,
+        "CRP": 1.35
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -7",
+      "labs": {
+        "lactate": 1.89,
+        "urea": 1.18,
+        "CRP": 2.42,
+        "WBC": 2.04
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-09",
+      "name": "Cytokine storm",
+      "source": "systemic_inflammation",
+      "target": "alveoli",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.75,
+      "evidence": [
+        "rising CRP and ferritin",
+        "worsening oxygenation"
+      ],
+      "confounder": "steroid dose"
+    },
+    {
+      "id": "PM-03",
+      "name": "Hypoxic pulmonary vasoconstriction",
+      "source": "alveoli",
+      "target": "pulmonary_vessels",
+      "sign": "+",
+      "lag": 0,
+      "onset_step": 1,
+      "strength": 0.95,
+      "evidence": [
+        "regional shunt fraction",
+        "pulmonary artery pressure"
+      ],
+      "confounder": "inhaled nitric oxide"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.217,
+          "pulmonary_vessels": 0.324,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.301,
+          "pulmonary_vessels": 0.333,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.386,
+          "pulmonary_vessels": 0.341,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.47,
+          "pulmonary_vessels": 0.349,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.554,
+          "pulmonary_vessels": 0.357,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.638,
+          "pulmonary_vessels": 0.365,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.722,
+          "pulmonary_vessels": 0.373,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 8,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.275,
+          "alveoli": 0.806,
+          "pulmonary_vessels": 0.381,
+          "heart": 0.143,
+          "kidney": 0.19,
+          "systemic_inflammation": 0.179
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "alveoli",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-09",
+        "expect": "target organ alveoli no longer tracks source systemic_inflammation after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-09",
+        "expect": "direction of alveoli flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-09",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-09",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives alveoli?",
+      "expected": "PM-09"
+    }
+  },
+  "fingerprint": "1b59fb878e2d59fd"
+}

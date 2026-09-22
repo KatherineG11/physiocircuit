@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-008",
+ "stratum": "conflict",
+ "family": "alveolar flooding with vascular loading",
+ "mechanism": {
+  "id": "PM-03",
+  "name": "Hypoxic pulmonary vasoconstriction",
+  "source": "alveoli",
+  "target": "pulmonary_vessels",
+  "sign": "+",
+  "lag": 0
+ },
+ "intervention": {
+  "type": "replace",
+  "edge": "PM-03",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-008-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.295,
+     "alveoli": 0.293,
+     "pulmonary_vessels": 0.246,
+     "heart": 0.264,
+     "kidney": 0.261,
+     "systemic_inflammation": 0.256
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.299,
+     "alveoli": 0.312,
+     "pulmonary_vessels": 0.244,
+     "heart": 0.268,
+     "kidney": 0.252,
+     "systemic_inflammation": 0.271
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.325,
+     "alveoli": 0.328,
+     "pulmonary_vessels": 0.25,
+     "heart": 0.276,
+     "kidney": 0.24,
+     "systemic_inflammation": 0.286
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.33,
+     "alveoli": 0.336,
+     "pulmonary_vessels": 0.237,
+     "heart": 0.292,
+     "kidney": 0.232,
+     "systemic_inflammation": 0.3
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.36,
+     "alveoli": 0.357,
+     "pulmonary_vessels": 0.234,
+     "heart": 0.294,
+     "kidney": 0.228,
+     "systemic_inflammation": 0.32
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.374,
+     "alveoli": 0.376,
+     "pulmonary_vessels": 0.234,
+     "heart": 0.312,
+     "kidney": 0.22,
+     "systemic_inflammation": 0.336
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.393,
+     "alveoli": 0.386,
+     "pulmonary_vessels": 0.233,
+     "heart": 0.317,
+     "kidney": 0.218,
+     "systemic_inflammation": 0.348
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-03",
+    "name": "Hypoxic pulmonary vasoconstriction",
+    "source": "alveoli",
+    "target": "pulmonary_vessels",
+    "sign": "+",
+    "lag": 0
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-008-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.295,
+     "alveoli": 0.293,
+     "pulmonary_vessels": 0.206,
+     "heart": 0.264,
+     "kidney": 0.261,
+     "systemic_inflammation": 0.256
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.299,
+     "alveoli": 0.312,
+     "pulmonary_vessels": 0.204,
+     "heart": 0.268,
+     "kidney": 0.252,
+     "systemic_inflammation": 0.271
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.325,
+     "alveoli": 0.328,
+     "pulmonary_vessels": 0.21,
+     "heart": 0.276,
+     "kidney": 0.24,
+     "systemic_inflammation": 0.286
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.33,
+     "alveoli": 0.336,
+     "pulmonary_vessels": 0.197,
+     "heart": 0.292,
+     "kidney": 0.232,
+     "systemic_inflammation": 0.3
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.36,
+     "alveoli": 0.357,
+     "pulmonary_vessels": 0.194,
+     "heart": 0.294,
+     "kidney": 0.228,
+     "systemic_inflammation": 0.32
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.374,
+     "alveoli": 0.376,
+     "pulmonary_vessels": 0.194,
+     "heart": 0.312,
+     "kidney": 0.22,
+     "systemic_inflammation": 0.336
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.393,
+     "alveoli": 0.386,
+     "pulmonary_vessels": 0.193,
+     "heart": 0.317,
+     "kidney": 0.218,
+     "systemic_inflammation": 0.348
+    }
+   }
+  ],
+  "intervention": {
+   "type": "replace",
+   "edge": "PM-03",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

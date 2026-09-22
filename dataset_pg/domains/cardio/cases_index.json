@@ -1,0 +1,1116 @@
+{
+ "cases": [
+  {
+   "case_id": "PG-S-001",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "f7166d85dbb45cab"
+  },
+  {
+   "case_id": "PG-S-002",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "b09e15e45ae05496"
+  },
+  {
+   "case_id": "PG-S-003",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "0555a2bef7afe88e"
+  },
+  {
+   "case_id": "PG-S-004",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "3e5d0c34ed724357"
+  },
+  {
+   "case_id": "PG-S-005",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "2211b4959aa8f8e9"
+  },
+  {
+   "case_id": "PG-S-006",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "a0281d0c572e3d74"
+  },
+  {
+   "case_id": "PG-S-007",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "113121b4c4126b4b"
+  },
+  {
+   "case_id": "PG-S-008",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "94157a8e2faa6a96"
+  },
+  {
+   "case_id": "PG-S-009",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "7709146c36c9391d"
+  },
+  {
+   "case_id": "PG-S-010",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "fb042c6a83fab2f8"
+  },
+  {
+   "case_id": "PG-S-011",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "2282d5f7a01587a7"
+  },
+  {
+   "case_id": "PG-S-012",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "9e9e9f2ad166fc15"
+  },
+  {
+   "case_id": "PG-S-013",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "16553e4ed202d1cd"
+  },
+  {
+   "case_id": "PG-S-014",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "f6c0a4181740ccfc"
+  },
+  {
+   "case_id": "PG-S-015",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "81f0e6a11019e92c"
+  },
+  {
+   "case_id": "PG-S-016",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "b92dd898519e7f4e"
+  },
+  {
+   "case_id": "PG-S-017",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "5f2f2db46af816be"
+  },
+  {
+   "case_id": "PG-S-018",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "934fb2d46ddbc529"
+  },
+  {
+   "case_id": "PG-S-019",
+   "split": "dev",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "90ca746c07cf0646"
+  },
+  {
+   "case_id": "PG-S-020",
+   "split": "dev",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "40b03199bfe802f2"
+  },
+  {
+   "case_id": "PG-S-021",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "358e31ae30151ab6"
+  },
+  {
+   "case_id": "PG-S-022",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "63fdfc87136860fc"
+  },
+  {
+   "case_id": "PG-S-023",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "7400652e942f1fd1"
+  },
+  {
+   "case_id": "PG-S-024",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "d1a77a2dedb9e34b"
+  },
+  {
+   "case_id": "PG-S-025",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "ec0639d04b216466"
+  },
+  {
+   "case_id": "PG-S-026",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "0b444a3ff20ba748"
+  },
+  {
+   "case_id": "PG-S-027",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "ab16b3db8bc7cb16"
+  },
+  {
+   "case_id": "PG-S-028",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "1fc99de38ac178ff"
+  },
+  {
+   "case_id": "PG-S-029",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "bfc016c8adaf8089"
+  },
+  {
+   "case_id": "PG-S-030",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "48bd36aef53d18ee"
+  },
+  {
+   "case_id": "PG-S-031",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "37646ce6acc76c78"
+  },
+  {
+   "case_id": "PG-S-032",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "374f0677bbdab490"
+  },
+  {
+   "case_id": "PG-S-033",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "e7606bbaf8359520"
+  },
+  {
+   "case_id": "PG-S-034",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "d9f9e6756fdc71d6"
+  },
+  {
+   "case_id": "PG-S-035",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "26d00940049ffb2f"
+  },
+  {
+   "case_id": "PG-S-036",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "647cb8cbaf26b106"
+  },
+  {
+   "case_id": "PG-S-037",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "1cb0c97e4ed0846c"
+  },
+  {
+   "case_id": "PG-S-038",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "71eb4f3ece99460d"
+  },
+  {
+   "case_id": "PG-S-039",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "2fa126846b67c63c"
+  },
+  {
+   "case_id": "PG-S-040",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "f1ba63efd613a08c"
+  },
+  {
+   "case_id": "PG-S-041",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "2f92abc756495a5c"
+  },
+  {
+   "case_id": "PG-S-042",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "3048732c4b0400c2"
+  },
+  {
+   "case_id": "PG-S-043",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "aad9fd2a7f85a083"
+  },
+  {
+   "case_id": "PG-S-044",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "bbc19f728b0fc308"
+  },
+  {
+   "case_id": "PG-S-045",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "bb197bb61796f388"
+  },
+  {
+   "case_id": "PG-S-046",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "59180fedb8794544"
+  },
+  {
+   "case_id": "PG-S-047",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "5721e26505315b06"
+  },
+  {
+   "case_id": "PG-S-048",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "a915d4b27aee1231"
+  },
+  {
+   "case_id": "PG-S-049",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "1416ebafb228ad95"
+  },
+  {
+   "case_id": "PG-S-050",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "bbc3618eb8766700"
+  },
+  {
+   "case_id": "PG-S-051",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "cd481380f1cf648a"
+  },
+  {
+   "case_id": "PG-S-052",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "f91c2ef6484065c2"
+  },
+  {
+   "case_id": "PG-S-053",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "b7875535c5eb7082"
+  },
+  {
+   "case_id": "PG-S-054",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "a6b64044e6b40442"
+  },
+  {
+   "case_id": "PG-S-055",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "50fb26757b1e16da"
+  },
+  {
+   "case_id": "PG-S-056",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "63bb79b197868f4b"
+  },
+  {
+   "case_id": "PG-S-057",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "0c98be50a1921317"
+  },
+  {
+   "case_id": "PG-S-058",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "d73bb205d9746acb"
+  },
+  {
+   "case_id": "PG-S-059",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "2a3203acf6f78853"
+  },
+  {
+   "case_id": "PG-S-060",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "a85fec2b32655874"
+  },
+  {
+   "case_id": "PG-S-061",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "7c311d3634dcdded"
+  },
+  {
+   "case_id": "PG-S-062",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "dd21afa920fcd370"
+  },
+  {
+   "case_id": "PG-S-063",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "21422df128e141d3"
+  },
+  {
+   "case_id": "PG-S-064",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "f487cd85409fc134"
+  },
+  {
+   "case_id": "PG-S-065",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "e14f148d227994be"
+  },
+  {
+   "case_id": "PG-S-066",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "0bbdfbb320b99d43"
+  },
+  {
+   "case_id": "PG-S-067",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "70a71e4754801624"
+  },
+  {
+   "case_id": "PG-S-068",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "2b1bc306f8f1bead"
+  },
+  {
+   "case_id": "PG-S-069",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "5657a0ead2e8f3a2"
+  },
+  {
+   "case_id": "PG-S-070",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "b1f52a5bdadf2578"
+  },
+  {
+   "case_id": "PG-S-071",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "7701a9099e0c29fc"
+  },
+  {
+   "case_id": "PG-S-072",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "79516f8fc72ff8f9"
+  },
+  {
+   "case_id": "PG-S-073",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "7c3e48432c318111"
+  },
+  {
+   "case_id": "PG-S-074",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "6e4471fcd86605ed"
+  },
+  {
+   "case_id": "PG-S-075",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "e44956332d7fe953"
+  },
+  {
+   "case_id": "PG-S-076",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "f420be91dd236960"
+  },
+  {
+   "case_id": "PG-S-077",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "f4a86c6af3e0034a"
+  },
+  {
+   "case_id": "PG-S-078",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "ed9fb717cdcddd13"
+  },
+  {
+   "case_id": "PG-S-079",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "b1491769a19e0c06"
+  },
+  {
+   "case_id": "PG-S-080",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "5c36cbb2b46ad3f6"
+  },
+  {
+   "case_id": "PG-S-081",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "604f61530383ca67"
+  },
+  {
+   "case_id": "PG-S-082",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "e14cd59d895ce22a"
+  },
+  {
+   "case_id": "PG-S-083",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "7299dbe34c77d755"
+  },
+  {
+   "case_id": "PG-S-084",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "37198b9372b30404"
+  },
+  {
+   "case_id": "PG-S-085",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "e76fd40f81415bc7"
+  },
+  {
+   "case_id": "PG-S-086",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "f5cf145157768b0a"
+  },
+  {
+   "case_id": "PG-S-087",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "d6bc6c4a181fb6cf"
+  },
+  {
+   "case_id": "PG-S-088",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "bb0ea3b957eaa22a"
+  },
+  {
+   "case_id": "PG-S-089",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "06e187525abd5a4b"
+  },
+  {
+   "case_id": "PG-S-090",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "0ab6101fce93b2de"
+  },
+  {
+   "case_id": "PG-S-091",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "0e1ec8a4bcf5b3fa"
+  },
+  {
+   "case_id": "PG-S-092",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "0dbc113c59f74912"
+  },
+  {
+   "case_id": "PG-S-093",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "da2d4f9b25e3a8fb"
+  },
+  {
+   "case_id": "PG-S-094",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "10328258fbd204fa"
+  },
+  {
+   "case_id": "PG-S-095",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "e9b762ee339061d6"
+  },
+  {
+   "case_id": "PG-S-096",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "389d7291239e94ae"
+  },
+  {
+   "case_id": "PG-S-097",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "d6a4a332e5dc8064"
+  },
+  {
+   "case_id": "PG-S-098",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "f70c63c437922f66"
+  },
+  {
+   "case_id": "PG-S-099",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "0d79a22c0d815b59"
+  },
+  {
+   "case_id": "PG-S-100",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "788c4622d0a96366"
+  },
+  {
+   "case_id": "PG-S-101",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "3c3c8393fa57e870"
+  },
+  {
+   "case_id": "PG-S-102",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "bb716fc686394bdc"
+  },
+  {
+   "case_id": "PG-S-103",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "eddf97011fe1272e"
+  },
+  {
+   "case_id": "PG-S-104",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "c268b029c8bfbd16"
+  },
+  {
+   "case_id": "PG-S-105",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "d0e456bb30d9c7e3"
+  },
+  {
+   "case_id": "PG-S-106",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "77807205d7cbf489"
+  },
+  {
+   "case_id": "PG-S-107",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "44fecc1ffaa1f020"
+  },
+  {
+   "case_id": "PG-S-108",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "7866a81dafc50914"
+  },
+  {
+   "case_id": "PG-S-109",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "fbd8f36003a851f1"
+  },
+  {
+   "case_id": "PG-S-110",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "153095d8dbf6e1c0"
+  },
+  {
+   "case_id": "PG-S-111",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "6ed0cc1ab5f25a24"
+  },
+  {
+   "case_id": "PG-S-112",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "5937bfb9e38d5993"
+  },
+  {
+   "case_id": "PG-S-113",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "4606e79a3cd3754f"
+  },
+  {
+   "case_id": "PG-S-114",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "61f064da344b2fe8"
+  },
+  {
+   "case_id": "PG-S-115",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "e001a8a1d2549008"
+  },
+  {
+   "case_id": "PG-S-116",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "cfc3e3706e260eae"
+  },
+  {
+   "case_id": "PG-S-117",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "85725697450224bb"
+  },
+  {
+   "case_id": "PG-S-118",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "ad81f5758c8f3af1"
+  },
+  {
+   "case_id": "PG-S-119",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "e0d9961b6d0d52ba"
+  },
+  {
+   "case_id": "PG-S-120",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "68472e1d28b74295"
+  }
+ ],
+ "pairs": [
+  {
+   "pair_id": "PG-S-CF-001",
+   "stratum": "conflict",
+   "family": "vasoplegia with myocardial depression",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-S-CF-002",
+   "stratum": "conflict",
+   "family": "vasoplegia with myocardial depression",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-S-CF-003",
+   "stratum": "turning",
+   "family": "vasoplegia with myocardial depression",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-S-CF-004",
+   "stratum": "simple",
+   "family": "vasoplegia with myocardial depression",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-S-CF-005",
+   "stratum": "conflict",
+   "family": "vasoplegia with myocardial depression",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-S-CF-006",
+   "stratum": "nonmono",
+   "family": "vasoplegia with myocardial depression",
+   "intervention": "mask"
+  },
+  {
+   "pair_id": "PG-S-CF-007",
+   "stratum": "conflict",
+   "family": "renal and hepatic dysfunction coupling",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-S-CF-008",
+   "stratum": "conflict",
+   "family": "renal and hepatic dysfunction coupling",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-S-CF-009",
+   "stratum": "turning",
+   "family": "renal and hepatic dysfunction coupling",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-S-CF-010",
+   "stratum": "simple",
+   "family": "renal and hepatic dysfunction coupling",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-S-CF-011",
+   "stratum": "conflict",
+   "family": "renal and hepatic dysfunction coupling",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-S-CF-012",
+   "stratum": "nonmono",
+   "family": "renal and hepatic dysfunction coupling",
+   "intervention": "mask"
+  },
+  {
+   "pair_id": "PG-S-CF-013",
+   "stratum": "conflict",
+   "family": "coagulopathy with glycocalyx shedding",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-S-CF-014",
+   "stratum": "conflict",
+   "family": "coagulopathy with glycocalyx shedding",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-S-CF-015",
+   "stratum": "turning",
+   "family": "coagulopathy with glycocalyx shedding",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-S-CF-016",
+   "stratum": "simple",
+   "family": "coagulopathy with glycocalyx shedding",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-S-CF-017",
+   "stratum": "conflict",
+   "family": "coagulopathy with glycocalyx shedding",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-S-CF-018",
+   "stratum": "nonmono",
+   "family": "coagulopathy with glycocalyx shedding",
+   "intervention": "mask"
+  },
+  {
+   "pair_id": "PG-S-CF-019",
+   "stratum": "conflict",
+   "family": "resolution with restitution",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-S-CF-020",
+   "stratum": "conflict",
+   "family": "resolution with restitution",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-S-CF-021",
+   "stratum": "turning",
+   "family": "resolution with restitution",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-S-CF-022",
+   "stratum": "simple",
+   "family": "resolution with restitution",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-S-CF-023",
+   "stratum": "conflict",
+   "family": "resolution with restitution",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-S-CF-024",
+   "stratum": "nonmono",
+   "family": "resolution with restitution",
+   "intervention": "mask"
+  }
+ ],
+ "pair_families": {
+  "vasoplegia with myocardial depression": 6,
+  "renal and hepatic dysfunction coupling": 6,
+  "coagulopathy with glycocalyx shedding": 6,
+  "resolution with restitution": 6
+ }
+}

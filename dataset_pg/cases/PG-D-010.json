@@ -1,0 +1,226 @@
+{
+  "case_id": "PG-D-010",
+  "split": "dev",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 7,
+  "patient": {
+    "age": 66,
+    "sex": "F",
+    "frailty": "severe",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "hypothyroidism"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "bilious vomiting, unintentional weight loss, watery diarrhoea",
+    "duration_days": 4,
+    "vital_signs": {
+      "hr": 116,
+      "map": 82,
+      "temp": 36.4,
+      "spo2": 96
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "lactate": 0.46,
+        "WBC": 2.4,
+        "creatinine": 1.56,
+        "albumin": 3.2
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "ALT": 1.1,
+        "total bilirubin": 1.03,
+        "ALP": 2.81,
+        "CRP": 2.93
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "total bilirubin": 2.69,
+        "ALP": 1.58,
+        "lipase": 2.39,
+        "creatinine": 1.3
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-11",
+      "name": "Acid suppression benefit",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.8,
+      "evidence": [
+        "falling duodenal eosinophilia",
+        "improved absorption"
+      ],
+      "confounder": "PPI adherence"
+    },
+    {
+      "id": "MC-05",
+      "name": "Intestinal compensation",
+      "source": "intestine",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.85,
+      "evidence": [
+        "rising serum albumin",
+        "falling gastric residual volume"
+      ],
+      "confounder": "enteral feed rate"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.109,
+          "intestine": 0.219,
+          "gallbladder": 0.211
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.065,
+          "intestine": 0.256,
+          "gallbladder": 0.211
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.02,
+          "intestine": 0.252,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.249,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.245,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.242,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.238,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "stomach",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-11",
+        "expect": "target organ intestine no longer tracks source stomach after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-11",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-11",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-11"
+    }
+  },
+  "fingerprint": "3957c0d89f6863c7"
+}

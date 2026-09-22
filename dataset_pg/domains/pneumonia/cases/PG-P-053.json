@@ -1,0 +1,252 @@
+{
+  "case_id": "PG-P-053",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 6,
+  "patient": {
+    "age": 64,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "cirrhosis",
+      "type 2 diabetes",
+      "immunosuppressive therapy"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "productive cough, reduced exercise tolerance, increasing oxygen requirement",
+    "duration_days": 3,
+    "vital_signs": {
+      "hr": 113,
+      "map": 76,
+      "temp": 39.6,
+      "spo2": 86
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "lactate": 2.6,
+        "CRP": 2.07,
+        "procalcitonin": 2.81,
+        "urea": 0.67
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 1.12,
+        "PaO2/FiO2": 2.57,
+        "lactate": 0.64,
+        "procalcitonin": 2.02
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "creatinine": 2.17,
+        "procalcitonin": 2.57,
+        "WBC": 0.47,
+        "CRP": 1.61
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-07",
+      "name": "Renal sodium retention",
+      "source": "kidney",
+      "target": "pulmonary_vessels",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.67,
+      "evidence": [
+        "positive cumulative balance",
+        "rising body weight"
+      ],
+      "confounder": "diuretic escalation"
+    },
+    {
+      "id": "PM-04",
+      "name": "Pulmonary vascular resistance rise",
+      "source": "pulmonary_vessels",
+      "target": "heart",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.9,
+      "evidence": [
+        "rising right ventricular strain",
+        "elevated central venous pressure"
+      ],
+      "confounder": "positive end-expiratory pressure"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "worsen",
+          "heart": "improve",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.169,
+          "alveoli": 0.108,
+          "pulmonary_vessels": 0.327,
+          "heart": 0.262,
+          "kidney": 0.132,
+          "systemic_inflammation": 0.246
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "worsen",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.169,
+          "alveoli": 0.108,
+          "pulmonary_vessels": 0.361,
+          "heart": 0.274,
+          "kidney": 0.132,
+          "systemic_inflammation": 0.246
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "worsen",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.169,
+          "alveoli": 0.108,
+          "pulmonary_vessels": 0.429,
+          "heart": 0.285,
+          "kidney": 0.132,
+          "systemic_inflammation": 0.246
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "worsen",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.169,
+          "alveoli": 0.108,
+          "pulmonary_vessels": 0.497,
+          "heart": 0.296,
+          "kidney": 0.132,
+          "systemic_inflammation": 0.246
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "worsen",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.169,
+          "alveoli": 0.108,
+          "pulmonary_vessels": 0.565,
+          "heart": 0.307,
+          "kidney": 0.132,
+          "systemic_inflammation": 0.246
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "worsen",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.169,
+          "alveoli": 0.108,
+          "pulmonary_vessels": 0.633,
+          "heart": 0.318,
+          "kidney": 0.132,
+          "systemic_inflammation": 0.246
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "pulmonary_vessels",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-07",
+        "expect": "target organ pulmonary_vessels no longer tracks source kidney after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-07",
+        "expect": "direction of pulmonary_vessels flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-07",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-07",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives pulmonary_vessels?",
+      "expected": "PM-07"
+    }
+  },
+  "fingerprint": "ba84e3ea8643a6e4"
+}

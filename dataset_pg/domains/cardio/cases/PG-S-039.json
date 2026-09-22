@@ -1,0 +1,217 @@
+{
+  "case_id": "PG-S-039",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 59,
+    "sex": "F",
+    "frailty": "fit",
+    "setting": "ICU",
+    "comorbidities": [
+      "cirrhosis",
+      "atrial fibrillation",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "cool extremities, new confusion, reduced capillary refill",
+    "duration_days": 6,
+    "vital_signs": {
+      "hr": 92,
+      "map": 100,
+      "temp": 36.3,
+      "spo2": 87
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "CRP": 1.83,
+        "platelets": 2.85,
+        "troponin": 2.26,
+        "lactate": 0.78
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "lactate": 2.02,
+        "troponin": 0.77,
+        "CRP": 1.86,
+        "creatinine": 2.6
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "creatinine": 2.99,
+        "bilirubin": 1.79,
+        "lactate": 3.13,
+        "INR": 1.13
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-07",
+      "name": "Glycocalyx shedding",
+      "source": "coagulation",
+      "target": "vasculature",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.67,
+      "evidence": [
+        "rising syndecan-1",
+        "increasing fluid requirement"
+      ],
+      "confounder": "albumin administration"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "improve",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.3,
+          "vasculature": 0.187,
+          "kidney": 0.108,
+          "liver": 0.241,
+          "coagulation": 0.339,
+          "lung": 0.299
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "improve",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.3,
+          "vasculature": 0.142,
+          "kidney": 0.108,
+          "liver": 0.241,
+          "coagulation": 0.339,
+          "lung": 0.299
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.3,
+          "vasculature": 0.13,
+          "kidney": 0.108,
+          "liver": 0.241,
+          "coagulation": 0.339,
+          "lung": 0.299
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.3,
+          "vasculature": 0.119,
+          "kidney": 0.108,
+          "liver": 0.241,
+          "coagulation": 0.339,
+          "lung": 0.299
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.3,
+          "vasculature": 0.107,
+          "kidney": 0.108,
+          "liver": 0.241,
+          "coagulation": 0.339,
+          "lung": 0.299
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "vasculature",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-07",
+        "expect": "target organ vasculature no longer tracks source coagulation after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-07",
+        "expect": "direction of vasculature flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-07",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-07",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives vasculature?",
+      "expected": "CM-07"
+    }
+  },
+  "fingerprint": "2fa126846b67c63c"
+}

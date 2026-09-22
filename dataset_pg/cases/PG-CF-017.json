@@ -1,0 +1,171 @@
+{
+ "pair_id": "PG-CF-017",
+ "stratum": "conflict",
+ "mechanism": {
+  "id": "MC-05",
+  "name": "Intestinal compensation",
+  "source": "intestine",
+  "target": "stomach",
+  "sign": "-",
+  "lag": 3
+ },
+ "intervention": {
+  "type": "inject",
+  "edge": "MC-05",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-CF-017-a",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.281,
+     "intestine": 0.25,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.314,
+     "intestine": 0.216,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.347,
+     "intestine": 0.218,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.38,
+     "intestine": 0.22,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.37,
+     "intestine": 0.222,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.36,
+     "intestine": 0.224,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.349,
+     "intestine": 0.226,
+     "gallbladder": 0.213
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-05",
+    "onset": 1,
+    "strength": 0.87
+   },
+   {
+    "id": "MC-09",
+    "onset": 1,
+    "strength": 0.72
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-CF-017-b",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "intervention": {
+   "type": "inject",
+   "edge": "MC-05",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.281,
+     "intestine": 0.25,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.314,
+     "intestine": 0.216,
+     "gallbladder": 0.213
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.287,
+     "intestine": 0.158,
+     "gallbladder": 0.153
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.32,
+     "intestine": 0.16,
+     "gallbladder": 0.153
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.31,
+     "intestine": 0.162,
+     "gallbladder": 0.153
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.3,
+     "intestine": 0.164,
+     "gallbladder": 0.153
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.289,
+     "intestine": 0.166,
+     "gallbladder": 0.153
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-09",
+    "onset": 1,
+    "strength": 0.72
+   }
+  ]
+ },
+ "gold_agreement": true,
+ "family": "gastric hyperacidity with intestinal compensation that later exhausts"
+}

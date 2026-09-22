@@ -1,0 +1,200 @@
+{
+  "case_id": "PG-D-097",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "turning",
+  "horizon": 5,
+  "patient": {
+    "age": 57,
+    "sex": "M",
+    "frailty": "mild",
+    "setting": "general medicine ward",
+    "comorbidities": [
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "early satiety, right upper quadrant discomfort",
+    "duration_days": 20,
+    "vital_signs": {
+      "hr": 67,
+      "map": 61,
+      "temp": 36.6,
+      "spo2": 92
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lactate": 2.47,
+        "lipase": 0.51,
+        "albumin": 2.29,
+        "CRP": 1.53
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "creatinine": 3.11,
+        "ALP": 2.69,
+        "ALT": 2.28,
+        "lipase": 1.09
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "ALT": 1.66,
+        "total bilirubin": 1.15,
+        "CRP": 0.95,
+        "albumin": 1.93
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-04",
+      "name": "Acid load to the small bowel",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.84,
+      "evidence": [
+        "duodenal erosions",
+        "gastric pH < 2"
+      ],
+      "confounder": "H2 blocker timing"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 2,
+      "strength": 0.44,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.184,
+          "intestine": 0.172,
+          "gallbladder": 0.211
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.183,
+          "intestine": 0.154,
+          "gallbladder": 0.209
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.182,
+          "intestine": 0.136,
+          "gallbladder": 0.208
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.159,
+          "intestine": 0.118,
+          "gallbladder": 0.206
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.136,
+          "intestine": 0.101,
+          "gallbladder": 0.204
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      2
+    ],
+    "design_card": {
+      "step": 1,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-04",
+        "expect": "target organ intestine no longer tracks source stomach after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-04",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-04",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-04",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-04"
+    }
+  },
+  "fingerprint": "1ca59c90ba1ff052"
+}

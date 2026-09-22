@@ -1,0 +1,181 @@
+{
+ "pair_id": "PG-CF-029",
+ "stratum": "nonmono",
+ "mechanism": {
+  "id": "MC-02",
+  "name": "Bile acid malabsorption",
+  "source": "gallbladder",
+  "target": "intestine",
+  "sign": "+",
+  "lag": 2
+ },
+ "intervention": {
+  "type": "delete",
+  "edge": "MC-02",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-CF-029-a",
+  "arm": "observed",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.31,
+     "intestine": 0.123,
+     "gallbladder": 0.239
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.306,
+     "intestine": 0.139,
+     "gallbladder": 0.242
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.301,
+     "intestine": 0.155,
+     "gallbladder": 0.245
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.297,
+     "intestine": 0.2,
+     "gallbladder": 0.248
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.255,
+     "intestine": 0.246,
+     "gallbladder": 0.251
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.213,
+     "intestine": 0.321,
+     "gallbladder": 0.254
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.171,
+     "intestine": 0.397,
+     "gallbladder": 0.257
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-02",
+    "onset": 1,
+    "strength": 0.58
+   },
+   {
+    "id": "MC-08",
+    "onset": 2,
+    "strength": 0.75
+   },
+   {
+    "id": "MC-09",
+    "onset": 4,
+    "strength": 0.61
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-CF-029-b",
+  "arm": "counterfactual",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "intervention": {
+   "type": "delete",
+   "edge": "MC-02",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.31,
+     "intestine": 0.123,
+     "gallbladder": 0.239
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.306,
+     "intestine": 0.139,
+     "gallbladder": 0.242
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.241,
+     "intestine": 0.095,
+     "gallbladder": 0.185
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.237,
+     "intestine": 0.14,
+     "gallbladder": 0.188
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.195,
+     "intestine": 0.186,
+     "gallbladder": 0.191
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.153,
+     "intestine": 0.261,
+     "gallbladder": 0.194
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.111,
+     "intestine": 0.337,
+     "gallbladder": 0.197
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-08",
+    "onset": 2,
+    "strength": 0.75
+   },
+   {
+    "id": "MC-09",
+    "onset": 4,
+    "strength": 0.61
+   }
+  ]
+ },
+ "gold_agreement": true,
+ "family": "post-cholecystectomy bile insufficiency with gastrointestinal feedback"
+}

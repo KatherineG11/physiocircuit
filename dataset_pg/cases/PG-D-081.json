@@ -1,0 +1,228 @@
+{
+  "case_id": "PG-D-081",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 7,
+  "patient": {
+    "age": 53,
+    "sex": "F",
+    "frailty": "mild",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "chronic kidney disease stage 3",
+      "prior stroke",
+      "type 2 diabetes"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "watery diarrhoea, post-prandial epigastric fullness",
+    "duration_days": 5,
+    "vital_signs": {
+      "hr": 78,
+      "map": 63,
+      "temp": 36.7,
+      "spo2": 99
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "creatinine": 1.7,
+        "lactate": 2.04,
+        "total bilirubin": 1.59,
+        "WBC": 2.72
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "creatinine": 1.06,
+        "WBC": 1.69,
+        "lactate": 1.55,
+        "ALP": 1.66
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "CRP": 3.07,
+        "WBC": 1.53,
+        "ALP": 1.37,
+        "creatinine": 1.09
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-12",
+      "name": "Gallbladder stasis injury",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.82,
+      "evidence": [
+        "gallbladder sludge",
+        "fasting > 72 h"
+      ],
+      "confounder": "parenteral nutrition"
+    },
+    {
+      "id": "MC-09",
+      "name": "Biliary obstruction cascade",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.6,
+      "evidence": [
+        "dilated bile duct",
+        "rising conjugated bilirubin"
+      ],
+      "confounder": "stent patency"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "improve",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.158,
+          "gallbladder": 0.382
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.147,
+          "gallbladder": 0.454
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.137,
+          "gallbladder": 0.527
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.126,
+          "gallbladder": 0.6
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.115,
+          "gallbladder": 0.672
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.105,
+          "gallbladder": 0.745
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.094,
+          "gallbladder": 0.818
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "gallbladder",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-12",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-12",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-12",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-12",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives gallbladder?",
+      "expected": "MC-12"
+    }
+  },
+  "fingerprint": "cfca9bfc919404fe"
+}

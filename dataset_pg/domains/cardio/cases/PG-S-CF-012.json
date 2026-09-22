@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-S-CF-012",
+ "stratum": "nonmono",
+ "family": "renal and hepatic dysfunction coupling",
+ "mechanism": {
+  "id": "CM-11",
+  "name": "Renal clearance recovery",
+  "source": "kidney",
+  "target": "liver",
+  "sign": "-",
+  "lag": 3
+ },
+ "intervention": {
+  "type": "mask",
+  "edge": "CM-11",
+  "expect": "macro trajectory is unchanged by the removed local evidence"
+ },
+ "observed": {
+  "pair_id": "PG-S-CF-012-observed",
+  "arm": "observed",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "heart": 0.221,
+     "vasculature": 0.185,
+     "kidney": 0.267,
+     "liver": 0.211,
+     "coagulation": 0.212,
+     "lung": 0.202
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "heart": 0.237,
+     "vasculature": 0.185,
+     "kidney": 0.263,
+     "liver": 0.203,
+     "coagulation": 0.192,
+     "lung": 0.198
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "heart": 0.236,
+     "vasculature": 0.198,
+     "kidney": 0.276,
+     "liver": 0.188,
+     "coagulation": 0.19,
+     "lung": 0.197
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "heart": 0.25,
+     "vasculature": 0.223,
+     "kidney": 0.269,
+     "liver": 0.197,
+     "coagulation": 0.176,
+     "lung": 0.189
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "heart": 0.247,
+     "vasculature": 0.224,
+     "kidney": 0.285,
+     "liver": 0.178,
+     "coagulation": 0.171,
+     "lung": 0.183
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "heart": 0.267,
+     "vasculature": 0.235,
+     "kidney": 0.286,
+     "liver": 0.18,
+     "coagulation": 0.165,
+     "lung": 0.174
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "heart": 0.27,
+     "vasculature": 0.259,
+     "kidney": 0.296,
+     "liver": 0.168,
+     "coagulation": 0.143,
+     "lung": 0.177
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "CM-11",
+    "name": "Renal clearance recovery",
+    "source": "kidney",
+    "target": "liver",
+    "sign": "-",
+    "lag": 3
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-S-CF-012-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "heart": 0.221,
+     "vasculature": 0.185,
+     "kidney": 0.267,
+     "liver": 0.211,
+     "coagulation": 0.212,
+     "lung": 0.202
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "heart": 0.237,
+     "vasculature": 0.185,
+     "kidney": 0.263,
+     "liver": 0.203,
+     "coagulation": 0.192,
+     "lung": 0.198
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "heart": 0.236,
+     "vasculature": 0.198,
+     "kidney": 0.276,
+     "liver": 0.188,
+     "coagulation": 0.19,
+     "lung": 0.197
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "heart": 0.25,
+     "vasculature": 0.223,
+     "kidney": 0.269,
+     "liver": 0.172,
+     "coagulation": 0.176,
+     "lung": 0.189
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "heart": 0.247,
+     "vasculature": 0.224,
+     "kidney": 0.285,
+     "liver": 0.153,
+     "coagulation": 0.171,
+     "lung": 0.183
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "heart": 0.267,
+     "vasculature": 0.235,
+     "kidney": 0.286,
+     "liver": 0.155,
+     "coagulation": 0.165,
+     "lung": 0.174
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "heart": 0.27,
+     "vasculature": 0.259,
+     "kidney": 0.296,
+     "liver": 0.143,
+     "coagulation": 0.143,
+     "lung": 0.177
+    }
+   }
+  ],
+  "intervention": {
+   "type": "mask",
+   "edge": "CM-11",
+   "expect": "macro trajectory is unchanged by the removed local evidence"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

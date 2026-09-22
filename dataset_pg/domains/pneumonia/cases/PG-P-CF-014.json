@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-014",
+ "stratum": "conflict",
+ "family": "systemic inflammatory drive",
+ "mechanism": {
+  "id": "PM-10",
+  "name": "Systemic inflammatory drive",
+  "source": "systemic_inflammation",
+  "target": "heart",
+  "sign": "+",
+  "lag": 2
+ },
+ "intervention": {
+  "type": "replace",
+  "edge": "PM-10",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-014-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.133,
+     "alveoli": 0.185,
+     "pulmonary_vessels": 0.221,
+     "heart": 0.178,
+     "kidney": 0.183,
+     "systemic_inflammation": 0.168
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.159,
+     "alveoli": 0.193,
+     "pulmonary_vessels": 0.24,
+     "heart": 0.161,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.174
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.19,
+     "alveoli": 0.198,
+     "pulmonary_vessels": 0.264,
+     "heart": 0.161,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.169
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.21,
+     "alveoli": 0.195,
+     "pulmonary_vessels": 0.273,
+     "heart": 0.155,
+     "kidney": 0.185,
+     "systemic_inflammation": 0.167
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.235,
+     "alveoli": 0.199,
+     "pulmonary_vessels": 0.3,
+     "heart": 0.141,
+     "kidney": 0.176,
+     "systemic_inflammation": 0.158
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.265,
+     "alveoli": 0.206,
+     "pulmonary_vessels": 0.313,
+     "heart": 0.136,
+     "kidney": 0.165,
+     "systemic_inflammation": 0.159
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.298,
+     "alveoli": 0.22,
+     "pulmonary_vessels": 0.335,
+     "heart": 0.135,
+     "kidney": 0.161,
+     "systemic_inflammation": 0.154
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-10",
+    "name": "Systemic inflammatory drive",
+    "source": "systemic_inflammation",
+    "target": "heart",
+    "sign": "+",
+    "lag": 2
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-014-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.133,
+     "alveoli": 0.185,
+     "pulmonary_vessels": 0.221,
+     "heart": 0.178,
+     "kidney": 0.183,
+     "systemic_inflammation": 0.168
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.159,
+     "alveoli": 0.193,
+     "pulmonary_vessels": 0.24,
+     "heart": 0.161,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.174
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.19,
+     "alveoli": 0.198,
+     "pulmonary_vessels": 0.264,
+     "heart": 0.121,
+     "kidney": 0.18,
+     "systemic_inflammation": 0.169
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.21,
+     "alveoli": 0.195,
+     "pulmonary_vessels": 0.273,
+     "heart": 0.115,
+     "kidney": 0.185,
+     "systemic_inflammation": 0.167
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.235,
+     "alveoli": 0.199,
+     "pulmonary_vessels": 0.3,
+     "heart": 0.101,
+     "kidney": 0.176,
+     "systemic_inflammation": 0.158
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.265,
+     "alveoli": 0.206,
+     "pulmonary_vessels": 0.313,
+     "heart": 0.096,
+     "kidney": 0.165,
+     "systemic_inflammation": 0.159
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.298,
+     "alveoli": 0.22,
+     "pulmonary_vessels": 0.335,
+     "heart": 0.095,
+     "kidney": 0.161,
+     "systemic_inflammation": 0.154
+    }
+   }
+  ],
+  "intervention": {
+   "type": "replace",
+   "edge": "PM-10",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

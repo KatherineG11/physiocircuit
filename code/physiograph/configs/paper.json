@@ -1,0 +1,111 @@
+{
+  "schema_version": "physiograph.paper.v1",
+  "main_model": "qwen",
+  "backbone_sweep": ["qwen", "mistral", "deepseek"],
+  "models": {
+    "qwen": {
+      "provider": "dashscope",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "model": "qwen3-235b-a22b-instruct-2507",
+      "expected_snapshot": "Qwen3-235B-A22B-Instruct-2507",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "reasoning_mode": "disabled"
+    },
+    "mistral": {
+      "provider": "mistral",
+      "base_url": "https://api.mistral.ai/v1",
+      "model": "mistral-large-2512",
+      "expected_snapshot": "Mistral-Large-3-675B-Instruct-2512",
+      "api_key_env": "MISTRAL_API_KEY",
+      "reasoning_mode": "disabled"
+    },
+    "deepseek": {
+      "provider": "deepseek",
+      "base_url": "https://api.deepseek.com",
+      "model": "deepseek-v4-pro",
+      "expected_snapshot": "DeepSeek-V4-Pro-0813",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "reasoning_mode": "disabled"
+    }
+  },
+  "generation": {
+    "temperature": 0.2,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "timeout_seconds": 180,
+    "max_retries": 3,
+    "response_format": "json_object"
+  },
+  "inference": {
+    "max_rounds": 1,
+    "alpha_max": 0.6,
+    "alpha_map": {
+      "rejected": 0.0,
+      "partially_accepted": 0.3,
+      "accepted": 0.6
+    },
+    "message_cap_per_directed_edge_per_round": 1,
+    "lag_unit": "forecast_step",
+    "rollout_mode": "autoregressive",
+    "stable_message_order": ["delivery_step", "round_index", "receiver", "message_id"]
+  },
+  "domains": {
+    "digestive": {
+      "cases": "dataset_pg/cases",
+      "cards": "code/physiograph/configs/cards/digestive.json",
+      "graph": "code/physiograph/configs/graphs/digestive.json"
+    },
+    "pneumonia": {
+      "cases": "dataset_pg/domains/pneumonia/cases",
+      "cards": "code/physiograph/configs/cards/pneumonia.json",
+      "graph": "code/physiograph/configs/graphs/pneumonia.json"
+    },
+    "cardio": {
+      "cases": "dataset_pg/domains/cardio/cases",
+      "cards": "code/physiograph/configs/cards/cardio.json",
+      "graph": "code/physiograph/configs/graphs/cardio.json"
+    }
+  },
+  "data": {
+    "legacy_l1": "dataset_pg/l1",
+    "run_output": "runs/physiograph",
+    "gold_policy": "score_only",
+    "prompt_allowlist": [
+      "case_id",
+      "domain",
+      "horizon",
+      "patient",
+      "presentation",
+      "observed_prefix",
+      "evidence_nodes",
+      "treatments",
+      "predicted_history"
+    ]
+  },
+  "methods": {
+    "A": "global_no_rag",
+    "B": "global_card_rag",
+    "C": "independent_organs",
+    "D": "typed_communication_no_gates",
+    "E": "dev_optimized_voting",
+    "F": "compute_matched_no_graph",
+    "G": "free_text_graph",
+    "H": "random_graph",
+    "I": "topology_suite",
+    "J": "control_suite",
+    "K": "vital_trace_style",
+    "L": "implicit_graph"
+  },
+  "statistics": {
+    "runs": 3,
+    "bootstrap_samples": 10000,
+    "confidence": 0.95,
+    "multiple_comparison": "holm",
+    "cluster_unit": "case_id"
+  },
+  "logging": {
+    "raw_responses": true,
+    "redact_api_keys": true,
+    "flush_each_case": true
+  }
+}

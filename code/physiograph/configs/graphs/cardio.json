@@ -1,0 +1,36 @@
+{
+  "domain": "cardio",
+  "nodes": ["heart", "vasculature", "kidney", "liver", "coagulation", "lung"],
+  "core_organs": ["heart", "vasculature", "kidney", "liver", "coagulation", "lung"],
+  "edges": [
+    {"source": "vasculature", "target": "heart", "mechanism_ids": ["CM-01"]},
+    {"source": "vasculature", "target": "kidney", "mechanism_ids": ["CM-02"]},
+    {"source": "heart", "target": "vasculature", "mechanism_ids": ["CM-03"]},
+    {"source": "kidney", "target": "vasculature", "mechanism_ids": ["CM-04"]},
+    {"source": "liver", "target": "coagulation", "mechanism_ids": ["CM-05"]},
+    {"source": "coagulation", "target": "liver", "mechanism_ids": ["CM-06"]},
+    {"source": "coagulation", "target": "vasculature", "mechanism_ids": ["CM-07"]},
+    {"source": "vasculature", "target": "lung", "mechanism_ids": ["CM-08"]},
+    {"source": "lung", "target": "heart", "mechanism_ids": ["CM-09"]},
+    {"source": "liver", "target": "heart", "mechanism_ids": ["CM-10"]},
+    {"source": "kidney", "target": "liver", "mechanism_ids": ["CM-11"]},
+    {"source": "liver", "target": "vasculature", "mechanism_ids": ["CM-12"]}
+  ],
+  "aggregation_weights": {
+    "heart": 0.20,
+    "vasculature": 0.20,
+    "kidney": 0.16,
+    "liver": 0.15,
+    "coagulation": 0.14,
+    "lung": 0.15
+  },
+  "phase_thresholds": {
+    "baseline": 0.58,
+    "load_accumulation": 0.43,
+    "compensation": 0.36,
+    "conflict_emerges": 0.08,
+    "decompensation": 0.58,
+    "recovery": 0.52,
+    "residual_state": 0.48
+  }
+}

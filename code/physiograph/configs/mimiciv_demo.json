@@ -1,0 +1,62 @@
+{
+  "schema_version": "physiocircuit.mimiciv-config.v1",
+  "main_model": "qwen",
+  "models": {
+    "qwen": {
+      "provider": "dashscope",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "model": "qwen3-235b-a22b-instruct-2507",
+      "expected_snapshot": "Qwen3-235B-A22B-Instruct-2507",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "reasoning_mode": "disabled"
+    }
+  },
+  "generation": {
+    "temperature": 0.2,
+    "top_p": 1.0,
+    "max_tokens": 1024,
+    "timeout_seconds": 180,
+    "max_retries": 3,
+    "response_format": "json_object"
+  },
+  "inference": {
+    "max_rounds": 1,
+    "alpha_max": 0.6,
+    "message_cap_per_directed_edge_per_round": 1,
+    "lag_unit": "forecast_step",
+    "rollout_mode": "autoregressive",
+    "stable_message_order": ["delivery_step", "round_index", "receiver", "message_id"]
+  },
+  "domains": {
+    "digestive": {
+      "cases": "code/runs/mimiciv_physiocircuit/digestive/public.jsonl",
+      "cards": "code/physiograph/configs/cards/digestive.json",
+      "graph": "code/physiograph/configs/graphs/digestive.json"
+    },
+    "pneumonia": {
+      "cases": "code/runs/mimiciv_physiocircuit/pneumonia/public.jsonl",
+      "cards": "code/physiograph/configs/cards/pneumonia.json",
+      "graph": "code/physiograph/configs/graphs/pneumonia.json"
+    },
+    "cardio": {
+      "cases": "code/runs/mimiciv_physiocircuit/cardio/public.jsonl",
+      "cards": "code/physiograph/configs/cards/cardio.json",
+      "graph": "code/physiograph/configs/graphs/cardio.json"
+    }
+  },
+  "data": {
+    "gold_policy": "score_only",
+    "run_output": "code/runs/mimiciv_experiments"
+  },
+  "statistics": {
+    "runs": 3,
+    "bootstrap_samples": 10000,
+    "confidence": 0.95,
+    "cluster_unit": "case_id"
+  },
+  "logging": {
+    "raw_responses": true,
+    "redact_api_keys": true,
+    "flush_each_case": true
+  }
+}

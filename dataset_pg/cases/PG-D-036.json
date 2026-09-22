@@ -1,0 +1,184 @@
+{
+  "case_id": "PG-D-036",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 77,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "chronic kidney disease stage 3",
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "nausea after fatty meals, early satiety, watery diarrhoea",
+    "duration_days": 18,
+    "vital_signs": {
+      "hr": 97,
+      "map": 88,
+      "temp": 36.2,
+      "spo2": 99
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "total bilirubin": 1.53,
+        "albumin": 2.55,
+        "WBC": 0.41,
+        "ALP": 0.57
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "total bilirubin": 2.08,
+        "ALP": 1.7,
+        "creatinine": 1.96,
+        "WBC": 0.56
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lipase": 3.0,
+        "lactate": 3.04,
+        "ALP": 1.44,
+        "CRP": 1.26
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-05",
+      "name": "Intestinal compensation",
+      "source": "intestine",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.74,
+      "evidence": [
+        "rising serum albumin",
+        "falling gastric residual volume"
+      ],
+      "confounder": "enteral feed rate"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.39,
+          "intestine": 0.126,
+          "gallbladder": 0.288
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.435,
+          "intestine": 0.126,
+          "gallbladder": 0.288
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.48,
+          "intestine": 0.126,
+          "gallbladder": 0.288
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.488,
+          "intestine": 0.126,
+          "gallbladder": 0.288
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.496,
+          "intestine": 0.126,
+          "gallbladder": 0.288
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "stomach",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-05",
+        "expect": "target organ stomach no longer tracks source intestine after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-05",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-05",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-05",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-05"
+    }
+  },
+  "fingerprint": "c70b1de406a8fb2b"
+}

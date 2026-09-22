@@ -1,0 +1,228 @@
+{
+  "case_id": "PG-D-112",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "patient": {
+    "age": 85,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "atrial fibrillation",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "watery diarrhoea, nocturnal abdominal cramping, unintentional weight loss",
+    "duration_days": 13,
+    "vital_signs": {
+      "hr": 115,
+      "map": 102,
+      "temp": 36.5,
+      "spo2": 96
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "lactate": 1.34,
+        "lipase": 2.17,
+        "WBC": 2.01,
+        "CRP": 2.83
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "ALT": 1.7,
+        "CRP": 2.11,
+        "creatinine": 1.81,
+        "WBC": 1.65
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "WBC": 2.57,
+        "lactate": 0.67,
+        "total bilirubin": 0.95,
+        "ALT": 0.71
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-06",
+      "name": "Post-cholecystectomy bile insufficiency",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.73,
+      "evidence": [
+        "steatorrhoea",
+        "history of cholecystectomy"
+      ],
+      "confounder": "dietary fat content"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 2,
+      "strength": 0.54,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    },
+    {
+      "id": "MC-04",
+      "name": "Acid load to the small bowel",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 5,
+      "strength": 0.63,
+      "evidence": [
+        "duodenal erosions",
+        "gastric pH < 2"
+      ],
+      "confounder": "H2 blocker timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.225,
+          "intestine": 0.212,
+          "gallbladder": 0.322
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.233,
+          "intestine": 0.264,
+          "gallbladder": 0.328
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.242,
+          "intestine": 0.316,
+          "gallbladder": 0.333
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.224,
+          "intestine": 0.368,
+          "gallbladder": 0.339
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.205,
+          "intestine": 0.42,
+          "gallbladder": 0.344
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.187,
+          "intestine": 0.503,
+          "gallbladder": 0.35
+        },
+        "phase": "load_accumulation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 6,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-06",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-06",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-06",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-06",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-06"
+    }
+  },
+  "fingerprint": "101cd532b1fe1f82"
+}

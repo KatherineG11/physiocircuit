@@ -1,0 +1,271 @@
+{
+  "case_id": "PG-S-071",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "conflict",
+  "horizon": 7,
+  "patient": {
+    "age": 66,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "ICU",
+    "comorbidities": [
+      "chronic obstructive pulmonary disease",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "oliguria over 12 hours, reduced capillary refill, rising vasopressor requirement",
+    "duration_days": 11,
+    "vital_signs": {
+      "hr": 107,
+      "map": 88,
+      "temp": 38.6,
+      "spo2": 91
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "troponin": 1.27,
+        "platelets": 1.05,
+        "lactate": 2.98,
+        "CRP": 2.47
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "CRP": 1.33,
+        "troponin": 1.0,
+        "platelets": 1.38,
+        "INR": 2.9
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "troponin": 1.33,
+        "bilirubin": 1.28,
+        "lactate": 2.9,
+        "CRP": 1.35
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-03",
+      "name": "Myocardial depression",
+      "source": "heart",
+      "target": "vasculature",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.84,
+      "evidence": [
+        "falling ejection fraction",
+        "widened arteriovenous oxygen gap"
+      ],
+      "confounder": "inotrope support"
+    },
+    {
+      "id": "CM-08",
+      "name": "Pulmonary endothelial injury",
+      "source": "vasculature",
+      "target": "lung",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.85,
+      "evidence": [
+        "falling PaO2/FiO2",
+        "increasing shunt fraction"
+      ],
+      "confounder": "ventilator settings"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "improve"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.188,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.171
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.231,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.169
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.316,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.168
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.401,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.166
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.486,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.165
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.57,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.163
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.655,
+          "kidney": 0.284,
+          "liver": 0.264,
+          "coagulation": 0.241,
+          "lung": 0.162
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 6,
+      "organ": "vasculature",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-03",
+        "expect": "target organ vasculature no longer tracks source heart after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-03",
+        "expect": "direction of vasculature flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-03",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-03",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives vasculature?",
+      "expected": "CM-03"
+    }
+  },
+  "fingerprint": "7701a9099e0c29fc"
+}

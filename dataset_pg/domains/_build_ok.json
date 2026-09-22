@@ -1,0 +1,14 @@
+{
+  "pneumonia": {
+    "backbone": "Kimi-K2.7-Code",
+    "organs": 6,
+    "items": 3600,
+    "pg": 84.9
+  },
+  "cardio": {
+    "backbone": "Qwen3-Max",
+    "organs": 6,
+    "items": 3600,
+    "pg": 86.1
+  }
+}

@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-007",
+ "stratum": "conflict",
+ "family": "alveolar flooding with vascular loading",
+ "mechanism": {
+  "id": "PM-02",
+  "name": "Alveolar flooding",
+  "source": "alveoli",
+  "target": "pulmonary_vessels",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "delete",
+  "edge": "PM-02",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-007-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.174,
+     "alveoli": 0.15,
+     "pulmonary_vessels": 0.189,
+     "heart": 0.256,
+     "kidney": 0.269,
+     "systemic_inflammation": 0.242
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.175,
+     "alveoli": 0.152,
+     "pulmonary_vessels": 0.187,
+     "heart": 0.257,
+     "kidney": 0.296,
+     "systemic_inflammation": 0.259
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.162,
+     "alveoli": 0.142,
+     "pulmonary_vessels": 0.181,
+     "heart": 0.253,
+     "kidney": 0.321,
+     "systemic_inflammation": 0.28
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.148,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.173,
+     "heart": 0.249,
+     "kidney": 0.343,
+     "systemic_inflammation": 0.294
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.143,
+     "alveoli": 0.125,
+     "pulmonary_vessels": 0.181,
+     "heart": 0.243,
+     "kidney": 0.366,
+     "systemic_inflammation": 0.321
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.142,
+     "alveoli": 0.125,
+     "pulmonary_vessels": 0.165,
+     "heart": 0.236,
+     "kidney": 0.395,
+     "systemic_inflammation": 0.336
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.132,
+     "alveoli": 0.113,
+     "pulmonary_vessels": 0.165,
+     "heart": 0.243,
+     "kidney": 0.423,
+     "systemic_inflammation": 0.359
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-02",
+    "name": "Alveolar flooding",
+    "source": "alveoli",
+    "target": "pulmonary_vessels",
+    "sign": "+",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-007-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.174,
+     "alveoli": 0.15,
+     "pulmonary_vessels": 0.189,
+     "heart": 0.256,
+     "kidney": 0.269,
+     "systemic_inflammation": 0.242
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.175,
+     "alveoli": 0.152,
+     "pulmonary_vessels": 0.132,
+     "heart": 0.257,
+     "kidney": 0.296,
+     "systemic_inflammation": 0.259
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.162,
+     "alveoli": 0.142,
+     "pulmonary_vessels": 0.126,
+     "heart": 0.253,
+     "kidney": 0.321,
+     "systemic_inflammation": 0.28
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.148,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.118,
+     "heart": 0.249,
+     "kidney": 0.343,
+     "systemic_inflammation": 0.294
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.143,
+     "alveoli": 0.125,
+     "pulmonary_vessels": 0.126,
+     "heart": 0.243,
+     "kidney": 0.366,
+     "systemic_inflammation": 0.321
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.142,
+     "alveoli": 0.125,
+     "pulmonary_vessels": 0.11,
+     "heart": 0.236,
+     "kidney": 0.395,
+     "systemic_inflammation": 0.336
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.132,
+     "alveoli": 0.113,
+     "pulmonary_vessels": 0.11,
+     "heart": 0.243,
+     "kidney": 0.423,
+     "systemic_inflammation": 0.359
+    }
+   }
+  ],
+  "intervention": {
+   "type": "delete",
+   "edge": "PM-02",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

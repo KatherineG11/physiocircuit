@@ -1,0 +1,242 @@
+{
+  "case_id": "PG-D-082",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 8,
+  "patient": {
+    "age": 47,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "atrial fibrillation",
+      "chronic obstructive pulmonary disease",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "early satiety, post-prandial epigastric fullness, bilious vomiting",
+    "duration_days": 4,
+    "vital_signs": {
+      "hr": 89,
+      "map": 63,
+      "temp": 38.2,
+      "spo2": 93
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -9",
+      "labs": {
+        "WBC": 0.47,
+        "lipase": 1.75,
+        "ALT": 2.42,
+        "ALP": 2.91
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -8",
+      "labs": {
+        "albumin": 2.26,
+        "lactate": 2.58,
+        "creatinine": 2.0,
+        "ALP": 1.77
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -7",
+      "labs": {
+        "creatinine": 2.07,
+        "total bilirubin": 1.28,
+        "CRP": 2.85,
+        "ALT": 1.95
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-07",
+      "name": "Enterohepatic feedback",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.75,
+      "evidence": [
+        "normalising bile acid pool",
+        "falling ALP"
+      ],
+      "confounder": "ileal resection length"
+    },
+    {
+      "id": "MC-05",
+      "name": "Intestinal compensation",
+      "source": "intestine",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.73,
+      "evidence": [
+        "rising serum albumin",
+        "falling gastric residual volume"
+      ],
+      "confounder": "enteral feed rate"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.176,
+          "intestine": 0.152,
+          "gallbladder": 0.223
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.13,
+          "intestine": 0.152,
+          "gallbladder": 0.253
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "worsen"
+        },
+        "severity": {
+          "stomach": 0.084,
+          "intestine": 0.152,
+          "gallbladder": 0.284
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.002,
+          "intestine": 0.152,
+          "gallbladder": 0.277
+        },
+        "phase": "residual_state"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.152,
+          "gallbladder": 0.27
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.152,
+          "gallbladder": 0.263
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.152,
+          "gallbladder": 0.256
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 8,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.152,
+          "gallbladder": 0.249
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 4,
+      "organ": "stomach",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-07",
+        "expect": "target organ gallbladder no longer tracks source intestine after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-07",
+        "expect": "direction of gallbladder flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-07",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-07",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-07"
+    }
+  },
+  "fingerprint": "4d4778b8c295d4dd"
+}

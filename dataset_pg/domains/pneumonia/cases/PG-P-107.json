@@ -1,0 +1,217 @@
+{
+  "case_id": "PG-P-107",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "turning",
+  "horizon": 5,
+  "patient": {
+    "age": 73,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "emergency department",
+    "comorbidities": [
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "fever with rigors, productive cough, confusion in the evening",
+    "duration_days": 2,
+    "vital_signs": {
+      "hr": 119,
+      "map": 54,
+      "temp": 36.1,
+      "spo2": 86
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "WBC": 2.61,
+        "creatinine": 0.99,
+        "procalcitonin": 2.78,
+        "PaO2/FiO2": 2.72
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "creatinine": 3.07,
+        "CRP": 1.29,
+        "WBC": 2.85,
+        "procalcitonin": 1.31
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "PaO2/FiO2": 1.03,
+        "WBC": 1.88,
+        "procalcitonin": 2.56,
+        "creatinine": 1.28
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-12",
+      "name": "Effective cough clearance",
+      "source": "airway",
+      "target": "alveoli",
+      "sign": "-",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.83,
+      "evidence": [
+        "improved breath sounds",
+        "rising tidal volume"
+      ],
+      "confounder": "sedation depth"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.309,
+          "alveoli": 0.36,
+          "pulmonary_vessels": 0.285,
+          "heart": 0.146,
+          "kidney": 0.275,
+          "systemic_inflammation": 0.175
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.3,
+          "alveoli": 0.351,
+          "pulmonary_vessels": 0.281,
+          "heart": 0.147,
+          "kidney": 0.284,
+          "systemic_inflammation": 0.168
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "improve",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.32,
+          "alveoli": 0.238,
+          "pulmonary_vessels": 0.287,
+          "heart": 0.146,
+          "kidney": 0.271,
+          "systemic_inflammation": 0.181
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "improve",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.339,
+          "alveoli": 0.126,
+          "pulmonary_vessels": 0.293,
+          "heart": 0.145,
+          "kidney": 0.258,
+          "systemic_inflammation": 0.195
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "improve",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.359,
+          "alveoli": 0.013,
+          "pulmonary_vessels": 0.298,
+          "heart": 0.144,
+          "kidney": 0.245,
+          "systemic_inflammation": 0.209
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      3
+    ],
+    "design_card": {
+      "step": 4,
+      "organ": "alveoli",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-12",
+        "expect": "target organ alveoli no longer tracks source airway after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-12",
+        "expect": "direction of alveoli flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-12",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-12",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives alveoli?",
+      "expected": "PM-12"
+    }
+  },
+  "fingerprint": "82e2207ff706f89d"
+}

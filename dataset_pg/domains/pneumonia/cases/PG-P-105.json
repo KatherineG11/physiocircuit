@@ -1,0 +1,259 @@
+{
+  "case_id": "PG-P-105",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "turning",
+  "horizon": 7,
+  "patient": {
+    "age": 48,
+    "sex": "F",
+    "frailty": "fit",
+    "setting": "respiratory ward",
+    "comorbidities": [
+      "cirrhosis",
+      "chronic obstructive pulmonary disease",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "productive cough, reduced exercise tolerance, pleuritic chest pain",
+    "duration_days": 6,
+    "vital_signs": {
+      "hr": 87,
+      "map": 101,
+      "temp": 37.0,
+      "spo2": 95
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "lactate": 2.65,
+        "procalcitonin": 1.95,
+        "creatinine": 1.65,
+        "WBC": 3.14
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "urea": 2.32,
+        "lactate": 2.51,
+        "WBC": 1.53,
+        "PaO2/FiO2": 2.66
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 1.01,
+        "procalcitonin": 2.11,
+        "urea": 1.11,
+        "PaO2/FiO2": 1.04
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-08",
+      "name": "Uraemic mucosal injury",
+      "source": "kidney",
+      "target": "airway",
+      "sign": "+",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.75,
+      "evidence": [
+        "rising urea",
+        "inspissated secretions"
+      ],
+      "confounder": "renal replacement timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "worsen",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.202,
+          "alveoli": 0.302,
+          "pulmonary_vessels": 0.206,
+          "heart": 0.107,
+          "kidney": 0.092,
+          "systemic_inflammation": 0.189
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.138,
+          "alveoli": 0.292,
+          "pulmonary_vessels": 0.194,
+          "heart": 0.104,
+          "kidney": 0.109,
+          "systemic_inflammation": 0.167
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.074,
+          "alveoli": 0.283,
+          "pulmonary_vessels": 0.182,
+          "heart": 0.101,
+          "kidney": 0.127,
+          "systemic_inflammation": 0.146
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.047,
+          "alveoli": 0.273,
+          "pulmonary_vessels": 0.17,
+          "heart": 0.097,
+          "kidney": 0.145,
+          "systemic_inflammation": 0.124
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.021,
+          "alveoli": 0.263,
+          "pulmonary_vessels": 0.159,
+          "heart": 0.094,
+          "kidney": 0.162,
+          "systemic_inflammation": 0.103
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.0,
+          "alveoli": 0.253,
+          "pulmonary_vessels": 0.147,
+          "heart": 0.09,
+          "kidney": 0.18,
+          "systemic_inflammation": 0.081
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.0,
+          "alveoli": 0.244,
+          "pulmonary_vessels": 0.135,
+          "heart": 0.087,
+          "kidney": 0.197,
+          "systemic_inflammation": 0.06
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      2
+    ],
+    "design_card": {
+      "step": 3,
+      "organ": "airway",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-08",
+        "expect": "target organ airway no longer tracks source kidney after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-08",
+        "expect": "direction of airway flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-08",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-08",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives airway?",
+      "expected": "PM-08"
+    }
+  },
+  "fingerprint": "3ad2f7a0d311d03f"
+}

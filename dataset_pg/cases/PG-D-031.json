@@ -1,0 +1,183 @@
+{
+  "case_id": "PG-D-031",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 69,
+    "sex": "F",
+    "frailty": "severe",
+    "setting": "general medicine ward",
+    "comorbidities": [
+      "atrial fibrillation"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "unintentional weight loss, right upper quadrant discomfort",
+    "duration_days": 15,
+    "vital_signs": {
+      "hr": 118,
+      "map": 78,
+      "temp": 38.6,
+      "spo2": 92
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 1.82,
+        "ALT": 1.5,
+        "lactate": 0.75,
+        "total bilirubin": 0.92
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "WBC": 3.1,
+        "lactate": 2.56,
+        "ALT": 0.44,
+        "CRP": 1.64
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lactate": 1.64,
+        "CRP": 1.98,
+        "total bilirubin": 1.8,
+        "creatinine": 1.5
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-10",
+      "name": "Dysbiosis drive",
+      "source": "intestine",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.51,
+      "evidence": [
+        "breath test positive",
+        "rising gastric residual"
+      ],
+      "confounder": "antibiotic exposure"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.222,
+          "intestine": 0.323,
+          "gallbladder": 0.222
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.177,
+          "intestine": 0.323,
+          "gallbladder": 0.222
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.132,
+          "intestine": 0.323,
+          "gallbladder": 0.222
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.112,
+          "intestine": 0.323,
+          "gallbladder": 0.222
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.093,
+          "intestine": 0.323,
+          "gallbladder": 0.222
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "stomach",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-10",
+        "expect": "target organ stomach no longer tracks source intestine after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-10",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-10",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-10",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-10"
+    }
+  },
+  "fingerprint": "2229a9d3ff44d7b8"
+}

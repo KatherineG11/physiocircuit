@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-016",
+ "stratum": "simple",
+ "family": "systemic inflammatory drive",
+ "mechanism": {
+  "id": "PM-13",
+  "name": "Inflammatory resolution",
+  "source": "systemic_inflammation",
+  "target": "systemic_inflammation",
+  "sign": "-",
+  "lag": 3
+ },
+ "intervention": {
+  "type": "lag",
+  "edge": "PM-13",
+  "expect": "macro response shifts later inside the extended window"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-016-observed",
+  "arm": "observed",
+  "stratum": "simple",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.152,
+     "alveoli": 0.227,
+     "pulmonary_vessels": 0.297,
+     "heart": 0.216,
+     "kidney": 0.153,
+     "systemic_inflammation": 0.241
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.164,
+     "alveoli": 0.221,
+     "pulmonary_vessels": 0.3,
+     "heart": 0.213,
+     "kidney": 0.156,
+     "systemic_inflammation": 0.245
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.166,
+     "alveoli": 0.238,
+     "pulmonary_vessels": 0.318,
+     "heart": 0.205,
+     "kidney": 0.159,
+     "systemic_inflammation": 0.259
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.188,
+     "alveoli": 0.244,
+     "pulmonary_vessels": 0.327,
+     "heart": 0.206,
+     "kidney": 0.153,
+     "systemic_inflammation": 0.27
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.191,
+     "alveoli": 0.248,
+     "pulmonary_vessels": 0.34,
+     "heart": 0.2,
+     "kidney": 0.155,
+     "systemic_inflammation": 0.265
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.197,
+     "alveoli": 0.252,
+     "pulmonary_vessels": 0.362,
+     "heart": 0.207,
+     "kidney": 0.166,
+     "systemic_inflammation": 0.274
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.21,
+     "alveoli": 0.254,
+     "pulmonary_vessels": 0.363,
+     "heart": 0.203,
+     "kidney": 0.168,
+     "systemic_inflammation": 0.288
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-13",
+    "name": "Inflammatory resolution",
+    "source": "systemic_inflammation",
+    "target": "systemic_inflammation",
+    "sign": "-",
+    "lag": 3
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-016-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "simple",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.152,
+     "alveoli": 0.227,
+     "pulmonary_vessels": 0.297,
+     "heart": 0.216,
+     "kidney": 0.153,
+     "systemic_inflammation": 0.241
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.164,
+     "alveoli": 0.221,
+     "pulmonary_vessels": 0.3,
+     "heart": 0.213,
+     "kidney": 0.156,
+     "systemic_inflammation": 0.245
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.166,
+     "alveoli": 0.238,
+     "pulmonary_vessels": 0.318,
+     "heart": 0.205,
+     "kidney": 0.159,
+     "systemic_inflammation": 0.259
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.188,
+     "alveoli": 0.244,
+     "pulmonary_vessels": 0.327,
+     "heart": 0.206,
+     "kidney": 0.153,
+     "systemic_inflammation": 0.24
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.191,
+     "alveoli": 0.248,
+     "pulmonary_vessels": 0.34,
+     "heart": 0.2,
+     "kidney": 0.155,
+     "systemic_inflammation": 0.235
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.197,
+     "alveoli": 0.252,
+     "pulmonary_vessels": 0.362,
+     "heart": 0.207,
+     "kidney": 0.166,
+     "systemic_inflammation": 0.244
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.21,
+     "alveoli": 0.254,
+     "pulmonary_vessels": 0.363,
+     "heart": 0.203,
+     "kidney": 0.168,
+     "systemic_inflammation": 0.258
+    }
+   }
+  ],
+  "intervention": {
+   "type": "lag",
+   "edge": "PM-13",
+   "expect": "macro response shifts later inside the extended window"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

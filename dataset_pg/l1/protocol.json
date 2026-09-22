@@ -1,0 +1,105 @@
+{
+ "cases": {
+  "per_system": 120,
+  "dev": 20,
+  "blind": 100,
+  "future_time_points": [
+   5,
+   8
+  ],
+  "robustness_variants": [
+   "missing observations",
+   "noisy values",
+   "reordered descriptions"
+  ]
+ },
+ "mechanism_cards": {
+  "digestive": 12,
+  "pneumonia": 14,
+  "cardio": 12
+ },
+ "gates": {
+  "total": 14,
+  "receiver_conditions": 7
+ },
+ "arbitration": {
+  "verdicts": [
+   "accepted",
+   "partially accepted",
+   "rejected"
+  ],
+  "alpha_max": 0.6
+ },
+ "intervention_types": [
+  "delete",
+  "replace",
+  "reverse",
+  "lag",
+  "inject",
+  "mask"
+ ],
+ "baselines": [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L"
+ ],
+ "independence": {
+  "overlap_bound": 0.3,
+  "overlap": {
+   "digestive": 0.217,
+   "pneumonia": 0.194,
+   "cardio": 0.231
+  }
+ },
+ "probe": {
+  "n_wrong_rules_injected": 18,
+  "min_wrong_rules": 15,
+  "require_correct_ge": 0.8,
+  "n": 1000,
+  "outcomes": {
+   "1": "medically correct",
+   "2": "follows injected wrong rule",
+   "0": "no response"
+  },
+  "truth_retrieval_aligned_with_wrong": 0.923
+ },
+ "truth_review": {
+  "n_raters": 2,
+  "third_reviewer": true,
+  "n_per_system": {
+   "digestive": 120,
+   "pneumonia": 120,
+   "cardio": 120
+  }
+ },
+ "expert": {
+  "n_raters": 5,
+  "trajectories_per_system": 80,
+  "scale": 5,
+  "acceptable_from": 4
+ },
+ "policy": {
+  "n_pairs": 60,
+  "per_system": 20,
+  "delay_steps": [
+   2,
+   4
+  ]
+ },
+ "real_pillar": {
+  "admissions_per_system": 200,
+  "observations_per_system": 2000,
+  "source": "MIMIC-IV",
+  "per_admission_observations": 10
+ },
+ "note": "Protocol constants referenced in the main paper; each entry can be cross-verified against other files in dataset_pg."
+}

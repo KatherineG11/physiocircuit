@@ -1,0 +1,146 @@
+{
+  "schema_version": "physiograph.cards.v1",
+  "domain": "pneumonia",
+  "cards": [
+    {
+      "mechanism_id": "PM-01", "source": "airway", "target": "alveoli",
+      "source_variables": ["airway_secretions", "airway_resistance"],
+      "target_variables": ["alveolar_ventilation", "alveolar_collapse"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["coarse crackles", "rising airway resistance"],
+      "counterevidence": ["effective secretion clearance"],
+      "treatment_bindings": [{"treatment": "chest physiotherapy", "action": "suppress"}],
+      "mechanism_description": "Retained secretions plug small airways and collapse downstream alveolar units."
+    },
+    {
+      "mechanism_id": "PM-02", "source": "alveoli", "target": "pulmonary_vessels",
+      "source_variables": ["alveolar_fluid", "oxygenation"],
+      "target_variables": ["pulmonary_vascular_resistance"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["bilateral infiltrates", "falling PaO2/FiO2"],
+      "counterevidence": ["clearing infiltrates"],
+      "treatment_bindings": [{"treatment": "diuretic", "action": "suppress"}],
+      "mechanism_description": "Fluid-filled alveoli raise pulmonary vascular resistance."
+    },
+    {
+      "mechanism_id": "PM-03", "source": "alveoli", "target": "pulmonary_vessels",
+      "source_variables": ["regional_hypoxia", "shunt_fraction"],
+      "target_variables": ["pulmonary_arteriolar_tone", "pulmonary_artery_pressure"],
+      "allowed_directions": ["worsen"], "lag_steps": [0, 0],
+      "activation_evidence": ["regional shunt fraction", "pulmonary artery pressure"],
+      "counterevidence": ["normal regional oxygenation"],
+      "treatment_bindings": [{"treatment": "inhaled nitric oxide", "action": "suppress"}],
+      "mechanism_description": "Regional hypoxia constricts pulmonary arterioles."
+    },
+    {
+      "mechanism_id": "PM-04", "source": "pulmonary_vessels", "target": "heart",
+      "source_variables": ["pulmonary_vascular_resistance", "central_venous_pressure"],
+      "target_variables": ["right_ventricular_strain", "cardiac_output"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["rising right ventricular strain", "elevated central venous pressure"],
+      "counterevidence": ["normal right ventricular load"],
+      "treatment_bindings": [{"treatment": "PEEP reduction", "action": "suppress"}],
+      "mechanism_description": "Raised pulmonary vascular resistance loads the right ventricle."
+    },
+    {
+      "mechanism_id": "PM-05", "source": "heart", "target": "pulmonary_vessels",
+      "source_variables": ["right_ventricular_function", "cardiac_output"],
+      "target_variables": ["pulmonary_congestion", "pulmonary_pressure"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["tricuspid regurgitation", "septal shift"],
+      "counterevidence": ["preserved right ventricular function"],
+      "treatment_bindings": [{"treatment": "inotrope", "action": "suppress"}],
+      "mechanism_description": "Right ventricular failure further congests the pulmonary circulation."
+    },
+    {
+      "mechanism_id": "PM-06", "source": "heart", "target": "kidney",
+      "source_variables": ["cardiac_output", "renal_perfusion_pressure"],
+      "target_variables": ["renal_perfusion", "urine_output"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["falling urine output", "rising lactate"],
+      "counterevidence": ["stable renal perfusion"],
+      "treatment_bindings": [{"treatment": "fluid optimization", "action": "suppress"}],
+      "mechanism_description": "Forward cardiac failure lowers renal perfusion pressure."
+    },
+    {
+      "mechanism_id": "PM-07", "source": "kidney", "target": "pulmonary_vessels",
+      "source_variables": ["sodium_excretion", "fluid_balance"],
+      "target_variables": ["circulating_volume", "pulmonary_pressure"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["positive cumulative balance", "rising body weight"],
+      "counterevidence": ["effective diuresis"],
+      "treatment_bindings": [{"treatment": "diuretic escalation", "action": "suppress"}],
+      "mechanism_description": "Impaired sodium excretion expands circulating volume."
+    },
+    {
+      "mechanism_id": "PM-08", "source": "kidney", "target": "airway",
+      "source_variables": ["uraemic_solutes", "urea"],
+      "target_variables": ["airway_mucosal_injury", "secretion_viscosity"],
+      "allowed_directions": ["worsen"], "lag_steps": [3, 3],
+      "activation_evidence": ["rising urea", "inspissated secretions"],
+      "counterevidence": ["adequate solute clearance"],
+      "treatment_bindings": [{"treatment": "renal replacement therapy", "action": "suppress"}],
+      "mechanism_description": "Retained uraemic solutes injure airway mucosa and thicken secretions."
+    },
+    {
+      "mechanism_id": "PM-09", "source": "systemic_inflammation", "target": "alveoli",
+      "source_variables": ["circulating_cytokines", "inflammatory_tone"],
+      "target_variables": ["alveolar_capillary_permeability", "oxygenation"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["rising CRP and ferritin", "worsening oxygenation"],
+      "counterevidence": ["falling inflammatory markers"],
+      "treatment_bindings": [{"treatment": "corticosteroid", "action": "suppress"}],
+      "mechanism_description": "Circulating cytokines increase alveolar capillary permeability."
+    },
+    {
+      "mechanism_id": "PM-10", "source": "systemic_inflammation", "target": "heart",
+      "source_variables": ["inflammatory_mediators", "fever"],
+      "target_variables": ["myocardial_contractility", "ejection_fraction"],
+      "allowed_directions": ["worsen"], "lag_steps": [2, 2],
+      "activation_evidence": ["falling ejection fraction", "persistent fever"],
+      "counterevidence": ["inflammatory resolution"],
+      "treatment_bindings": [{"treatment": "source control", "action": "suppress"}],
+      "mechanism_description": "Inflammatory mediators depress myocardial contractility."
+    },
+    {
+      "mechanism_id": "PM-11", "source": "alveoli", "target": "systemic_inflammation",
+      "source_variables": ["alveolar_injury", "alveolar_cytokine_release"],
+      "target_variables": ["systemic_inflammatory_tone", "white_cell_count"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 1],
+      "activation_evidence": ["bronchoalveolar lavage cytokines", "rising white cell count"],
+      "counterevidence": ["adequate antibiotic response"],
+      "treatment_bindings": [{"treatment": "effective antibiotic", "action": "suppress"}],
+      "mechanism_description": "Injured alveoli amplify the systemic inflammatory response."
+    },
+    {
+      "mechanism_id": "PM-12", "source": "airway", "target": "alveoli",
+      "source_variables": ["cough_clearance", "airway_patency"],
+      "target_variables": ["alveolar_recruitment", "ventilation"],
+      "allowed_directions": ["improve"], "lag_steps": [1, 1],
+      "activation_evidence": ["improved breath sounds", "rising tidal volume"],
+      "counterevidence": ["deep sedation"],
+      "treatment_bindings": [{"treatment": "airway clearance", "action": "activate"}],
+      "mechanism_description": "Cleared secretions reopen collapsed alveolar units."
+    },
+    {
+      "mechanism_id": "PM-13", "source": "systemic_inflammation", "target": "kidney",
+      "source_variables": ["systemic_inflammatory_tone", "endothelial_activation"],
+      "target_variables": ["renal_microcirculation", "acute_kidney_injury"],
+      "allowed_directions": ["worsen"], "lag_steps": [1, 3],
+      "activation_evidence": ["rising CRP", "vasoplegia"],
+      "counterevidence": ["inflammatory resolution", "stable renal perfusion"],
+      "treatment_bindings": [{"treatment": "source control", "action": "suppress"}],
+      "mechanism_description": "Systemic inflammation impairs renal microcirculation and increases acute kidney injury risk."
+    },
+    {
+      "mechanism_id": "PM-14", "source": "kidney", "target": "systemic_inflammation",
+      "source_variables": ["acid_base_compensation", "bicarbonate"],
+      "target_variables": ["systemic_inflammatory_tone", "metabolic_stress"],
+      "allowed_directions": ["improve"], "lag_steps": [3, 3],
+      "activation_evidence": ["normalising bicarbonate", "stable base excess"],
+      "counterevidence": ["progressive renal failure"],
+      "treatment_bindings": [{"treatment": "renal replacement therapy", "action": "activate"}],
+      "mechanism_description": "Renal compensation of acid load lowers systemic inflammatory stress."
+    }
+  ]
+}

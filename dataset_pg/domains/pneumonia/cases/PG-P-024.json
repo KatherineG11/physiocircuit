@@ -1,0 +1,257 @@
+{
+  "case_id": "PG-P-024",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "simple",
+  "horizon": 7,
+  "patient": {
+    "age": 48,
+    "sex": "F",
+    "frailty": "severe",
+    "setting": "ICU",
+    "comorbidities": [
+      "type 2 diabetes",
+      "cirrhosis",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "purulent sputum, increasing oxygen requirement, tachypnoea at rest",
+    "duration_days": 7,
+    "vital_signs": {
+      "hr": 69,
+      "map": 83,
+      "temp": 39.4,
+      "spo2": 99
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "urea": 2.96,
+        "creatinine": 0.59,
+        "PaO2/FiO2": 0.74,
+        "lactate": 1.72
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "CRP": 1.83,
+        "urea": 2.12,
+        "procalcitonin": 0.51,
+        "PaO2/FiO2": 2.13
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "procalcitonin": 1.88,
+        "PaO2/FiO2": 2.55,
+        "creatinine": 0.69,
+        "WBC": 2.77
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-04",
+      "name": "Pulmonary vascular resistance rise",
+      "source": "pulmonary_vessels",
+      "target": "heart",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.59,
+      "evidence": [
+        "rising right ventricular strain",
+        "elevated central venous pressure"
+      ],
+      "confounder": "positive end-expiratory pressure"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "improve",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.118,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.103,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.087,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.072,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.056,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.041,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.25,
+          "alveoli": 0.104,
+          "pulmonary_vessels": 0.314,
+          "heart": 0.025,
+          "kidney": 0.217,
+          "systemic_inflammation": 0.122
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "heart",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-04",
+        "expect": "target organ heart no longer tracks source pulmonary_vessels after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-04",
+        "expect": "direction of heart flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-04",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-04",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives heart?",
+      "expected": "PM-04"
+    }
+  },
+  "fingerprint": "3caa10ed1f72f71d"
+}

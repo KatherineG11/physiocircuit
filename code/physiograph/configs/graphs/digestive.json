@@ -1,0 +1,27 @@
+{
+  "domain": "digestive",
+  "nodes": ["gallbladder", "stomach", "intestine"],
+  "core_organs": ["gallbladder", "stomach", "intestine"],
+  "edges": [
+    {"source": "gallbladder", "target": "stomach", "mechanism_ids": ["MC-01"]},
+    {"source": "gallbladder", "target": "intestine", "mechanism_ids": ["MC-02", "MC-06", "MC-09"]},
+    {"source": "intestine", "target": "gallbladder", "mechanism_ids": ["MC-03", "MC-07", "MC-12"]},
+    {"source": "stomach", "target": "intestine", "mechanism_ids": ["MC-04", "MC-11"]},
+    {"source": "intestine", "target": "stomach", "mechanism_ids": ["MC-05", "MC-10"]},
+    {"source": "stomach", "target": "gallbladder", "mechanism_ids": ["MC-08"]}
+  ],
+  "aggregation_weights": {
+    "gallbladder": 0.30,
+    "stomach": 0.35,
+    "intestine": 0.35
+  },
+  "phase_thresholds": {
+    "baseline": 0.58,
+    "load_accumulation": 0.43,
+    "compensation": 0.36,
+    "conflict_emerges": 0.08,
+    "decompensation": 0.58,
+    "recovery": 0.52,
+    "residual_state": 0.48
+  }
+}

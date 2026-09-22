@@ -1,0 +1,216 @@
+{
+  "case_id": "PG-S-041",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 83,
+    "sex": "M",
+    "frailty": "mild",
+    "setting": "coronary care unit",
+    "comorbidities": [
+      "ischaemic heart disease",
+      "cirrhosis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "hypotension after fluids, tachycardia at rest",
+    "duration_days": 7,
+    "vital_signs": {
+      "hr": 111,
+      "map": 92,
+      "temp": 36.8,
+      "spo2": 85
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 1.89,
+        "platelets": 2.59,
+        "bilirubin": 1.31,
+        "lactate": 1.44
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "troponin": 2.11,
+        "platelets": 3.09,
+        "CRP": 3.14,
+        "INR": 3.15
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "platelets": 1.88,
+        "bilirubin": 2.2,
+        "CRP": 2.14,
+        "troponin": 2.71
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-11",
+      "name": "Renal clearance recovery",
+      "source": "kidney",
+      "target": "liver",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.57,
+      "evidence": [
+        "rising urine output",
+        "falling transaminases"
+      ],
+      "confounder": "nephrotoxic exposure"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "worsen",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.215,
+          "vasculature": 0.248,
+          "kidney": 0.172,
+          "liver": 0.142,
+          "coagulation": 0.1,
+          "lung": 0.184
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "worsen",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.215,
+          "vasculature": 0.248,
+          "kidney": 0.172,
+          "liver": 0.177,
+          "coagulation": 0.1,
+          "lung": 0.184
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "worsen",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.215,
+          "vasculature": 0.248,
+          "kidney": 0.172,
+          "liver": 0.212,
+          "coagulation": 0.1,
+          "lung": 0.184
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.215,
+          "vasculature": 0.248,
+          "kidney": 0.172,
+          "liver": 0.218,
+          "coagulation": 0.1,
+          "lung": 0.184
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.215,
+          "vasculature": 0.248,
+          "kidney": 0.172,
+          "liver": 0.225,
+          "coagulation": 0.1,
+          "lung": 0.184
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "liver",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-11",
+        "expect": "target organ liver no longer tracks source kidney after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-11",
+        "expect": "direction of liver flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-11",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives liver?",
+      "expected": "CM-11"
+    }
+  },
+  "fingerprint": "2f92abc756495a5c"
+}

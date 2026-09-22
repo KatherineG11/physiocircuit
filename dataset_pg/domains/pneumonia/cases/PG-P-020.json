@@ -1,0 +1,252 @@
+{
+  "case_id": "PG-P-020",
+  "split": "dev",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "patient": {
+    "age": 56,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "emergency department",
+    "comorbidities": [
+      "immunosuppressive therapy",
+      "chronic obstructive pulmonary disease",
+      "ischaemic heart disease"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "fever with rigors, productive cough, increasing oxygen requirement",
+    "duration_days": 3,
+    "vital_signs": {
+      "hr": 122,
+      "map": 93,
+      "temp": 38.0,
+      "spo2": 94
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "procalcitonin": 0.85,
+        "urea": 2.31,
+        "lactate": 0.52,
+        "creatinine": 2.83
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 0.71,
+        "lactate": 3.09,
+        "PaO2/FiO2": 0.57,
+        "WBC": 1.57
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "procalcitonin": 1.19,
+        "PaO2/FiO2": 0.72,
+        "CRP": 0.95,
+        "urea": 1.57
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-11",
+      "name": "Alveolar macrophage recruitment",
+      "source": "alveoli",
+      "target": "systemic_inflammation",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.5,
+      "evidence": [
+        "bronchoalveolar lavage cytokines",
+        "rising white cell count"
+      ],
+      "confounder": "antibiotic adequacy"
+    },
+    {
+      "id": "PM-11",
+      "name": "Alveolar macrophage recruitment",
+      "source": "alveoli",
+      "target": "systemic_inflammation",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 5,
+      "strength": 0.6,
+      "evidence": [
+        "bronchoalveolar lavage cytokines",
+        "rising white cell count"
+      ],
+      "confounder": "antibiotic adequacy"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.139,
+          "alveoli": 0.325,
+          "pulmonary_vessels": 0.219,
+          "heart": 0.205,
+          "kidney": 0.164,
+          "systemic_inflammation": 0.208
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.134,
+          "alveoli": 0.334,
+          "pulmonary_vessels": 0.223,
+          "heart": 0.202,
+          "kidney": 0.17,
+          "systemic_inflammation": 0.248
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.129,
+          "alveoli": 0.344,
+          "pulmonary_vessels": 0.226,
+          "heart": 0.198,
+          "kidney": 0.176,
+          "systemic_inflammation": 0.287
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.123,
+          "alveoli": 0.353,
+          "pulmonary_vessels": 0.23,
+          "heart": 0.195,
+          "kidney": 0.182,
+          "systemic_inflammation": 0.327
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.118,
+          "alveoli": 0.363,
+          "pulmonary_vessels": 0.234,
+          "heart": 0.191,
+          "kidney": 0.188,
+          "systemic_inflammation": 0.366
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "worsen"
+        },
+        "severity": {
+          "airway": 0.113,
+          "alveoli": 0.373,
+          "pulmonary_vessels": 0.237,
+          "heart": 0.188,
+          "kidney": 0.194,
+          "systemic_inflammation": 0.436
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 6,
+      "organ": "systemic_inflammation",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-11",
+        "expect": "target organ systemic_inflammation no longer tracks source alveoli after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-11",
+        "expect": "direction of systemic_inflammation flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-11",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives systemic_inflammation?",
+      "expected": "PM-11"
+    }
+  },
+  "fingerprint": "e73acea505bf1857"
+}

@@ -1,0 +1,252 @@
+{
+  "case_id": "PG-P-083",
+  "split": "blind_test",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 6,
+  "patient": {
+    "age": 54,
+    "sex": "F",
+    "frailty": "mild",
+    "setting": "emergency department",
+    "comorbidities": [
+      "type 2 diabetes",
+      "ischaemic heart disease",
+      "atrial fibrillation"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "tachypnoea at rest, fever with rigors, productive cough",
+    "duration_days": 19,
+    "vital_signs": {
+      "hr": 116,
+      "map": 48,
+      "temp": 39.0,
+      "spo2": 94
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "procalcitonin": 1.1,
+        "urea": 0.88,
+        "lactate": 2.92,
+        "WBC": 2.48
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "WBC": 2.98,
+        "procalcitonin": 2.13,
+        "CRP": 1.07,
+        "PaO2/FiO2": 1.16
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "PaO2/FiO2": 1.51,
+        "creatinine": 1.33,
+        "lactate": 0.78,
+        "CRP": 2.94
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-06",
+      "name": "Reduced cardiac output",
+      "source": "heart",
+      "target": "kidney",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.85,
+      "evidence": [
+        "falling urine output",
+        "rising lactate"
+      ],
+      "confounder": "fluid balance"
+    },
+    {
+      "id": "PM-01",
+      "name": "Mucus plugging and airway closure",
+      "source": "airway",
+      "target": "alveoli",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.76,
+      "evidence": [
+        "coarse crackles",
+        "rising airway resistance"
+      ],
+      "confounder": "chest physiotherapy"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "improve",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.153,
+          "pulmonary_vessels": 0.312,
+          "heart": 0.324,
+          "kidney": 0.316,
+          "systemic_inflammation": 0.284
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.157,
+          "pulmonary_vessels": 0.312,
+          "heart": 0.324,
+          "kidney": 0.398,
+          "systemic_inflammation": 0.284
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.16,
+          "pulmonary_vessels": 0.312,
+          "heart": 0.324,
+          "kidney": 0.479,
+          "systemic_inflammation": 0.284
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.164,
+          "pulmonary_vessels": 0.312,
+          "heart": 0.324,
+          "kidney": 0.561,
+          "systemic_inflammation": 0.284
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.167,
+          "pulmonary_vessels": 0.312,
+          "heart": 0.324,
+          "kidney": 0.643,
+          "systemic_inflammation": 0.284
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "stable",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "worsen",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.171,
+          "pulmonary_vessels": 0.312,
+          "heart": 0.324,
+          "kidney": 0.725,
+          "systemic_inflammation": 0.284
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 2,
+      "organ": "kidney",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-06",
+        "expect": "target organ kidney no longer tracks source heart after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-06",
+        "expect": "direction of kidney flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-06",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-06",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives kidney?",
+      "expected": "PM-06"
+    }
+  },
+  "fingerprint": "23350534fb192d97"
+}

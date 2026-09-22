@@ -1,0 +1,171 @@
+{
+ "pair_id": "PG-CF-010",
+ "stratum": "conflict",
+ "mechanism": {
+  "id": "MC-03",
+  "name": "Reduced CCK drive",
+  "source": "intestine",
+  "target": "gallbladder",
+  "sign": "+",
+  "lag": 2
+ },
+ "intervention": {
+  "type": "replace",
+  "edge": "MC-03",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-CF-010-a",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.211,
+     "intestine": 0.341,
+     "gallbladder": 0.28
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.164,
+     "intestine": 0.341,
+     "gallbladder": 0.313
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.162,
+     "intestine": 0.341,
+     "gallbladder": 0.345
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.16,
+     "intestine": 0.341,
+     "gallbladder": 0.416
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.158,
+     "intestine": 0.341,
+     "gallbladder": 0.487
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.156,
+     "intestine": 0.341,
+     "gallbladder": 0.558
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.154,
+     "intestine": 0.341,
+     "gallbladder": 0.629
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-03",
+    "onset": 1,
+    "strength": 0.77
+   },
+   {
+    "id": "MC-01",
+    "onset": 1,
+    "strength": 0.9
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-CF-010-b",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "intervention": {
+   "type": "replace",
+   "edge": "MC-03",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.211,
+     "intestine": 0.341,
+     "gallbladder": 0.28
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.164,
+     "intestine": 0.341,
+     "gallbladder": 0.313
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.102,
+     "intestine": 0.281,
+     "gallbladder": 0.285
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.1,
+     "intestine": 0.281,
+     "gallbladder": 0.356
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.098,
+     "intestine": 0.281,
+     "gallbladder": 0.427
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.096,
+     "intestine": 0.281,
+     "gallbladder": 0.498
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.094,
+     "intestine": 0.281,
+     "gallbladder": 0.569
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-01",
+    "onset": 1,
+    "strength": 0.9
+   }
+  ]
+ },
+ "gold_agreement": true,
+ "family": "high-fat diet with partial biliary obstruction"
+}

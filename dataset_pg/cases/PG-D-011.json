@@ -1,0 +1,199 @@
+{
+  "case_id": "PG-D-011",
+  "split": "dev",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 5,
+  "patient": {
+    "age": 74,
+    "sex": "F",
+    "frailty": "severe",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "rheumatoid arthritis",
+      "type 2 diabetes"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "right upper quadrant discomfort, nausea after fatty meals, nocturnal abdominal cramping",
+    "duration_days": 14,
+    "vital_signs": {
+      "hr": 106,
+      "map": 74,
+      "temp": 37.4,
+      "spo2": 95
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "ALT": 1.94,
+        "lipase": 1.25,
+        "total bilirubin": 0.48,
+        "albumin": 1.03
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "CRP": 0.85,
+        "creatinine": 0.54,
+        "lipase": 2.09,
+        "total bilirubin": 2.05
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "CRP": 2.49,
+        "creatinine": 0.46,
+        "WBC": 1.68,
+        "ALT": 2.45
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-01",
+      "name": "Bile reflux mucosal injury",
+      "source": "gallbladder",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 1.0,
+      "evidence": [
+        "bile-stained gastric aspirate",
+        "reflux gastritis on endoscopy"
+      ],
+      "confounder": "proton-pump inhibitor dose"
+    },
+    {
+      "id": "MC-07",
+      "name": "Enterohepatic feedback",
+      "source": "intestine",
+      "target": "gallbladder",
+      "sign": "-",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.82,
+      "evidence": [
+        "normalising bile acid pool",
+        "falling ALP"
+      ],
+      "confounder": "ileal resection length"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.158,
+          "intestine": 0.286,
+          "gallbladder": 0.256
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.257,
+          "intestine": 0.286,
+          "gallbladder": 0.216
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.357,
+          "intestine": 0.286,
+          "gallbladder": 0.176
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.456,
+          "intestine": 0.286,
+          "gallbladder": 0.095
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "improve"
+        },
+        "severity": {
+          "stomach": 0.555,
+          "intestine": 0.286,
+          "gallbladder": 0.014
+        },
+        "phase": "conflict_emerges"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 2,
+      "organ": "stomach",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-01",
+        "expect": "target organ stomach no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-01",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-01",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-01",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-01"
+    }
+  },
+  "fingerprint": "f07d63437ab8ca4a"
+}

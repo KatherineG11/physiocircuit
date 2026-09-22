@@ -1,0 +1,215 @@
+{
+  "case_id": "PG-D-103",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "turning",
+  "horizon": 6,
+  "patient": {
+    "age": 79,
+    "sex": "F",
+    "frailty": "fit",
+    "setting": "ICU",
+    "comorbidities": [
+      "prior stroke",
+      "rheumatoid arthritis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "right upper quadrant discomfort, watery diarrhoea",
+    "duration_days": 20,
+    "vital_signs": {
+      "hr": 72,
+      "map": 103,
+      "temp": 37.4,
+      "spo2": 93
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "ALT": 1.87,
+        "CRP": 2.31,
+        "albumin": 3.04,
+        "creatinine": 1.31
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "ALP": 2.41,
+        "lipase": 0.63,
+        "lactate": 2.4,
+        "ALT": 1.52
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "ALP": 1.19,
+        "lipase": 2.26,
+        "CRP": 2.19,
+        "creatinine": 1.53
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-01",
+      "name": "Bile reflux mucosal injury",
+      "source": "gallbladder",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.74,
+      "evidence": [
+        "bile-stained gastric aspirate",
+        "reflux gastritis on endoscopy"
+      ],
+      "confounder": "proton-pump inhibitor dose"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 2,
+      "strength": 0.61,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.2,
+          "intestine": 0.253,
+          "gallbladder": 0.253
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.177,
+          "intestine": 0.256,
+          "gallbladder": 0.262
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.154,
+          "intestine": 0.259,
+          "gallbladder": 0.271
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.1,
+          "intestine": 0.262,
+          "gallbladder": 0.28
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.046,
+          "intestine": 0.265,
+          "gallbladder": 0.288
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.268,
+          "gallbladder": 0.297
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      2
+    ],
+    "design_card": {
+      "step": 4,
+      "organ": "stomach",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-01",
+        "expect": "target organ stomach no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-01",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-01",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-01",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-01"
+    }
+  },
+  "fingerprint": "cec1790de6197e7b"
+}

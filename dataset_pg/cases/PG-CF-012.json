@@ -1,0 +1,171 @@
+{
+ "pair_id": "PG-CF-012",
+ "stratum": "conflict",
+ "mechanism": {
+  "id": "MC-12",
+  "name": "Gallbladder stasis injury",
+  "source": "intestine",
+  "target": "gallbladder",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "delete",
+  "edge": "MC-12",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-CF-012-a",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.324,
+     "gallbladder": 0.203
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.293,
+     "gallbladder": 0.253
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.262,
+     "gallbladder": 0.346
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.276,
+     "gallbladder": 0.439
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.29,
+     "gallbladder": 0.532
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.304,
+     "gallbladder": 0.625
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.318,
+     "gallbladder": 0.718
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-12",
+    "onset": 1,
+    "strength": 0.87
+   },
+   {
+    "id": "MC-02",
+    "onset": 1,
+    "strength": 0.9
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-CF-012-b",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "intervention": {
+   "type": "delete",
+   "edge": "MC-12",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.324,
+     "gallbladder": 0.203
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "stomach": 0.317,
+     "intestine": 0.293,
+     "gallbladder": 0.253
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "stomach": 0.257,
+     "intestine": 0.202,
+     "gallbladder": 0.286
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "stomach": 0.257,
+     "intestine": 0.216,
+     "gallbladder": 0.379
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "stomach": 0.257,
+     "intestine": 0.23,
+     "gallbladder": 0.472
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "stomach": 0.257,
+     "intestine": 0.244,
+     "gallbladder": 0.565
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "stomach": 0.257,
+     "intestine": 0.258,
+     "gallbladder": 0.658
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "MC-02",
+    "onset": 1,
+    "strength": 0.9
+   }
+  ]
+ },
+ "gold_agreement": true,
+ "family": "transient obstruction followed by resolution"
+}

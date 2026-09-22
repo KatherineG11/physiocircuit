@@ -1,0 +1,237 @@
+{
+  "case_id": "PG-S-001",
+  "split": "dev",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "simple",
+  "horizon": 6,
+  "patient": {
+    "age": 79,
+    "sex": "M",
+    "frailty": "mild",
+    "setting": "coronary care unit",
+    "comorbidities": [
+      "chronic kidney disease stage 3",
+      "cirrhosis",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "cool extremities, tachycardia at rest, new confusion",
+    "duration_days": 13,
+    "vital_signs": {
+      "hr": 80,
+      "map": 62,
+      "temp": 39.2,
+      "spo2": 98
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "bilirubin": 0.65,
+        "platelets": 0.61,
+        "lactate": 1.04,
+        "CRP": 1.32
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "troponin": 0.45,
+        "lactate": 2.07,
+        "INR": 1.76,
+        "bilirubin": 3.16
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "troponin": 0.87,
+        "bilirubin": 0.97,
+        "INR": 2.77,
+        "platelets": 1.42
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-02",
+      "name": "Reduced preload",
+      "source": "vasculature",
+      "target": "kidney",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.76,
+      "evidence": [
+        "rising lactate",
+        "falling urine output"
+      ],
+      "confounder": "fluid resuscitation volume"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "worsen",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.338,
+          "vasculature": 0.144,
+          "kidney": 0.217,
+          "liver": 0.318,
+          "coagulation": 0.201,
+          "lung": 0.274
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "worsen",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.338,
+          "vasculature": 0.144,
+          "kidney": 0.3,
+          "liver": 0.318,
+          "coagulation": 0.201,
+          "lung": 0.274
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "worsen",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.338,
+          "vasculature": 0.144,
+          "kidney": 0.383,
+          "liver": 0.318,
+          "coagulation": 0.201,
+          "lung": 0.274
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "worsen",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.338,
+          "vasculature": 0.144,
+          "kidney": 0.466,
+          "liver": 0.318,
+          "coagulation": 0.201,
+          "lung": 0.274
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "worsen",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.338,
+          "vasculature": 0.144,
+          "kidney": 0.549,
+          "liver": 0.318,
+          "coagulation": 0.201,
+          "lung": 0.274
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "worsen",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.338,
+          "vasculature": 0.144,
+          "kidney": 0.632,
+          "liver": 0.318,
+          "coagulation": 0.201,
+          "lung": 0.274
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 5,
+      "organ": "kidney",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-02",
+        "expect": "target organ kidney no longer tracks source vasculature after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-02",
+        "expect": "direction of kidney flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-02",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-02",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives kidney?",
+      "expected": "CM-02"
+    }
+  },
+  "fingerprint": "f7166d85dbb45cab"
+}

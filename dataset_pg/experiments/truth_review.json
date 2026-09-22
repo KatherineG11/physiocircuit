@@ -1,0 +1,1 @@
+{"systems": {"digestive": {"n": 120, "a": 95, "b": 5, "c": 4, "d": 16}, "pneumonia": {"n": 120, "a": 91, "b": 3, "c": 8, "d": 18}, "cardio": {"n": 120, "a": 85, "b": 1, "c": 11, "d": 23}}, "note": "Two physicians independently review the synthetic ground truth for each domain; disagreements are reviewed by a third physician; a/d are agreement cells, b/c are disagreement cells."}

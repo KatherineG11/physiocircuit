@@ -1,0 +1,230 @@
+{
+  "case_id": "PG-S-118",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "nonmono",
+  "horizon": 5,
+  "patient": {
+    "age": 37,
+    "sex": "M",
+    "frailty": "mild",
+    "setting": "coronary care unit",
+    "comorbidities": [
+      "atrial fibrillation"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "mottled peripheries, oliguria over 12 hours, tachycardia at rest",
+    "duration_days": 4,
+    "vital_signs": {
+      "hr": 62,
+      "map": 49,
+      "temp": 37.1,
+      "spo2": 89
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lactate": 0.49,
+        "INR": 2.69,
+        "platelets": 0.89,
+        "troponin": 2.12
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "INR": 1.6,
+        "troponin": 2.27,
+        "lactate": 0.68,
+        "creatinine": 0.98
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "troponin": 0.69,
+        "bilirubin": 2.95,
+        "INR": 2.5,
+        "platelets": 0.48
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-08",
+      "name": "Pulmonary endothelial injury",
+      "source": "vasculature",
+      "target": "lung",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.71,
+      "evidence": [
+        "falling PaO2/FiO2",
+        "increasing shunt fraction"
+      ],
+      "confounder": "ventilator settings"
+    },
+    {
+      "id": "CM-08",
+      "name": "Pulmonary endothelial injury",
+      "source": "vasculature",
+      "target": "lung",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 3,
+      "strength": 0.79,
+      "evidence": [
+        "falling PaO2/FiO2",
+        "increasing shunt fraction"
+      ],
+      "confounder": "ventilator settings"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.334,
+          "vasculature": 0.229,
+          "kidney": 0.239,
+          "liver": 0.181,
+          "coagulation": 0.169,
+          "lung": 0.146
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.337,
+          "vasculature": 0.225,
+          "kidney": 0.238,
+          "liver": 0.189,
+          "coagulation": 0.163,
+          "lung": 0.198
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.341,
+          "vasculature": 0.221,
+          "kidney": 0.238,
+          "liver": 0.197,
+          "coagulation": 0.157,
+          "lung": 0.249
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.345,
+          "vasculature": 0.217,
+          "kidney": 0.237,
+          "liver": 0.206,
+          "coagulation": 0.151,
+          "lung": 0.34
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "worsen"
+        },
+        "severity": {
+          "heart": 0.348,
+          "vasculature": 0.213,
+          "kidney": 0.236,
+          "liver": 0.214,
+          "coagulation": 0.145,
+          "lung": 0.43
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 5,
+      "organ": "lung",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-08",
+        "expect": "target organ lung no longer tracks source vasculature after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-08",
+        "expect": "direction of lung flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-08",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-08",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives lung?",
+      "expected": "CM-08"
+    }
+  },
+  "fingerprint": "ad81f5758c8f3af1"
+}

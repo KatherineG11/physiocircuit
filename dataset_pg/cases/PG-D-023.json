@@ -1,0 +1,184 @@
+{
+  "case_id": "PG-D-023",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 72,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "ischaemic heart disease",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "nausea after fatty meals, watery diarrhoea",
+    "duration_days": 5,
+    "vital_signs": {
+      "hr": 70,
+      "map": 96,
+      "temp": 36.5,
+      "spo2": 96
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 3.12,
+        "lactate": 2.05,
+        "ALP": 2.53,
+        "ALT": 0.52
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "albumin": 0.88,
+        "total bilirubin": 0.81,
+        "CRP": 2.21,
+        "lactate": 1.04
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "lactate": 1.78,
+        "lipase": 2.84,
+        "ALT": 1.88,
+        "ALP": 1.09
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-02",
+      "name": "Bile acid malabsorption",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.83,
+      "evidence": [
+        "elevated faecal bile acid",
+        "watery stools after meals"
+      ],
+      "confounder": "bile acid sequestrant use"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "improve",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.134,
+          "intestine": 0.251,
+          "gallbladder": 0.256
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "improve",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.134,
+          "intestine": 0.206,
+          "gallbladder": 0.256
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.134,
+          "intestine": 0.203,
+          "gallbladder": 0.256
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.134,
+          "intestine": 0.199,
+          "gallbladder": 0.256
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.134,
+          "intestine": 0.196,
+          "gallbladder": 0.256
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "intestine",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-02",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-02",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-02",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-02",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-02"
+    }
+  },
+  "fingerprint": "8e03caa96e6043f6"
+}

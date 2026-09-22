@@ -1,0 +1,242 @@
+{
+  "case_id": "PG-D-086",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "conflict",
+  "horizon": 8,
+  "patient": {
+    "age": 68,
+    "sex": "M",
+    "frailty": "moderate",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "ischaemic heart disease",
+      "atrial fibrillation",
+      "hypothyroidism"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "post-prandial epigastric fullness, bilious vomiting, unintentional weight loss",
+    "duration_days": 14,
+    "vital_signs": {
+      "hr": 106,
+      "map": 94,
+      "temp": 38.5,
+      "spo2": 97
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -9",
+      "labs": {
+        "albumin": 2.91,
+        "ALT": 2.21,
+        "CRP": 1.76,
+        "WBC": 0.43
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -8",
+      "labs": {
+        "lipase": 2.8,
+        "total bilirubin": 1.18,
+        "ALT": 1.88,
+        "CRP": 3.13
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -7",
+      "labs": {
+        "WBC": 2.59,
+        "CRP": 0.72,
+        "creatinine": 2.82,
+        "lipase": 2.18
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-02",
+      "name": "Bile acid malabsorption",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.67,
+      "evidence": [
+        "elevated faecal bile acid",
+        "watery stools after meals"
+      ],
+      "confounder": "bile acid sequestrant use"
+    },
+    {
+      "id": "MC-01",
+      "name": "Bile reflux mucosal injury",
+      "source": "gallbladder",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.85,
+      "evidence": [
+        "bile-stained gastric aspirate",
+        "reflux gastritis on endoscopy"
+      ],
+      "confounder": "proton-pump inhibitor dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.305,
+          "intestine": 0.301,
+          "gallbladder": 0.343
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.313,
+          "intestine": 0.348,
+          "gallbladder": 0.343
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.32,
+          "intestine": 0.429,
+          "gallbladder": 0.343
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.328,
+          "intestine": 0.51,
+          "gallbladder": 0.343
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.335,
+          "intestine": 0.592,
+          "gallbladder": 0.343
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.343,
+          "intestine": 0.673,
+          "gallbladder": 0.343
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.35,
+          "intestine": 0.754,
+          "gallbladder": 0.343
+        },
+        "phase": "load_accumulation"
+      },
+      {
+        "t": 8,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.358,
+          "intestine": 0.835,
+          "gallbladder": 0.343
+        },
+        "phase": "decompensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 3,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-02",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-02",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-02",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-02",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-02"
+    }
+  },
+  "fingerprint": "8ee1af44bdb06f62"
+}

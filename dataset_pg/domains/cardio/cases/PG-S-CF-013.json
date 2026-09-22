@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-S-CF-013",
+ "stratum": "conflict",
+ "family": "coagulopathy with glycocalyx shedding",
+ "mechanism": {
+  "id": "CM-05",
+  "name": "Hepatic acute phase response",
+  "source": "liver",
+  "target": "coagulation",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "delete",
+  "edge": "CM-05",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-S-CF-013-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "heart": 0.153,
+     "vasculature": 0.153,
+     "kidney": 0.165,
+     "liver": 0.231,
+     "coagulation": 0.155,
+     "lung": 0.247
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "heart": 0.179,
+     "vasculature": 0.144,
+     "kidney": 0.198,
+     "liver": 0.225,
+     "coagulation": 0.177,
+     "lung": 0.235
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "heart": 0.193,
+     "vasculature": 0.128,
+     "kidney": 0.207,
+     "liver": 0.23,
+     "coagulation": 0.191,
+     "lung": 0.216
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "heart": 0.209,
+     "vasculature": 0.123,
+     "kidney": 0.232,
+     "liver": 0.229,
+     "coagulation": 0.221,
+     "lung": 0.206
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "heart": 0.233,
+     "vasculature": 0.104,
+     "kidney": 0.258,
+     "liver": 0.228,
+     "coagulation": 0.239,
+     "lung": 0.205
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "heart": 0.25,
+     "vasculature": 0.098,
+     "kidney": 0.28,
+     "liver": 0.227,
+     "coagulation": 0.269,
+     "lung": 0.188
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "heart": 0.266,
+     "vasculature": 0.081,
+     "kidney": 0.308,
+     "liver": 0.228,
+     "coagulation": 0.285,
+     "lung": 0.183
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "CM-05",
+    "name": "Hepatic acute phase response",
+    "source": "liver",
+    "target": "coagulation",
+    "sign": "+",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-S-CF-013-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "heart": 0.153,
+     "vasculature": 0.153,
+     "kidney": 0.165,
+     "liver": 0.231,
+     "coagulation": 0.155,
+     "lung": 0.247
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "heart": 0.179,
+     "vasculature": 0.144,
+     "kidney": 0.198,
+     "liver": 0.225,
+     "coagulation": 0.122,
+     "lung": 0.235
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "heart": 0.193,
+     "vasculature": 0.128,
+     "kidney": 0.207,
+     "liver": 0.23,
+     "coagulation": 0.136,
+     "lung": 0.216
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "heart": 0.209,
+     "vasculature": 0.123,
+     "kidney": 0.232,
+     "liver": 0.229,
+     "coagulation": 0.166,
+     "lung": 0.206
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "heart": 0.233,
+     "vasculature": 0.104,
+     "kidney": 0.258,
+     "liver": 0.228,
+     "coagulation": 0.184,
+     "lung": 0.205
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "heart": 0.25,
+     "vasculature": 0.098,
+     "kidney": 0.28,
+     "liver": 0.227,
+     "coagulation": 0.214,
+     "lung": 0.188
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "heart": 0.266,
+     "vasculature": 0.081,
+     "kidney": 0.308,
+     "liver": 0.228,
+     "coagulation": 0.23,
+     "lung": 0.183
+    }
+   }
+  ],
+  "intervention": {
+   "type": "delete",
+   "edge": "CM-05",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

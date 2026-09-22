@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-S-CF-001",
+ "stratum": "conflict",
+ "family": "vasoplegia with myocardial depression",
+ "mechanism": {
+  "id": "CM-01",
+  "name": "Vasoplegic hypotension",
+  "source": "vasculature",
+  "target": "heart",
+  "sign": "+",
+  "lag": 0
+ },
+ "intervention": {
+  "type": "delete",
+  "edge": "CM-01",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-S-CF-001-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "heart": 0.133,
+     "vasculature": 0.286,
+     "kidney": 0.206,
+     "liver": 0.141,
+     "coagulation": 0.224,
+     "lung": 0.216
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "heart": 0.138,
+     "vasculature": 0.304,
+     "kidney": 0.228,
+     "liver": 0.146,
+     "coagulation": 0.223,
+     "lung": 0.212
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "heart": 0.135,
+     "vasculature": 0.337,
+     "kidney": 0.245,
+     "liver": 0.151,
+     "coagulation": 0.221,
+     "lung": 0.221
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "heart": 0.131,
+     "vasculature": 0.352,
+     "kidney": 0.271,
+     "liver": 0.159,
+     "coagulation": 0.229,
+     "lung": 0.23
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "heart": 0.138,
+     "vasculature": 0.378,
+     "kidney": 0.3,
+     "liver": 0.17,
+     "coagulation": 0.233,
+     "lung": 0.234
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "heart": 0.144,
+     "vasculature": 0.408,
+     "kidney": 0.321,
+     "liver": 0.178,
+     "coagulation": 0.229,
+     "lung": 0.235
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "heart": 0.137,
+     "vasculature": 0.427,
+     "kidney": 0.355,
+     "liver": 0.187,
+     "coagulation": 0.221,
+     "lung": 0.246
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "CM-01",
+    "name": "Vasoplegic hypotension",
+    "source": "vasculature",
+    "target": "heart",
+    "sign": "+",
+    "lag": 0
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-S-CF-001-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "heart": 0.078,
+     "vasculature": 0.286,
+     "kidney": 0.206,
+     "liver": 0.141,
+     "coagulation": 0.224,
+     "lung": 0.216
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "heart": 0.083,
+     "vasculature": 0.304,
+     "kidney": 0.228,
+     "liver": 0.146,
+     "coagulation": 0.223,
+     "lung": 0.212
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "heart": 0.08,
+     "vasculature": 0.337,
+     "kidney": 0.245,
+     "liver": 0.151,
+     "coagulation": 0.221,
+     "lung": 0.221
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "heart": 0.076,
+     "vasculature": 0.352,
+     "kidney": 0.271,
+     "liver": 0.159,
+     "coagulation": 0.229,
+     "lung": 0.23
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "heart": 0.083,
+     "vasculature": 0.378,
+     "kidney": 0.3,
+     "liver": 0.17,
+     "coagulation": 0.233,
+     "lung": 0.234
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "heart": 0.089,
+     "vasculature": 0.408,
+     "kidney": 0.321,
+     "liver": 0.178,
+     "coagulation": 0.229,
+     "lung": 0.235
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "heart": 0.082,
+     "vasculature": 0.427,
+     "kidney": 0.355,
+     "liver": 0.187,
+     "coagulation": 0.221,
+     "lung": 0.246
+    }
+   }
+  ],
+  "intervention": {
+   "type": "delete",
+   "edge": "CM-01",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

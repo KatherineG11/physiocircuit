@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-019",
+ "stratum": "conflict",
+ "family": "renal retention with uraemic airway injury",
+ "mechanism": {
+  "id": "PM-06",
+  "name": "Reduced cardiac output",
+  "source": "heart",
+  "target": "kidney",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "delete",
+  "edge": "PM-06",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-019-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.131,
+     "alveoli": 0.157,
+     "pulmonary_vessels": 0.153,
+     "heart": 0.284,
+     "kidney": 0.217,
+     "systemic_inflammation": 0.224
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.124,
+     "alveoli": 0.149,
+     "pulmonary_vessels": 0.165,
+     "heart": 0.313,
+     "kidney": 0.219,
+     "systemic_inflammation": 0.247
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.132,
+     "alveoli": 0.14,
+     "pulmonary_vessels": 0.171,
+     "heart": 0.332,
+     "kidney": 0.237,
+     "systemic_inflammation": 0.258
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.128,
+     "alveoli": 0.137,
+     "pulmonary_vessels": 0.192,
+     "heart": 0.352,
+     "kidney": 0.232,
+     "systemic_inflammation": 0.283
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.127,
+     "alveoli": 0.134,
+     "pulmonary_vessels": 0.198,
+     "heart": 0.369,
+     "kidney": 0.251,
+     "systemic_inflammation": 0.305
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.137,
+     "alveoli": 0.132,
+     "pulmonary_vessels": 0.208,
+     "heart": 0.398,
+     "kidney": 0.252,
+     "systemic_inflammation": 0.322
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.122,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.22,
+     "heart": 0.425,
+     "kidney": 0.253,
+     "systemic_inflammation": 0.342
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-06",
+    "name": "Reduced cardiac output",
+    "source": "heart",
+    "target": "kidney",
+    "sign": "+",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-019-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.131,
+     "alveoli": 0.157,
+     "pulmonary_vessels": 0.153,
+     "heart": 0.284,
+     "kidney": 0.217,
+     "systemic_inflammation": 0.224
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.124,
+     "alveoli": 0.149,
+     "pulmonary_vessels": 0.165,
+     "heart": 0.313,
+     "kidney": 0.164,
+     "systemic_inflammation": 0.247
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.132,
+     "alveoli": 0.14,
+     "pulmonary_vessels": 0.171,
+     "heart": 0.332,
+     "kidney": 0.182,
+     "systemic_inflammation": 0.258
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.128,
+     "alveoli": 0.137,
+     "pulmonary_vessels": 0.192,
+     "heart": 0.352,
+     "kidney": 0.177,
+     "systemic_inflammation": 0.283
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.127,
+     "alveoli": 0.134,
+     "pulmonary_vessels": 0.198,
+     "heart": 0.369,
+     "kidney": 0.196,
+     "systemic_inflammation": 0.305
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.137,
+     "alveoli": 0.132,
+     "pulmonary_vessels": 0.208,
+     "heart": 0.398,
+     "kidney": 0.197,
+     "systemic_inflammation": 0.322
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.122,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.22,
+     "heart": 0.425,
+     "kidney": 0.198,
+     "systemic_inflammation": 0.342
+    }
+   }
+  ],
+  "intervention": {
+   "type": "delete",
+   "edge": "PM-06",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

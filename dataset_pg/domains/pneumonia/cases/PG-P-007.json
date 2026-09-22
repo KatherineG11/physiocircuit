@@ -1,0 +1,271 @@
+{
+  "case_id": "PG-P-007",
+  "split": "dev",
+  "field": "pneumonia",
+  "system": "respiratory",
+  "backbone": "Kimi-K2.7-Code",
+  "stratum": "conflict",
+  "horizon": 7,
+  "patient": {
+    "age": 56,
+    "sex": "M",
+    "frailty": "mild",
+    "setting": "emergency department",
+    "comorbidities": [
+      "immunosuppressive therapy",
+      "chronic kidney disease stage 3"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "tachypnoea at rest, reduced exercise tolerance",
+    "duration_days": 1,
+    "vital_signs": {
+      "hr": 114,
+      "map": 88,
+      "temp": 38.6,
+      "spo2": 88
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "CRP": 2.64,
+        "WBC": 1.5,
+        "PaO2/FiO2": 0.98,
+        "procalcitonin": 1.93
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "PaO2/FiO2": 1.07,
+        "urea": 1.43,
+        "creatinine": 0.93,
+        "procalcitonin": 2.23
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "urea": 1.47,
+        "PaO2/FiO2": 2.43,
+        "creatinine": 1.48,
+        "lactate": 2.36
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "PM-01",
+      "name": "Mucus plugging and airway closure",
+      "source": "airway",
+      "target": "alveoli",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.77,
+      "evidence": [
+        "coarse crackles",
+        "rising airway resistance"
+      ],
+      "confounder": "chest physiotherapy"
+    },
+    {
+      "id": "PM-08",
+      "name": "Uraemic mucosal injury",
+      "source": "kidney",
+      "target": "airway",
+      "sign": "+",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.86,
+      "evidence": [
+        "rising urea",
+        "inspissated secretions"
+      ],
+      "confounder": "renal replacement timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.257,
+          "alveoli": 0.242,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.209,
+          "alveoli": 0.313,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "airway": "improve",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.161,
+          "alveoli": 0.383,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.156,
+          "alveoli": 0.454,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.151,
+          "alveoli": 0.525,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.146,
+          "alveoli": 0.595,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "airway": "stable",
+          "alveoli": "worsen",
+          "pulmonary_vessels": "stable",
+          "heart": "stable",
+          "kidney": "stable",
+          "systemic_inflammation": "stable"
+        },
+        "severity": {
+          "airway": 0.141,
+          "alveoli": 0.666,
+          "pulmonary_vessels": 0.258,
+          "heart": 0.148,
+          "kidney": 0.13,
+          "systemic_inflammation": 0.187
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 2,
+      "organ": "alveoli",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "PM-01",
+        "expect": "target organ alveoli no longer tracks source airway after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "PM-01",
+        "expect": "direction of alveoli flips"
+      },
+      {
+        "type": "lag",
+        "edge": "PM-01",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "PM-01",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives alveoli?",
+      "expected": "PM-01"
+    }
+  },
+  "fingerprint": "2099c5cc0934ba14"
+}

@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-021",
+ "stratum": "turning",
+ "family": "renal retention with uraemic airway injury",
+ "mechanism": {
+  "id": "PM-14",
+  "name": "Metabolic compensation",
+  "source": "kidney",
+  "target": "systemic_inflammation",
+  "sign": "-",
+  "lag": 3
+ },
+ "intervention": {
+  "type": "reverse",
+  "edge": "PM-14",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-021-observed",
+  "arm": "observed",
+  "stratum": "turning",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.281,
+     "alveoli": 0.197,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.16,
+     "kidney": 0.159,
+     "systemic_inflammation": 0.286
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.281,
+     "alveoli": 0.183,
+     "pulmonary_vessels": 0.177,
+     "heart": 0.187,
+     "kidney": 0.173,
+     "systemic_inflammation": 0.314
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.278,
+     "alveoli": 0.181,
+     "pulmonary_vessels": 0.176,
+     "heart": 0.225,
+     "kidney": 0.192,
+     "systemic_inflammation": 0.347
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.279,
+     "alveoli": 0.158,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.247,
+     "kidney": 0.197,
+     "systemic_inflammation": 0.356
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.272,
+     "alveoli": 0.151,
+     "pulmonary_vessels": 0.181,
+     "heart": 0.273,
+     "kidney": 0.22,
+     "systemic_inflammation": 0.39
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.261,
+     "alveoli": 0.143,
+     "pulmonary_vessels": 0.176,
+     "heart": 0.293,
+     "kidney": 0.238,
+     "systemic_inflammation": 0.417
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.268,
+     "alveoli": 0.142,
+     "pulmonary_vessels": 0.173,
+     "heart": 0.324,
+     "kidney": 0.251,
+     "systemic_inflammation": 0.432
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-14",
+    "name": "Metabolic compensation",
+    "source": "kidney",
+    "target": "systemic_inflammation",
+    "sign": "-",
+    "lag": 3
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-021-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "turning",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.281,
+     "alveoli": 0.197,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.16,
+     "kidney": 0.159,
+     "systemic_inflammation": 0.286
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.281,
+     "alveoli": 0.183,
+     "pulmonary_vessels": 0.177,
+     "heart": 0.187,
+     "kidney": 0.173,
+     "systemic_inflammation": 0.314
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.278,
+     "alveoli": 0.181,
+     "pulmonary_vessels": 0.176,
+     "heart": 0.225,
+     "kidney": 0.192,
+     "systemic_inflammation": 0.347
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.279,
+     "alveoli": 0.158,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.247,
+     "kidney": 0.197,
+     "systemic_inflammation": 0.286
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.272,
+     "alveoli": 0.151,
+     "pulmonary_vessels": 0.181,
+     "heart": 0.273,
+     "kidney": 0.22,
+     "systemic_inflammation": 0.32
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.261,
+     "alveoli": 0.143,
+     "pulmonary_vessels": 0.176,
+     "heart": 0.293,
+     "kidney": 0.238,
+     "systemic_inflammation": 0.347
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.268,
+     "alveoli": 0.142,
+     "pulmonary_vessels": 0.173,
+     "heart": 0.324,
+     "kidney": 0.251,
+     "systemic_inflammation": 0.362
+    }
+   }
+  ],
+  "intervention": {
+   "type": "reverse",
+   "edge": "PM-14",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

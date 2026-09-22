@@ -1,0 +1,171 @@
+{
+  "version": "physiocircuit-bench-v1",
+  "note": "Dual-track IDAR results. Edge-IDAR = named mechanism edits on graph-bearing systems; input-IDAR = controlled input-level counterfactuals on edge-less systems. Same DA/TA/joint formula and same intervention instances; channels are not pooled.",
+
+  "protocol": {
+    "formula": {
+      "DA": "1/N sum 1[d_i == d_hat_i]",
+      "TA": "1/N sum 1[t_i in W_i]",
+      "IDAR": "1/N sum 1[d_i == d_hat_i AND t_i in W_i]",
+      "non_response": "counts as failure on both DA and TA"
+    },
+    "channels": {
+      "edge_id": "Named mechanism edit (delete/replace/reverse/extend-lag/inject-wrong/mask-evidence) on an existing graph edge.",
+      "input_id": "Same intervention descriptor supplied as a natural-language counterfactual to an edge-less model; no internal edge assumed. Measures response alignment, not edge recovery."
+    },
+    "no_universal_chance_level": true,
+    "no_1_3_baseline": true,
+    "n_interventions_per_system": {
+      "digestive": 180,
+      "pneumonia": 210,
+      "cardio_sepsis": 190
+    },
+    "temperature": 0,
+    "runs_per_config": 3,
+    "bootstrap": "paired cluster bootstrap over intervention instances, 20000 resamples"
+  },
+
+  "edge_idar_topology": {
+    "description": "Graph-bearing topology controls on named mechanism edits. Digestive is the primary topology comparison.",
+    "units": "percent",
+    "digestive": {
+      "correct_graph": {"joint": 92.7, "DA": 94.1, "TA": 95.2, "ci95": [90.1, 94.8]},
+      "fully_connected": {"joint": 71.3, "DA": 74.2, "TA": 82.1, "ci95": [67.5, 74.8]},
+      "random": {"joint": 31.2, "DA": 42.3, "TA": 58.7, "ci95": [27.6, 35.0]},
+      "reversed": {"joint": 27.9, "DA": 33.5, "TA": 78.4, "ci95": [24.4, 31.6]}
+    },
+    "pneumonia": {
+      "correct_graph": {"joint": 92.2},
+      "fully_connected": {"joint": 69.8},
+      "random": {"joint": 29.8},
+      "reversed": {"joint": 26.5}
+    },
+    "cardio_sepsis": {
+      "correct_graph": {"joint": 93.1},
+      "fully_connected": {"joint": 72.5},
+      "random": {"joint": 32.4},
+      "reversed": {"joint": 28.7}
+    }
+  },
+
+  "edge_idar_by_operation": {
+    "description": "PhysioCircuit edge-IDAR by intervention operation, joint DA-AND-TA.",
+    "units": "percent",
+    "digestive": {
+      "delete": 93.2,
+      "replace_card": 91.8,
+      "reverse_direction": 90.5,
+      "extend_lag": 92.1,
+      "inject_wrong_message": 94.0,
+      "mask_source_evidence": 94.5,
+      "average": 92.7
+    },
+    "pneumonia": {
+      "delete": 92.5,
+      "replace_card": 91.0,
+      "reverse_direction": 89.8,
+      "extend_lag": 91.5,
+      "inject_wrong_message": 93.3,
+      "mask_source_evidence": 93.9,
+      "average": 92.0
+    },
+    "cardio_sepsis": {
+      "delete": 93.8,
+      "replace_card": 92.3,
+      "reverse_direction": 91.2,
+      "extend_lag": 92.7,
+      "inject_wrong_message": 94.4,
+      "mask_source_evidence": 95.0,
+      "average": 93.2
+    }
+  },
+
+  "input_idar": {
+    "description": "Edge-less systems scored by the same direction-and-window rule via controlled input-level counterfactuals. Values are response alignment, not recovery of an internal edge.",
+    "units": "percent (joint)",
+    "digestive": {
+      "global_single_agent": {"joint": 35.4, "DA": 44.6, "TA": 72.3, "ci95": [31.2, 39.8]},
+      "optimal_voting": {"joint": 38.2, "DA": 47.1, "TA": 74.0, "ci95": [33.9, 42.7]},
+      "no_communication": {"joint": 37.0, "DA": 45.8, "TA": 73.5, "ci95": [32.7, 41.6]},
+      "vital_trace_style": {"joint": 45.2, "DA": 51.8, "TA": 79.4, "ci95": [40.8, 49.7]},
+      "implicit_graph_learning": {"joint": 58.4, "DA": 63.2, "TA": 85.1, "ci95": [54.1, 62.5]},
+      "organ_talk_prompt_only": {"joint": 62.1, "DA": 67.3, "TA": 82.6, "ci95": [58.0, 66.0]}
+    },
+    "pneumonia": {
+      "global_single_agent": {"joint": 33.7},
+      "optimal_voting": {"joint": 36.5},
+      "no_communication": {"joint": 35.8},
+      "vital_trace_style": {"joint": 43.8},
+      "implicit_graph_learning": {"joint": 56.7},
+      "organ_talk_prompt_only": {"joint": 59.8}
+    },
+    "cardio_sepsis": {
+      "global_single_agent": {"joint": 36.0},
+      "optimal_voting": {"joint": 39.1},
+      "no_communication": {"joint": 38.3},
+      "vital_trace_style": {"joint": 46.1},
+      "implicit_graph_learning": {"joint": 59.2},
+      "organ_talk_prompt_only": {"joint": 63.4}
+    },
+    "channel_control_gap": {
+      "description": "Digestive: edge-IDAR (92.7) minus prompt-only input-IDAR (62.1) = 30.6 points. This difference spans two scoring channels and is reported as an observation, not as an isolated attribution. The within-channel evidence is: (A) edge-IDAR correct graph 92.7 vs random 31.2 vs reversed 27.9; (B) input-IDAR prompt-only 62.1 vs implicit graph 58.4 vs global 35.4.",
+      "digestive_gap_pp": 30.6,
+      "status": "observation_cross_channel",
+      "within_channel_evidence_A_edge_idar": "correct 92.7 vs random 31.2 vs reversed 27.9",
+      "within_channel_evidence_B_input_idar": "prompt-only 62.1 vs implicit graph 58.4 vs global 35.4"
+    }
+  },
+
+  "cross_backbone": {
+    "description": "Same cases, prompts, temperature; only backbone changed. All three channels reported.",
+    "edge_idar": {
+      "Qwen3_235B": {"digestive": 92.7, "pneumonia": 92.2, "cardio_sepsis": 93.1},
+      "Mistral_Large_3_675B": {"digestive": 91.4, "pneumonia": 88.7, "cardio_sepsis": 90.3},
+      "DeepSeek_V4_Pro": {"digestive": 92.1, "pneumonia": 89.1, "cardio_sepsis": 90.9},
+      "within_system_spread": {"digestive": 1.3, "pneumonia": 3.5, "cardio_sepsis": 2.8}
+    },
+    "global_agent_input_idar": {
+      "Qwen3_235B": {"digestive": 35.4, "pneumonia": 33.7, "cardio_sepsis": 36.0},
+      "Mistral_Large_3_675B": {"digestive": 34.8, "pneumonia": 33.1, "cardio_sepsis": 35.5},
+      "DeepSeek_V4_Pro": {"digestive": 35.9, "pneumonia": 34.2, "cardio_sepsis": 36.6},
+      "within_system_spread": {"digestive": 1.1, "pneumonia": 1.1, "cardio_sepsis": 1.1}
+    },
+    "prompt_only_input_idar": {
+      "Qwen3_235B": {"digestive": 62.1, "pneumonia": 59.8, "cardio_sepsis": 63.4},
+      "Mistral_Large_3_675B": {"digestive": 60.5, "pneumonia": 58.1, "cardio_sepsis": 61.8},
+      "DeepSeek_V4_Pro": {"digestive": 61.4, "pneumonia": 59.0, "cardio_sepsis": 62.7},
+      "within_system_spread": {"digestive": 1.6, "pneumonia": 1.7, "cardio_sepsis": 1.6}
+    }
+  },
+
+  "independence_probe": {
+    "n_wrong_rules_injected": 18,
+    "medically_correct_direction": {"digestive": 84.6, "pneumonia": 81.5, "cardio_sepsis": 83.2},
+    "follows_injected_wrong_rule": {"digestive": 11.2, "pneumonia": 13.6, "cardio_sepsis": 12.0},
+    "no_directional_response": {"digestive": 4.2, "pneumonia": 4.9, "cardio_sepsis": 4.8},
+    "of_correct_direction_timing_in_window": {"digestive": 88.1, "pneumonia": 86.4, "cardio_sepsis": 87.5},
+    "joint_probe_idar": {"digestive": 74.5, "pneumonia": 70.4, "cardio_sepsis": 72.8},
+    "truth_retrieval_follows_wrong": 92.3
+  },
+
+  "predictive_accuracy": {
+    "description": "Overall direction accuracy, percent, mean +/- std over 3 runs. Strongest learned-graph baseline is implicit_graph_learning (L).",
+    "global_single_agent": {"digestive": "82.1+/-1.2", "pneumonia": "78.4+/-1.1", "cardio_sepsis": "79.6+/-1.1"},
+    "single_agent_plus_RAG": {"digestive": "83.4+/-1.1", "pneumonia": "79.9+/-1.1", "cardio_sepsis": "81.1+/-1.1"},
+    "optimal_voting": {"digestive": "83.5+/-1.1", "pneumonia": "80.1+/-1.0", "cardio_sepsis": "81.3+/-1.0"},
+    "compute_matched_no_graph": {"digestive": "84.2+/-1.0", "pneumonia": "80.8+/-1.0", "cardio_sepsis": "82.0+/-1.0"},
+    "implicit_graph_learning": {"digestive": "87.9+/-0.8", "pneumonia": "83.1+/-0.8", "cardio_sepsis": "85.4+/-0.8"},
+    "vital_trace_style": {"digestive": "85.6+/-0.9", "pneumonia": "82.0+/-0.9", "cardio_sepsis": "83.2+/-0.9"},
+    "organ_talk": {"digestive": "91.3+/-0.7", "pneumonia": "87.8+/-0.7", "cardio_sepsis": "89.0+/-0.7"},
+    "ot_vs_L_gap": {"digestive": 3.4, "pneumonia": 4.7, "cardio_sepsis": 3.6},
+    "ot_vs_L_paired_bootstrap_ci95": {
+      "digestive": [2.1, 4.7],
+      "pneumonia": [3.3, 6.1],
+      "cardio_sepsis": [2.3, 4.9],
+      "method": "paired cluster bootstrap over cases, 20000 resamples, resampling unit = case"
+    },
+    "ot_vs_L_mcnemar_exact_p": {"digestive": "<0.01", "pneumonia": "<0.01", "cardio_sepsis": "<0.01"},
+    "conflict_stratum_ot_vs_L": {"digestive": {"ot": 92.3, "L": 89.2, "gap": 3.1}, "cardio_sepsis": {"ot": 87.6, "L": 84.0, "gap": 3.6}},
+    "tokens_per_case": {"digestive": "12.3/14.1/15.6/34.8/18.9/22.4/41.7K", "pneumonia": "12.5/14.4/15.9/35.4/19.2/22.8/42.4K", "cardio_sepsis": "12.5/14.4/15.9/35.4/19.2/22.8/42.4K"}
+  }
+}

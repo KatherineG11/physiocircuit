@@ -1,0 +1,228 @@
+{
+  "case_id": "PG-D-111",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "patient": {
+    "age": 74,
+    "sex": "M",
+    "frailty": "severe",
+    "setting": "surgical ward",
+    "comorbidities": [
+      "atrial fibrillation",
+      "prior stroke"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "nausea after fatty meals, bilious vomiting, post-prandial epigastric fullness",
+    "duration_days": 8,
+    "vital_signs": {
+      "hr": 65,
+      "map": 70,
+      "temp": 37.9,
+      "spo2": 95
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "total bilirubin": 2.01,
+        "ALP": 1.01,
+        "ALT": 3.1,
+        "lactate": 2.52
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "lipase": 2.75,
+        "CRP": 1.68,
+        "lactate": 1.68,
+        "albumin": 1.82
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "ALP": 0.68,
+        "total bilirubin": 2.52,
+        "CRP": 0.5,
+        "WBC": 1.86
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-10",
+      "name": "Dysbiosis drive",
+      "source": "intestine",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 3,
+      "onset_step": 1,
+      "strength": 0.51,
+      "evidence": [
+        "breath test positive",
+        "rising gastric residual"
+      ],
+      "confounder": "antibiotic exposure"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.8,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    },
+    {
+      "id": "MC-01",
+      "name": "Bile reflux mucosal injury",
+      "source": "gallbladder",
+      "target": "stomach",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 2,
+      "strength": 0.89,
+      "evidence": [
+        "bile-stained gastric aspirate",
+        "reflux gastritis on endoscopy"
+      ],
+      "confounder": "proton-pump inhibitor dose"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.264,
+          "intestine": 0.112,
+          "gallbladder": 0.267
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.279,
+          "intestine": 0.117,
+          "gallbladder": 0.257
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.3,
+          "intestine": 0.121,
+          "gallbladder": 0.248
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.346,
+          "intestine": 0.126,
+          "gallbladder": 0.238
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.391,
+          "intestine": 0.131,
+          "gallbladder": 0.229
+        },
+        "phase": "compensation"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "worsen",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.437,
+          "intestine": 0.135,
+          "gallbladder": 0.219
+        },
+        "phase": "compensation"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 4,
+      "organ": "stomach",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-10",
+        "expect": "target organ stomach no longer tracks source intestine after lag 3"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-10",
+        "expect": "direction of stomach flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-10",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-10",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives stomach?",
+      "expected": "MC-10"
+    }
+  },
+  "fingerprint": "bdae4b94a5f69acc"
+}

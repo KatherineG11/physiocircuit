@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-006",
+ "stratum": "nonmono",
+ "family": "airway clearance failure",
+ "mechanism": {
+  "id": "PM-08",
+  "name": "Uraemic mucosal injury",
+  "source": "kidney",
+  "target": "airway",
+  "sign": "+",
+  "lag": 3
+ },
+ "intervention": {
+  "type": "mask",
+  "edge": "PM-08",
+  "expect": "macro trajectory is unchanged by the removed local evidence"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-006-observed",
+  "arm": "observed",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.202,
+     "alveoli": 0.186,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.292,
+     "kidney": 0.287,
+     "systemic_inflammation": 0.207
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.222,
+     "alveoli": 0.188,
+     "pulmonary_vessels": 0.178,
+     "heart": 0.281,
+     "kidney": 0.288,
+     "systemic_inflammation": 0.232
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.253,
+     "alveoli": 0.195,
+     "pulmonary_vessels": 0.189,
+     "heart": 0.274,
+     "kidney": 0.279,
+     "systemic_inflammation": 0.259
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.27,
+     "alveoli": 0.206,
+     "pulmonary_vessels": 0.21,
+     "heart": 0.281,
+     "kidney": 0.283,
+     "systemic_inflammation": 0.293
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.299,
+     "alveoli": 0.224,
+     "pulmonary_vessels": 0.211,
+     "heart": 0.263,
+     "kidney": 0.283,
+     "systemic_inflammation": 0.317
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.317,
+     "alveoli": 0.228,
+     "pulmonary_vessels": 0.218,
+     "heart": 0.266,
+     "kidney": 0.295,
+     "systemic_inflammation": 0.345
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.35,
+     "alveoli": 0.244,
+     "pulmonary_vessels": 0.231,
+     "heart": 0.254,
+     "kidney": 0.297,
+     "systemic_inflammation": 0.363
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-08",
+    "name": "Uraemic mucosal injury",
+    "source": "kidney",
+    "target": "airway",
+    "sign": "+",
+    "lag": 3
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-006-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.202,
+     "alveoli": 0.186,
+     "pulmonary_vessels": 0.175,
+     "heart": 0.292,
+     "kidney": 0.287,
+     "systemic_inflammation": 0.207
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.222,
+     "alveoli": 0.188,
+     "pulmonary_vessels": 0.178,
+     "heart": 0.281,
+     "kidney": 0.288,
+     "systemic_inflammation": 0.232
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.253,
+     "alveoli": 0.195,
+     "pulmonary_vessels": 0.189,
+     "heart": 0.274,
+     "kidney": 0.279,
+     "systemic_inflammation": 0.259
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.245,
+     "alveoli": 0.206,
+     "pulmonary_vessels": 0.21,
+     "heart": 0.281,
+     "kidney": 0.283,
+     "systemic_inflammation": 0.293
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.274,
+     "alveoli": 0.224,
+     "pulmonary_vessels": 0.211,
+     "heart": 0.263,
+     "kidney": 0.283,
+     "systemic_inflammation": 0.317
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.292,
+     "alveoli": 0.228,
+     "pulmonary_vessels": 0.218,
+     "heart": 0.266,
+     "kidney": 0.295,
+     "systemic_inflammation": 0.345
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.325,
+     "alveoli": 0.244,
+     "pulmonary_vessels": 0.231,
+     "heart": 0.254,
+     "kidney": 0.297,
+     "systemic_inflammation": 0.363
+    }
+   }
+  ],
+  "intervention": {
+   "type": "mask",
+   "edge": "PM-08",
+   "expect": "macro trajectory is unchanged by the removed local evidence"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

@@ -1,0 +1,257 @@
+{
+  "case_id": "PG-S-100",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "turning",
+  "horizon": 7,
+  "patient": {
+    "age": 75,
+    "sex": "F",
+    "frailty": "moderate",
+    "setting": "high-dependency unit",
+    "comorbidities": [
+      "cirrhosis"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "cool extremities, new confusion",
+    "duration_days": 4,
+    "vital_signs": {
+      "hr": 71,
+      "map": 55,
+      "temp": 36.6,
+      "spo2": 98
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -8",
+      "labs": {
+        "creatinine": 3.15,
+        "lactate": 1.47,
+        "bilirubin": 0.89,
+        "troponin": 1.86
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -7",
+      "labs": {
+        "bilirubin": 0.72,
+        "troponin": 1.99,
+        "CRP": 0.51,
+        "lactate": 1.62
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -6",
+      "labs": {
+        "creatinine": 1.48,
+        "troponin": 3.09,
+        "bilirubin": 1.52,
+        "platelets": 0.85
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-12",
+      "name": "Anti-inflammatory restitution",
+      "source": "liver",
+      "target": "vasculature",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.85,
+      "evidence": [
+        "falling CRP",
+        "rising systemic vascular resistance"
+      ],
+      "confounder": "ongoing source"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.195,
+          "vasculature": 0.386,
+          "kidney": 0.115,
+          "liver": 0.258,
+          "coagulation": 0.1,
+          "lung": 0.234
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "worsen",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.2,
+          "vasculature": 0.434,
+          "kidney": 0.117,
+          "liver": 0.268,
+          "coagulation": 0.098,
+          "lung": 0.232
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "improve",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.191,
+          "vasculature": 0.286,
+          "kidney": 0.113,
+          "liver": 0.251,
+          "coagulation": 0.101,
+          "lung": 0.236
+        },
+        "phase": "transition"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "improve",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.182,
+          "vasculature": 0.138,
+          "kidney": 0.11,
+          "liver": 0.234,
+          "coagulation": 0.104,
+          "lung": 0.24
+        },
+        "phase": "residual_state"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "improve",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.173,
+          "vasculature": 0.0,
+          "kidney": 0.106,
+          "liver": 0.217,
+          "coagulation": 0.108,
+          "lung": 0.244
+        },
+        "phase": "residual_state"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.164,
+          "vasculature": 0.0,
+          "kidney": 0.102,
+          "liver": 0.2,
+          "coagulation": 0.111,
+          "lung": 0.248
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.154,
+          "vasculature": 0.0,
+          "kidney": 0.098,
+          "liver": 0.183,
+          "coagulation": 0.114,
+          "lung": 0.252
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [
+      3
+    ],
+    "design_card": {
+      "step": 4,
+      "organ": "vasculature",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-12",
+        "expect": "target organ vasculature no longer tracks source liver after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-12",
+        "expect": "direction of vasculature flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-12",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-12",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives vasculature?",
+      "expected": "CM-12"
+    }
+  },
+  "fingerprint": "788c4622d0a96366"
+}

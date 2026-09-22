@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-018",
+ "stratum": "nonmono",
+ "family": "systemic inflammatory drive",
+ "mechanism": {
+  "id": "PM-10",
+  "name": "Systemic inflammatory drive",
+  "source": "systemic_inflammation",
+  "target": "heart",
+  "sign": "+",
+  "lag": 2
+ },
+ "intervention": {
+  "type": "mask",
+  "edge": "PM-10",
+  "expect": "macro trajectory is unchanged by the removed local evidence"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-018-observed",
+  "arm": "observed",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.21,
+     "alveoli": 0.149,
+     "pulmonary_vessels": 0.145,
+     "heart": 0.217,
+     "kidney": 0.28,
+     "systemic_inflammation": 0.163
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.203,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.141,
+     "heart": 0.24,
+     "kidney": 0.288,
+     "systemic_inflammation": 0.152
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.2,
+     "alveoli": 0.126,
+     "pulmonary_vessels": 0.148,
+     "heart": 0.255,
+     "kidney": 0.293,
+     "systemic_inflammation": 0.144
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.194,
+     "alveoli": 0.108,
+     "pulmonary_vessels": 0.148,
+     "heart": 0.263,
+     "kidney": 0.301,
+     "systemic_inflammation": 0.133
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.208,
+     "alveoli": 0.104,
+     "pulmonary_vessels": 0.14,
+     "heart": 0.267,
+     "kidney": 0.295,
+     "systemic_inflammation": 0.115
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.202,
+     "alveoli": 0.091,
+     "pulmonary_vessels": 0.152,
+     "heart": 0.294,
+     "kidney": 0.305,
+     "systemic_inflammation": 0.11
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.197,
+     "alveoli": 0.075,
+     "pulmonary_vessels": 0.14,
+     "heart": 0.293,
+     "kidney": 0.312,
+     "systemic_inflammation": 0.099
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-10",
+    "name": "Systemic inflammatory drive",
+    "source": "systemic_inflammation",
+    "target": "heart",
+    "sign": "+",
+    "lag": 2
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-018-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.21,
+     "alveoli": 0.149,
+     "pulmonary_vessels": 0.145,
+     "heart": 0.217,
+     "kidney": 0.28,
+     "systemic_inflammation": 0.163
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.203,
+     "alveoli": 0.139,
+     "pulmonary_vessels": 0.141,
+     "heart": 0.24,
+     "kidney": 0.288,
+     "systemic_inflammation": 0.152
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.2,
+     "alveoli": 0.126,
+     "pulmonary_vessels": 0.148,
+     "heart": 0.23,
+     "kidney": 0.293,
+     "systemic_inflammation": 0.144
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.194,
+     "alveoli": 0.108,
+     "pulmonary_vessels": 0.148,
+     "heart": 0.238,
+     "kidney": 0.301,
+     "systemic_inflammation": 0.133
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.208,
+     "alveoli": 0.104,
+     "pulmonary_vessels": 0.14,
+     "heart": 0.242,
+     "kidney": 0.295,
+     "systemic_inflammation": 0.115
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.202,
+     "alveoli": 0.091,
+     "pulmonary_vessels": 0.152,
+     "heart": 0.269,
+     "kidney": 0.305,
+     "systemic_inflammation": 0.11
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.197,
+     "alveoli": 0.075,
+     "pulmonary_vessels": 0.14,
+     "heart": 0.268,
+     "kidney": 0.312,
+     "systemic_inflammation": 0.099
+    }
+   }
+  ],
+  "intervention": {
+   "type": "mask",
+   "edge": "PM-10",
+   "expect": "macro trajectory is unchanged by the removed local evidence"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

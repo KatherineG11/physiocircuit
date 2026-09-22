@@ -1,0 +1,276 @@
+{
+  "case_id": "PG-S-043",
+  "split": "blind_test",
+  "field": "cardio",
+  "system": "cardiovascular_sepsis",
+  "backbone": "Qwen3-Max",
+  "stratum": "simple",
+  "horizon": 8,
+  "patient": {
+    "age": 70,
+    "sex": "F",
+    "frailty": "moderate",
+    "setting": "high-dependency unit",
+    "comorbidities": [
+      "ischaemic heart disease",
+      "immunosuppressive therapy"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "new confusion, mottled peripheries",
+    "duration_days": 17,
+    "vital_signs": {
+      "hr": 70,
+      "map": 77,
+      "temp": 39.5,
+      "spo2": 86
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -9",
+      "labs": {
+        "CRP": 0.87,
+        "creatinine": 0.68,
+        "bilirubin": 3.0,
+        "lactate": 0.58
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -8",
+      "labs": {
+        "creatinine": 2.98,
+        "platelets": 2.05,
+        "INR": 0.78,
+        "troponin": 2.47
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -7",
+      "labs": {
+        "lactate": 3.07,
+        "bilirubin": 2.97,
+        "troponin": 2.88,
+        "INR": 2.65
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "CM-10",
+      "name": "Metabolic acidosis load",
+      "source": "liver",
+      "target": "heart",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.84,
+      "evidence": [
+        "rising lactate",
+        "falling bicarbonate"
+      ],
+      "confounder": "renal replacement timing"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "heart": "improve",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.22,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "heart": "improve",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.175,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.172,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.169,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.166,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.163,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 7,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.16,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 8,
+        "direction": {
+          "heart": "stable",
+          "vasculature": "stable",
+          "kidney": "stable",
+          "liver": "stable",
+          "coagulation": "stable",
+          "lung": "stable"
+        },
+        "severity": {
+          "heart": 0.157,
+          "vasculature": 0.15,
+          "kidney": 0.272,
+          "liver": 0.255,
+          "coagulation": 0.237,
+          "lung": 0.282
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "heart",
+      "expect": "improve"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "CM-10",
+        "expect": "target organ heart no longer tracks source liver after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "CM-10",
+        "expect": "direction of heart flips"
+      },
+      {
+        "type": "lag",
+        "edge": "CM-10",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "CM-10",
+        "expect": "macro phase unchanged before onset"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives heart?",
+      "expected": "CM-10"
+    }
+  },
+  "fingerprint": "aad9fd2a7f85a083"
+}

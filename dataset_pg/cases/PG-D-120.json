@@ -1,0 +1,228 @@
+{
+  "case_id": "PG-D-120",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "nonmono",
+  "horizon": 6,
+  "patient": {
+    "age": 55,
+    "sex": "F",
+    "frailty": "moderate",
+    "setting": "emergency observation unit",
+    "comorbidities": [
+      "prior stroke",
+      "hypothyroidism"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "post-prandial epigastric fullness, bilious vomiting",
+    "duration_days": 5,
+    "vital_signs": {
+      "hr": 93,
+      "map": 94,
+      "temp": 37.7,
+      "spo2": 92
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -7",
+      "labs": {
+        "total bilirubin": 0.52,
+        "ALP": 2.14,
+        "lipase": 1.55,
+        "creatinine": 1.71
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -6",
+      "labs": {
+        "ALT": 0.54,
+        "albumin": 0.52,
+        "CRP": 1.68,
+        "total bilirubin": 1.26
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -5",
+      "labs": {
+        "total bilirubin": 1.92,
+        "albumin": 2.06,
+        "creatinine": 1.85,
+        "WBC": 1.07
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-09",
+      "name": "Biliary obstruction cascade",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 1,
+      "onset_step": 1,
+      "strength": 0.51,
+      "evidence": [
+        "dilated bile duct",
+        "rising conjugated bilirubin"
+      ],
+      "confounder": "stent patency"
+    },
+    {
+      "id": "MC-08",
+      "name": "Mucosal repair",
+      "source": "stomach",
+      "target": "stomach",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.58,
+      "evidence": [
+        "healing erosions",
+        "falling CRP"
+      ],
+      "confounder": "steroid dose"
+    },
+    {
+      "id": "MC-02",
+      "name": "Bile acid malabsorption",
+      "source": "gallbladder",
+      "target": "intestine",
+      "sign": "+",
+      "lag": 2,
+      "onset_step": 2,
+      "strength": 0.58,
+      "evidence": [
+        "elevated faecal bile acid",
+        "watery stools after meals"
+      ],
+      "confounder": "bile acid sequestrant use"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.164,
+          "intestine": 0.204,
+          "gallbladder": 0.261
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.155,
+          "intestine": 0.241,
+          "gallbladder": 0.269
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.116,
+          "intestine": 0.279,
+          "gallbladder": 0.277
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.077,
+          "intestine": 0.345,
+          "gallbladder": 0.285
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.039,
+          "intestine": 0.412,
+          "gallbladder": 0.293
+        },
+        "phase": "conflict_emerges"
+      },
+      {
+        "t": 6,
+        "direction": {
+          "stomach": "improve",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.0,
+          "intestine": 0.478,
+          "gallbladder": 0.301
+        },
+        "phase": "conflict_emerges"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 4,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-09",
+        "expect": "target organ intestine no longer tracks source gallbladder after lag 1"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-09",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-09",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-09",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-09"
+    }
+  },
+  "fingerprint": "f706c308bda4ac36"
+}

@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-017",
+ "stratum": "conflict",
+ "family": "systemic inflammatory drive",
+ "mechanism": {
+  "id": "PM-09",
+  "name": "Cytokine storm",
+  "source": "systemic_inflammation",
+  "target": "alveoli",
+  "sign": "+",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "inject",
+  "edge": "PM-09",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-017-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.167,
+     "alveoli": 0.295,
+     "pulmonary_vessels": 0.118,
+     "heart": 0.179,
+     "kidney": 0.154,
+     "systemic_inflammation": 0.257
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.174,
+     "alveoli": 0.312,
+     "pulmonary_vessels": 0.122,
+     "heart": 0.207,
+     "kidney": 0.151,
+     "systemic_inflammation": 0.244
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.194,
+     "alveoli": 0.33,
+     "pulmonary_vessels": 0.112,
+     "heart": 0.234,
+     "kidney": 0.149,
+     "systemic_inflammation": 0.226
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.212,
+     "alveoli": 0.348,
+     "pulmonary_vessels": 0.12,
+     "heart": 0.254,
+     "kidney": 0.147,
+     "systemic_inflammation": 0.229
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.244,
+     "alveoli": 0.371,
+     "pulmonary_vessels": 0.107,
+     "heart": 0.28,
+     "kidney": 0.147,
+     "systemic_inflammation": 0.214
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.262,
+     "alveoli": 0.389,
+     "pulmonary_vessels": 0.108,
+     "heart": 0.307,
+     "kidney": 0.148,
+     "systemic_inflammation": 0.209
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.277,
+     "alveoli": 0.394,
+     "pulmonary_vessels": 0.097,
+     "heart": 0.34,
+     "kidney": 0.143,
+     "systemic_inflammation": 0.196
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-09",
+    "name": "Cytokine storm",
+    "source": "systemic_inflammation",
+    "target": "alveoli",
+    "sign": "+",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-017-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.167,
+     "alveoli": 0.295,
+     "pulmonary_vessels": 0.118,
+     "heart": 0.179,
+     "kidney": 0.154,
+     "systemic_inflammation": 0.257
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.174,
+     "alveoli": 0.252,
+     "pulmonary_vessels": 0.122,
+     "heart": 0.207,
+     "kidney": 0.151,
+     "systemic_inflammation": 0.244
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.194,
+     "alveoli": 0.27,
+     "pulmonary_vessels": 0.112,
+     "heart": 0.234,
+     "kidney": 0.149,
+     "systemic_inflammation": 0.226
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.212,
+     "alveoli": 0.288,
+     "pulmonary_vessels": 0.12,
+     "heart": 0.254,
+     "kidney": 0.147,
+     "systemic_inflammation": 0.229
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.244,
+     "alveoli": 0.311,
+     "pulmonary_vessels": 0.107,
+     "heart": 0.28,
+     "kidney": 0.147,
+     "systemic_inflammation": 0.214
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.262,
+     "alveoli": 0.329,
+     "pulmonary_vessels": 0.108,
+     "heart": 0.307,
+     "kidney": 0.148,
+     "systemic_inflammation": 0.209
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.277,
+     "alveoli": 0.334,
+     "pulmonary_vessels": 0.097,
+     "heart": 0.34,
+     "kidney": 0.143,
+     "systemic_inflammation": 0.196
+    }
+   }
+  ],
+  "intervention": {
+   "type": "inject",
+   "edge": "PM-09",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

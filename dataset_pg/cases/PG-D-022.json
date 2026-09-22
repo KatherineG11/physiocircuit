@@ -1,0 +1,184 @@
+{
+  "case_id": "PG-D-022",
+  "split": "blind_test",
+  "field": "digestive",
+  "stratum": "simple",
+  "horizon": 5,
+  "patient": {
+    "age": 51,
+    "sex": "M",
+    "frailty": "fit",
+    "setting": "step-down unit",
+    "comorbidities": [
+      "atrial fibrillation",
+      "type 2 diabetes"
+    ]
+  },
+  "presentation": {
+    "chief_complaint": "right upper quadrant discomfort, unintentional weight loss",
+    "duration_days": 18,
+    "vital_signs": {
+      "hr": 73,
+      "map": 70,
+      "temp": 38.2,
+      "spo2": 97
+    }
+  },
+  "observed_window": [
+    {
+      "t": 0,
+      "note": "day -6",
+      "labs": {
+        "lactate": 1.21,
+        "CRP": 0.66,
+        "ALT": 2.5,
+        "lipase": 2.56
+      }
+    },
+    {
+      "t": 1,
+      "note": "day -5",
+      "labs": {
+        "creatinine": 0.65,
+        "ALT": 2.18,
+        "lactate": 1.13,
+        "lipase": 3.18
+      }
+    },
+    {
+      "t": 2,
+      "note": "day -4",
+      "labs": {
+        "CRP": 2.37,
+        "ALP": 0.68,
+        "creatinine": 1.7,
+        "lipase": 1.56
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "id": "MC-11",
+      "name": "Acid suppression benefit",
+      "source": "stomach",
+      "target": "intestine",
+      "sign": "-",
+      "lag": 2,
+      "onset_step": 1,
+      "strength": 0.67,
+      "evidence": [
+        "falling duodenal eosinophilia",
+        "improved absorption"
+      ],
+      "confounder": "PPI adherence"
+    }
+  ],
+  "gold": {
+    "steps": [
+      {
+        "t": 1,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.216,
+          "intestine": 0.179,
+          "gallbladder": 0.253
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 2,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "worsen",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.216,
+          "intestine": 0.214,
+          "gallbladder": 0.253
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 3,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.216,
+          "intestine": 0.215,
+          "gallbladder": 0.253
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 4,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.216,
+          "intestine": 0.217,
+          "gallbladder": 0.253
+        },
+        "phase": "baseline"
+      },
+      {
+        "t": 5,
+        "direction": {
+          "stomach": "stable",
+          "intestine": "stable",
+          "gallbladder": "stable"
+        },
+        "severity": {
+          "stomach": 0.216,
+          "intestine": 0.218,
+          "gallbladder": 0.253
+        },
+        "phase": "baseline"
+      }
+    ],
+    "turning_points": [],
+    "design_card": {
+      "step": 1,
+      "organ": "intestine",
+      "expect": "worsen"
+    },
+    "interventions": [
+      {
+        "type": "delete",
+        "edge": "MC-11",
+        "expect": "target organ intestine no longer tracks source stomach after lag 2"
+      },
+      {
+        "type": "reverse",
+        "edge": "MC-11",
+        "expect": "direction of intestine flips"
+      },
+      {
+        "type": "lag",
+        "edge": "MC-11",
+        "delta": 2,
+        "expect": "same direction, delayed by 2 steps"
+      },
+      {
+        "type": "mask",
+        "edge": "MC-11",
+        "expect": "macro phase unchanged at steps before 1"
+      }
+    ],
+    "probe": {
+      "question": "Which mechanism currently drives intestine?",
+      "expected": "MC-11"
+    }
+  },
+  "fingerprint": "8ddf43809dc51edc"
+}

@@ -1,0 +1,9 @@
+{
+  "real_pillar_admissions": 200,
+  "domains": [
+    "digestive",
+    "pneumonia",
+    "cardio"
+  ],
+  "layers": 8
+}

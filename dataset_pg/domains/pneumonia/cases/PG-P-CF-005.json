@@ -1,0 +1,205 @@
+{
+ "pair_id": "PG-P-CF-005",
+ "stratum": "conflict",
+ "family": "airway clearance failure",
+ "mechanism": {
+  "id": "PM-12",
+  "name": "Effective cough clearance",
+  "source": "airway",
+  "target": "alveoli",
+  "sign": "-",
+  "lag": 1
+ },
+ "intervention": {
+  "type": "inject",
+  "edge": "PM-12",
+  "expect": "macro trajectory changes as medicine predicts"
+ },
+ "observed": {
+  "pair_id": "PG-P-CF-005-observed",
+  "arm": "observed",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.128,
+     "alveoli": 0.264,
+     "pulmonary_vessels": 0.207,
+     "heart": 0.3,
+     "kidney": 0.206,
+     "systemic_inflammation": 0.284
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.114,
+     "alveoli": 0.277,
+     "pulmonary_vessels": 0.205,
+     "heart": 0.316,
+     "kidney": 0.223,
+     "systemic_inflammation": 0.283
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.119,
+     "alveoli": 0.317,
+     "pulmonary_vessels": 0.205,
+     "heart": 0.34,
+     "kidney": 0.261,
+     "systemic_inflammation": 0.271
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.117,
+     "alveoli": 0.342,
+     "pulmonary_vessels": 0.194,
+     "heart": 0.368,
+     "kidney": 0.289,
+     "systemic_inflammation": 0.282
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.103,
+     "alveoli": 0.37,
+     "pulmonary_vessels": 0.194,
+     "heart": 0.387,
+     "kidney": 0.301,
+     "systemic_inflammation": 0.283
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.099,
+     "alveoli": 0.394,
+     "pulmonary_vessels": 0.19,
+     "heart": 0.402,
+     "kidney": 0.34,
+     "systemic_inflammation": 0.277
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.106,
+     "alveoli": 0.409,
+     "pulmonary_vessels": 0.196,
+     "heart": 0.43,
+     "kidney": 0.36,
+     "systemic_inflammation": 0.274
+    }
+   }
+  ],
+  "mechanisms": [
+   {
+    "id": "PM-12",
+    "name": "Effective cough clearance",
+    "source": "airway",
+    "target": "alveoli",
+    "sign": "-",
+    "lag": 1
+   }
+  ]
+ },
+ "counterfactual": {
+  "pair_id": "PG-P-CF-005-counterfactual",
+  "arm": "counterfactual",
+  "stratum": "conflict",
+  "horizon": 6,
+  "steps": [
+   {
+    "t": 0,
+    "severity": {
+     "airway": 0.128,
+     "alveoli": 0.264,
+     "pulmonary_vessels": 0.207,
+     "heart": 0.3,
+     "kidney": 0.206,
+     "systemic_inflammation": 0.284
+    }
+   },
+   {
+    "t": 1,
+    "severity": {
+     "airway": 0.114,
+     "alveoli": 0.217,
+     "pulmonary_vessels": 0.205,
+     "heart": 0.316,
+     "kidney": 0.223,
+     "systemic_inflammation": 0.283
+    }
+   },
+   {
+    "t": 2,
+    "severity": {
+     "airway": 0.119,
+     "alveoli": 0.257,
+     "pulmonary_vessels": 0.205,
+     "heart": 0.34,
+     "kidney": 0.261,
+     "systemic_inflammation": 0.271
+    }
+   },
+   {
+    "t": 3,
+    "severity": {
+     "airway": 0.117,
+     "alveoli": 0.282,
+     "pulmonary_vessels": 0.194,
+     "heart": 0.368,
+     "kidney": 0.289,
+     "systemic_inflammation": 0.282
+    }
+   },
+   {
+    "t": 4,
+    "severity": {
+     "airway": 0.103,
+     "alveoli": 0.31,
+     "pulmonary_vessels": 0.194,
+     "heart": 0.387,
+     "kidney": 0.301,
+     "systemic_inflammation": 0.283
+    }
+   },
+   {
+    "t": 5,
+    "severity": {
+     "airway": 0.099,
+     "alveoli": 0.334,
+     "pulmonary_vessels": 0.19,
+     "heart": 0.402,
+     "kidney": 0.34,
+     "systemic_inflammation": 0.277
+    }
+   },
+   {
+    "t": 6,
+    "severity": {
+     "airway": 0.106,
+     "alveoli": 0.349,
+     "pulmonary_vessels": 0.196,
+     "heart": 0.43,
+     "kidney": 0.36,
+     "systemic_inflammation": 0.274
+    }
+   }
+  ],
+  "intervention": {
+   "type": "inject",
+   "edge": "PM-12",
+   "expect": "macro trajectory changes as medicine predicts"
+  },
+  "mechanisms": []
+ },
+ "gold_agreement": true
+}

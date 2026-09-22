@@ -1,0 +1,1116 @@
+{
+ "cases": [
+  {
+   "case_id": "PG-P-001",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "fef32ac1d7c86835"
+  },
+  {
+   "case_id": "PG-P-002",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "b20e53915a562ecb"
+  },
+  {
+   "case_id": "PG-P-003",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "1106989236e52599"
+  },
+  {
+   "case_id": "PG-P-004",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "0fedf0276834bbba"
+  },
+  {
+   "case_id": "PG-P-005",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "2d514d9bb506503d"
+  },
+  {
+   "case_id": "PG-P-006",
+   "split": "dev",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "adae495d39c7746e"
+  },
+  {
+   "case_id": "PG-P-007",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "2099c5cc0934ba14"
+  },
+  {
+   "case_id": "PG-P-008",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "29e9c3189d11c282"
+  },
+  {
+   "case_id": "PG-P-009",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "1dbfae755f118081"
+  },
+  {
+   "case_id": "PG-P-010",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "80594cb871b834a0"
+  },
+  {
+   "case_id": "PG-P-011",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "35af47be0911e582"
+  },
+  {
+   "case_id": "PG-P-012",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "60056ac97cc9c9ef"
+  },
+  {
+   "case_id": "PG-P-013",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "448d2e3a9c865e1a"
+  },
+  {
+   "case_id": "PG-P-014",
+   "split": "dev",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "7acf1b84c35c8a7b"
+  },
+  {
+   "case_id": "PG-P-015",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "0c2cc4f2635f699c"
+  },
+  {
+   "case_id": "PG-P-016",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "441203a0a0e15ba1"
+  },
+  {
+   "case_id": "PG-P-017",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "1b75f1c3bb4d4e45"
+  },
+  {
+   "case_id": "PG-P-018",
+   "split": "dev",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "7c1a6bff292c5964"
+  },
+  {
+   "case_id": "PG-P-019",
+   "split": "dev",
+   "stratum": "nonmono",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "97765cc7b3aec5c5"
+  },
+  {
+   "case_id": "PG-P-020",
+   "split": "dev",
+   "stratum": "nonmono",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "e73acea505bf1857"
+  },
+  {
+   "case_id": "PG-P-021",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "4f7134d77fd443d8"
+  },
+  {
+   "case_id": "PG-P-022",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "a0a4ff53eb7ffe39"
+  },
+  {
+   "case_id": "PG-P-023",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "b643551a0c1aee78"
+  },
+  {
+   "case_id": "PG-P-024",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "3caa10ed1f72f71d"
+  },
+  {
+   "case_id": "PG-P-025",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "40a9063f350d676e"
+  },
+  {
+   "case_id": "PG-P-026",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "3c908837aa2493b8"
+  },
+  {
+   "case_id": "PG-P-027",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "052c2ff019dcaaac"
+  },
+  {
+   "case_id": "PG-P-028",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "32364076f5a5f840"
+  },
+  {
+   "case_id": "PG-P-029",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "f08d01b536a5ea96"
+  },
+  {
+   "case_id": "PG-P-030",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "051c83d09119c65b"
+  },
+  {
+   "case_id": "PG-P-031",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "67796308950d1902"
+  },
+  {
+   "case_id": "PG-P-032",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "bb295e48b26c42e4"
+  },
+  {
+   "case_id": "PG-P-033",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "b81b2fa1b66a77ea"
+  },
+  {
+   "case_id": "PG-P-034",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "ada7c0ac6d965c85"
+  },
+  {
+   "case_id": "PG-P-035",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "a2db57f81b3a57ed"
+  },
+  {
+   "case_id": "PG-P-036",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "262819fa177e753b"
+  },
+  {
+   "case_id": "PG-P-037",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "ee1d15cdeae357b5"
+  },
+  {
+   "case_id": "PG-P-038",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "f39f2be190c3f7e1"
+  },
+  {
+   "case_id": "PG-P-039",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "33253f2a46e3475f"
+  },
+  {
+   "case_id": "PG-P-040",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "73091b521ca1bc3c"
+  },
+  {
+   "case_id": "PG-P-041",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "26f4228763027426"
+  },
+  {
+   "case_id": "PG-P-042",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "16669d6c2ca83558"
+  },
+  {
+   "case_id": "PG-P-043",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "0339869d9b0533b8"
+  },
+  {
+   "case_id": "PG-P-044",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "b152d8a40e7561a6"
+  },
+  {
+   "case_id": "PG-P-045",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "14d474d1b2d0be4b"
+  },
+  {
+   "case_id": "PG-P-046",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "bf22e529edebfa7a"
+  },
+  {
+   "case_id": "PG-P-047",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "7cbdc0416c782cd3"
+  },
+  {
+   "case_id": "PG-P-048",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "2fed041201ed2b9f"
+  },
+  {
+   "case_id": "PG-P-049",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "ff5cbc85925e8032"
+  },
+  {
+   "case_id": "PG-P-050",
+   "split": "blind_test",
+   "stratum": "simple",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "46f03d077a58e52b"
+  },
+  {
+   "case_id": "PG-P-051",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "7ee30bd8f5754415"
+  },
+  {
+   "case_id": "PG-P-052",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "128bbdfccf35b7bc"
+  },
+  {
+   "case_id": "PG-P-053",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "ba84e3ea8643a6e4"
+  },
+  {
+   "case_id": "PG-P-054",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "67b6da4afe6f9342"
+  },
+  {
+   "case_id": "PG-P-055",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "27ad181a8c14c533"
+  },
+  {
+   "case_id": "PG-P-056",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "1d9767eecc62fcb6"
+  },
+  {
+   "case_id": "PG-P-057",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "26841c56ff90810e"
+  },
+  {
+   "case_id": "PG-P-058",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "bf137d780c5ef62d"
+  },
+  {
+   "case_id": "PG-P-059",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "f11be0f2c36ba46b"
+  },
+  {
+   "case_id": "PG-P-060",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "bf95bc1062510e14"
+  },
+  {
+   "case_id": "PG-P-061",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "4e5ed758a1af934e"
+  },
+  {
+   "case_id": "PG-P-062",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "19ee7002b363d7bf"
+  },
+  {
+   "case_id": "PG-P-063",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "7a7a09a8523fc0c3"
+  },
+  {
+   "case_id": "PG-P-064",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "198b4456faa90fed"
+  },
+  {
+   "case_id": "PG-P-065",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "653e50c9e28036d8"
+  },
+  {
+   "case_id": "PG-P-066",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "08ea94770a5d5a57"
+  },
+  {
+   "case_id": "PG-P-067",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "16892d14f35aa916"
+  },
+  {
+   "case_id": "PG-P-068",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "e419eda9d06d4627"
+  },
+  {
+   "case_id": "PG-P-069",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "5e27c09652040831"
+  },
+  {
+   "case_id": "PG-P-070",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "de1e2751bb4b9d74"
+  },
+  {
+   "case_id": "PG-P-071",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "57d04d9af8c8f514"
+  },
+  {
+   "case_id": "PG-P-072",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "4351a818e910e336"
+  },
+  {
+   "case_id": "PG-P-073",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "313ef9e3044ef6e4"
+  },
+  {
+   "case_id": "PG-P-074",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "03ee198a88012ed3"
+  },
+  {
+   "case_id": "PG-P-075",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "1c3380493584cfae"
+  },
+  {
+   "case_id": "PG-P-076",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "e68bff31766f1ba7"
+  },
+  {
+   "case_id": "PG-P-077",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "a9dec6a5008f6d58"
+  },
+  {
+   "case_id": "PG-P-078",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "f2714a27d578b225"
+  },
+  {
+   "case_id": "PG-P-079",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "29d67fb39d00f2c8"
+  },
+  {
+   "case_id": "PG-P-080",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "9cec71ac4109973a"
+  },
+  {
+   "case_id": "PG-P-081",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "6e48f1dd3778a020"
+  },
+  {
+   "case_id": "PG-P-082",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "50be787276660502"
+  },
+  {
+   "case_id": "PG-P-083",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "23350534fb192d97"
+  },
+  {
+   "case_id": "PG-P-084",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "4b38f17c7f42b568"
+  },
+  {
+   "case_id": "PG-P-085",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "9430b782fd15552b"
+  },
+  {
+   "case_id": "PG-P-086",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "cce7d7864c351b26"
+  },
+  {
+   "case_id": "PG-P-087",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "7c4a01e2ac963ace"
+  },
+  {
+   "case_id": "PG-P-088",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "1b59fb878e2d59fd"
+  },
+  {
+   "case_id": "PG-P-089",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "f94149363ba91b88"
+  },
+  {
+   "case_id": "PG-P-090",
+   "split": "blind_test",
+   "stratum": "conflict",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "eb5aa051e3b5634e"
+  },
+  {
+   "case_id": "PG-P-091",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "6626d4deb432a7a0"
+  },
+  {
+   "case_id": "PG-P-092",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "8a43fac497f62231"
+  },
+  {
+   "case_id": "PG-P-093",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "f51bcbc2765d95cd"
+  },
+  {
+   "case_id": "PG-P-094",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "a26468e9a4eaf9a3"
+  },
+  {
+   "case_id": "PG-P-095",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "05c6efe18fb4690a"
+  },
+  {
+   "case_id": "PG-P-096",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "3150927d2433fdaf"
+  },
+  {
+   "case_id": "PG-P-097",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "fb5036f1e7e811bf"
+  },
+  {
+   "case_id": "PG-P-098",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "9d1c55e336e30c2d"
+  },
+  {
+   "case_id": "PG-P-099",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "719d442bb0ef2e39"
+  },
+  {
+   "case_id": "PG-P-100",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "8afaa2823649bcba"
+  },
+  {
+   "case_id": "PG-P-101",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "8ea3c7b703971091"
+  },
+  {
+   "case_id": "PG-P-102",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "59f5cc329f34dca3"
+  },
+  {
+   "case_id": "PG-P-103",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "35572419517f174d"
+  },
+  {
+   "case_id": "PG-P-104",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "951e205a3d173e12"
+  },
+  {
+   "case_id": "PG-P-105",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "3ad2f7a0d311d03f"
+  },
+  {
+   "case_id": "PG-P-106",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "9793f0baea89bedf"
+  },
+  {
+   "case_id": "PG-P-107",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "82e2207ff706f89d"
+  },
+  {
+   "case_id": "PG-P-108",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "13070e0cd84d6f14"
+  },
+  {
+   "case_id": "PG-P-109",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "d6fa9a73097151af"
+  },
+  {
+   "case_id": "PG-P-110",
+   "split": "blind_test",
+   "stratum": "turning",
+   "horizon": 8,
+   "n_items": 48,
+   "fingerprint": "5df4dc4c7c0835de"
+  },
+  {
+   "case_id": "PG-P-111",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "2977c47b4ba24b9a"
+  },
+  {
+   "case_id": "PG-P-112",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "b8db71b76f3c1b8b"
+  },
+  {
+   "case_id": "PG-P-113",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "5cb7f5df9a2f75f8"
+  },
+  {
+   "case_id": "PG-P-114",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "5f2b6c487d9cc385"
+  },
+  {
+   "case_id": "PG-P-115",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "474536de4b7d1664"
+  },
+  {
+   "case_id": "PG-P-116",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 6,
+   "n_items": 36,
+   "fingerprint": "9f01b0458fe3b11c"
+  },
+  {
+   "case_id": "PG-P-117",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "f76085eb38be4220"
+  },
+  {
+   "case_id": "PG-P-118",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 5,
+   "n_items": 30,
+   "fingerprint": "866c77bf48c1fba8"
+  },
+  {
+   "case_id": "PG-P-119",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "f0ef4faea8d2f16f"
+  },
+  {
+   "case_id": "PG-P-120",
+   "split": "blind_test",
+   "stratum": "nonmono",
+   "horizon": 7,
+   "n_items": 42,
+   "fingerprint": "73fc91b9bc3f360f"
+  }
+ ],
+ "pairs": [
+  {
+   "pair_id": "PG-P-CF-001",
+   "stratum": "conflict",
+   "family": "airway clearance failure",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-P-CF-002",
+   "stratum": "conflict",
+   "family": "airway clearance failure",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-P-CF-003",
+   "stratum": "turning",
+   "family": "airway clearance failure",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-P-CF-004",
+   "stratum": "simple",
+   "family": "airway clearance failure",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-P-CF-005",
+   "stratum": "conflict",
+   "family": "airway clearance failure",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-P-CF-006",
+   "stratum": "nonmono",
+   "family": "airway clearance failure",
+   "intervention": "mask"
+  },
+  {
+   "pair_id": "PG-P-CF-007",
+   "stratum": "conflict",
+   "family": "alveolar flooding with vascular loading",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-P-CF-008",
+   "stratum": "conflict",
+   "family": "alveolar flooding with vascular loading",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-P-CF-009",
+   "stratum": "turning",
+   "family": "alveolar flooding with vascular loading",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-P-CF-010",
+   "stratum": "simple",
+   "family": "alveolar flooding with vascular loading",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-P-CF-011",
+   "stratum": "conflict",
+   "family": "alveolar flooding with vascular loading",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-P-CF-012",
+   "stratum": "nonmono",
+   "family": "alveolar flooding with vascular loading",
+   "intervention": "mask"
+  },
+  {
+   "pair_id": "PG-P-CF-013",
+   "stratum": "conflict",
+   "family": "systemic inflammatory drive",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-P-CF-014",
+   "stratum": "conflict",
+   "family": "systemic inflammatory drive",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-P-CF-015",
+   "stratum": "turning",
+   "family": "systemic inflammatory drive",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-P-CF-016",
+   "stratum": "simple",
+   "family": "systemic inflammatory drive",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-P-CF-017",
+   "stratum": "conflict",
+   "family": "systemic inflammatory drive",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-P-CF-018",
+   "stratum": "nonmono",
+   "family": "systemic inflammatory drive",
+   "intervention": "mask"
+  },
+  {
+   "pair_id": "PG-P-CF-019",
+   "stratum": "conflict",
+   "family": "renal retention with uraemic airway injury",
+   "intervention": "delete"
+  },
+  {
+   "pair_id": "PG-P-CF-020",
+   "stratum": "conflict",
+   "family": "renal retention with uraemic airway injury",
+   "intervention": "replace"
+  },
+  {
+   "pair_id": "PG-P-CF-021",
+   "stratum": "turning",
+   "family": "renal retention with uraemic airway injury",
+   "intervention": "reverse"
+  },
+  {
+   "pair_id": "PG-P-CF-022",
+   "stratum": "simple",
+   "family": "renal retention with uraemic airway injury",
+   "intervention": "lag"
+  },
+  {
+   "pair_id": "PG-P-CF-023",
+   "stratum": "conflict",
+   "family": "renal retention with uraemic airway injury",
+   "intervention": "inject"
+  },
+  {
+   "pair_id": "PG-P-CF-024",
+   "stratum": "nonmono",
+   "family": "renal retention with uraemic airway injury",
+   "intervention": "mask"
+  }
+ ],
+ "pair_families": {
+  "airway clearance failure": 6,
+  "alveolar flooding with vascular loading": 6,
+  "systemic inflammatory drive": 6,
+  "renal retention with uraemic airway injury": 6
+ }
+}

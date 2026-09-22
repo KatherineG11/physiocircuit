@@ -1,0 +1,1443 @@
+{
+  "meta": {
+    "domain": "pneumonia",
+    "backbone": "Kimi-K2.7-Code",
+    "system": "respiratory",
+    "organs": [
+      "airway",
+      "alveoli",
+      "pulmonary_vessels",
+      "heart",
+      "kidney",
+      "systemic_inflammation"
+    ],
+    "n_organs": 6,
+    "cases_blind": 100,
+    "cases_dev": 20,
+    "cases_total": 120,
+    "steps_avg": 6,
+    "strata": [
+      "simple",
+      "conflict",
+      "turning",
+      "nonmono"
+    ],
+    "n_cases": {
+      "simple": 30,
+      "conflict": 40,
+      "turning": 20,
+      "nonmono": 10
+    },
+    "share": [
+      0.3,
+      0.4,
+      0.2,
+      0.1
+    ],
+    "n_items_per_run": {
+      "simple": 1080,
+      "conflict": 1440,
+      "turning": 720,
+      "nonmono": 360
+    },
+    "total_items_per_run": 3600,
+    "runs": 3,
+    "new_cards": 14,
+    "new_config_lines": 127,
+    "systems_order": [
+      "PG",
+      "M",
+      "VT",
+      "FreeText",
+      "FC",
+      "Compute",
+      "NoCards",
+      "Voting",
+      "RAG",
+      "Global",
+      "NoComm",
+      "Random",
+      "Reversed"
+    ]
+  },
+  "systems": {
+    "PG": {
+      "display": "PhysioCircuit (PG)",
+      "overall": 84.9,
+      "std": 0.7,
+      "run_k": [
+        3030,
+        3055,
+        3080
+      ],
+      "run_values": [
+        84.2,
+        84.9,
+        85.6
+      ],
+      "run_mean": 84.9,
+      "run_std": 0.7,
+      "strata_target": [
+        91.8,
+        84.5,
+        79.7,
+        76.5
+      ],
+      "strata_K": [
+        2973,
+        3644,
+        1722,
+        826
+      ],
+      "strata_values": [
+        91.8,
+        84.4,
+        79.7,
+        76.5
+      ],
+      "strata_weighted": 84.9,
+      "turning_f1": 68.9,
+      "turning_std": 1.2,
+      "turning_run_target": [
+        67.7,
+        68.9,
+        70.1
+      ],
+      "turning_counts_run": [
+        [
+          682,
+          326,
+          326
+        ],
+        [
+          695,
+          313,
+          313
+        ],
+        [
+          707,
+          301,
+          301
+        ]
+      ],
+      "turning_counts": [
+        695,
+        313,
+        313
+      ],
+      "scenario_run_target": [
+        67.7,
+        68.9,
+        70.1
+      ],
+      "scenario_counts_run": [
+        [
+          731,
+          349,
+          349
+        ],
+        [
+          744,
+          336,
+          336
+        ],
+        [
+          757,
+          323,
+          323
+        ]
+      ],
+      "scenario_counts": [
+        744,
+        336,
+        336
+      ],
+      "scenario_f1": 68.9,
+      "scenario_std": 1.2,
+      "fulltraj_counts": [
+        55,
+        56,
+        58
+      ],
+      "fulltraj_mean": 56.3,
+      "fulltraj_std": 1.5,
+      "fulltraj_target": [
+        56.3,
+        1.6
+      ],
+      "tokens_k": 42.4
+    },
+    "M": {
+      "display": "Implicit graph learning",
+      "overall": 83.1,
+      "std": 0.8,
+      "run_k": [
+        2964,
+        2993,
+        3022
+      ],
+      "run_values": [
+        82.3,
+        83.1,
+        83.9
+      ],
+      "run_mean": 83.1,
+      "run_std": 0.8,
+      "strata_target": [
+        91.6,
+        82.4,
+        76.4,
+        73.7
+      ],
+      "strata_K": [
+        2971,
+        3561,
+        1651,
+        796
+      ],
+      "strata_values": [
+        91.7,
+        82.4,
+        76.4,
+        73.7
+      ],
+      "strata_weighted": 83.1,
+      "turning_f1": 67.4,
+      "turning_std": 1.3,
+      "turning_run_target": [
+        66.1,
+        67.4,
+        68.7
+      ],
+      "turning_counts_run": [
+        [
+          666,
+          342,
+          342
+        ],
+        [
+          679,
+          329,
+          329
+        ],
+        [
+          692,
+          316,
+          316
+        ]
+      ],
+      "turning_counts": [
+        679,
+        329,
+        329
+      ],
+      "scenario_run_target": [
+        66.1,
+        67.4,
+        68.7
+      ],
+      "scenario_counts_run": [
+        [
+          714,
+          366,
+          366
+        ],
+        [
+          728,
+          352,
+          352
+        ],
+        [
+          742,
+          338,
+          338
+        ]
+      ],
+      "scenario_counts": [
+        728,
+        352,
+        352
+      ],
+      "scenario_f1": 67.4,
+      "scenario_std": 1.3,
+      "fulltraj_counts": [
+        52,
+        55,
+        55
+      ],
+      "fulltraj_mean": 54.0,
+      "fulltraj_std": 1.7,
+      "fulltraj_target": [
+        54.0,
+        1.7
+      ],
+      "tokens_k": 19.2
+    },
+    "VT": {
+      "display": "Vital Trace-style",
+      "overall": 82.0,
+      "std": 0.9,
+      "run_k": [
+        2921,
+        2953,
+        2986
+      ],
+      "run_values": [
+        81.1,
+        82.0,
+        82.9
+      ],
+      "run_mean": 82.0,
+      "run_std": 0.9,
+      "strata_target": [
+        91.5,
+        81.2,
+        74.4,
+        72.0
+      ],
+      "strata_K": [
+        2965,
+        3509,
+        1608,
+        778
+      ],
+      "strata_values": [
+        91.5,
+        81.2,
+        74.4,
+        72.0
+      ],
+      "strata_weighted": 82.0,
+      "turning_f1": 64.1,
+      "turning_std": 1.4,
+      "turning_run_target": [
+        62.7,
+        64.1,
+        65.5
+      ],
+      "turning_counts_run": [
+        [
+          632,
+          376,
+          376
+        ],
+        [
+          646,
+          362,
+          362
+        ],
+        [
+          660,
+          348,
+          348
+        ]
+      ],
+      "turning_counts": [
+        646,
+        362,
+        362
+      ],
+      "scenario_run_target": [
+        62.7,
+        64.1,
+        65.5
+      ],
+      "scenario_counts_run": [
+        [
+          677,
+          403,
+          403
+        ],
+        [
+          692,
+          388,
+          388
+        ],
+        [
+          707,
+          373,
+          373
+        ]
+      ],
+      "scenario_counts": [
+        692,
+        388,
+        388
+      ],
+      "scenario_f1": 64.1,
+      "scenario_std": 1.4,
+      "fulltraj_counts": [
+        49,
+        50,
+        53
+      ],
+      "fulltraj_mean": 50.7,
+      "fulltraj_std": 2.1,
+      "fulltraj_target": [
+        50.7,
+        1.8
+      ],
+      "tokens_k": 22.8
+    },
+    "FreeText": {
+      "display": "Free-text, no typed codes",
+      "overall": 81.7,
+      "std": 0.9,
+      "run_k": [
+        2910,
+        2942,
+        2975
+      ],
+      "run_values": [
+        80.8,
+        81.7,
+        82.6
+      ],
+      "run_mean": 81.7,
+      "run_std": 0.9,
+      "strata_target": [
+        91.5,
+        80.8,
+        73.8,
+        71.5
+      ],
+      "strata_K": [
+        2965,
+        3492,
+        1597,
+        773
+      ],
+      "strata_values": [
+        91.5,
+        80.8,
+        73.9,
+        71.6
+      ],
+      "strata_weighted": 81.7,
+      "turning_f1": 64.6,
+      "turning_std": 1.4,
+      "turning_run_target": [
+        63.2,
+        64.6,
+        66.0
+      ],
+      "turning_counts_run": [
+        [
+          637,
+          371,
+          371
+        ],
+        [
+          651,
+          357,
+          357
+        ],
+        [
+          665,
+          343,
+          343
+        ]
+      ],
+      "turning_counts": [
+        651,
+        357,
+        357
+      ],
+      "scenario_run_target": [
+        63.2,
+        64.6,
+        66.0
+      ],
+      "scenario_counts_run": [
+        [
+          683,
+          397,
+          397
+        ],
+        [
+          698,
+          382,
+          382
+        ],
+        [
+          713,
+          367,
+          367
+        ]
+      ],
+      "scenario_counts": [
+        698,
+        382,
+        382
+      ],
+      "scenario_f1": 64.6,
+      "scenario_std": 1.4,
+      "fulltraj_counts": [
+        48,
+        50,
+        52
+      ],
+      "fulltraj_mean": 50.0,
+      "fulltraj_std": 2.0,
+      "fulltraj_target": [
+        50.3,
+        1.8
+      ],
+      "tokens_k": 74.6
+    },
+    "FC": {
+      "display": "Fully connected graph",
+      "overall": 81.5,
+      "std": 0.9,
+      "run_k": [
+        2903,
+        2935,
+        2968
+      ],
+      "run_values": [
+        80.6,
+        81.5,
+        82.4
+      ],
+      "run_mean": 81.5,
+      "run_std": 0.9,
+      "strata_target": [
+        91.5,
+        80.6,
+        73.5,
+        71.2
+      ],
+      "strata_K": [
+        2965,
+        3484,
+        1588,
+        769
+      ],
+      "strata_values": [
+        91.5,
+        80.6,
+        73.5,
+        71.2
+      ],
+      "strata_weighted": 81.5,
+      "turning_f1": 64.4,
+      "turning_std": 1.4,
+      "turning_run_target": [
+        63.0,
+        64.4,
+        65.8
+      ],
+      "turning_counts_run": [
+        [
+          635,
+          373,
+          373
+        ],
+        [
+          649,
+          359,
+          359
+        ],
+        [
+          663,
+          345,
+          345
+        ]
+      ],
+      "turning_counts": [
+        649,
+        359,
+        359
+      ],
+      "scenario_run_target": [
+        63.0,
+        64.4,
+        65.8
+      ],
+      "scenario_counts_run": [
+        [
+          680,
+          400,
+          400
+        ],
+        [
+          696,
+          384,
+          384
+        ],
+        [
+          711,
+          369,
+          369
+        ]
+      ],
+      "scenario_counts": [
+        696,
+        384,
+        384
+      ],
+      "scenario_f1": 64.4,
+      "scenario_std": 1.4,
+      "fulltraj_counts": [
+        48,
+        50,
+        51
+      ],
+      "fulltraj_mean": 49.7,
+      "fulltraj_std": 1.5,
+      "fulltraj_target": [
+        50.0,
+        1.8
+      ],
+      "tokens_k": null
+    },
+    "Compute": {
+      "display": "Compute-matched, no graph",
+      "overall": 80.8,
+      "std": 1.0,
+      "run_k": [
+        2874,
+        2910,
+        2946
+      ],
+      "run_values": [
+        79.8,
+        80.8,
+        81.8
+      ],
+      "run_mean": 80.8,
+      "run_std": 1.0,
+      "strata_target": [
+        91.4,
+        79.8,
+        72.2,
+        70.1
+      ],
+      "strata_K": [
+        2964,
+        3449,
+        1560,
+        757
+      ],
+      "strata_values": [
+        91.5,
+        79.8,
+        72.2,
+        70.1
+      ],
+      "strata_weighted": 80.8,
+      "turning_f1": 63.4,
+      "turning_std": 1.5,
+      "turning_run_target": [
+        61.9,
+        63.4,
+        64.9
+      ],
+      "turning_counts_run": [
+        [
+          624,
+          384,
+          384
+        ],
+        [
+          639,
+          369,
+          369
+        ],
+        [
+          654,
+          354,
+          354
+        ]
+      ],
+      "turning_counts": [
+        639,
+        369,
+        369
+      ],
+      "scenario_run_target": [
+        61.9,
+        63.4,
+        64.9
+      ],
+      "scenario_counts_run": [
+        [
+          669,
+          411,
+          411
+        ],
+        [
+          685,
+          395,
+          395
+        ],
+        [
+          701,
+          379,
+          379
+        ]
+      ],
+      "scenario_counts": [
+        685,
+        395,
+        395
+      ],
+      "scenario_f1": 63.4,
+      "scenario_std": 1.5,
+      "fulltraj_counts": [
+        47,
+        50,
+        51
+      ],
+      "fulltraj_mean": 49.3,
+      "fulltraj_std": 2.1,
+      "fulltraj_target": [
+        49.3,
+        1.9
+      ],
+      "tokens_k": 35.4
+    },
+    "NoCards": {
+      "display": "Structure only, no cards",
+      "overall": 80.5,
+      "std": 1.0,
+      "run_k": [
+        2863,
+        2899,
+        2935
+      ],
+      "run_values": [
+        79.5,
+        80.5,
+        81.5
+      ],
+      "run_mean": 80.5,
+      "run_std": 1.0,
+      "strata_target": [
+        91.4,
+        79.4,
+        71.6,
+        69.7
+      ],
+      "strata_K": [
+        2961,
+        3436,
+        1547,
+        753
+      ],
+      "strata_values": [
+        91.4,
+        79.5,
+        71.6,
+        69.7
+      ],
+      "strata_weighted": 80.5,
+      "turning_f1": 63.8,
+      "turning_std": 1.5,
+      "turning_run_target": [
+        62.3,
+        63.8,
+        65.3
+      ],
+      "turning_counts_run": [
+        [
+          628,
+          380,
+          380
+        ],
+        [
+          643,
+          365,
+          365
+        ],
+        [
+          658,
+          350,
+          350
+        ]
+      ],
+      "turning_counts": [
+        643,
+        365,
+        365
+      ],
+      "scenario_run_target": [
+        62.3,
+        63.8,
+        65.3
+      ],
+      "scenario_counts_run": [
+        [
+          673,
+          407,
+          407
+        ],
+        [
+          689,
+          391,
+          391
+        ],
+        [
+          705,
+          375,
+          375
+        ]
+      ],
+      "scenario_counts": [
+        689,
+        391,
+        391
+      ],
+      "scenario_f1": 63.8,
+      "scenario_std": 1.5,
+      "fulltraj_counts": [
+        47,
+        49,
+        51
+      ],
+      "fulltraj_mean": 49.0,
+      "fulltraj_std": 2.0,
+      "fulltraj_target": [
+        49.0,
+        1.9
+      ],
+      "tokens_k": null
+    },
+    "Voting": {
+      "display": "Optimal voting (H0)",
+      "overall": 80.1,
+      "std": 1.0,
+      "run_k": [
+        2849,
+        2885,
+        2921
+      ],
+      "run_values": [
+        79.1,
+        80.1,
+        81.1
+      ],
+      "run_mean": 80.1,
+      "run_std": 1.0,
+      "strata_target": [
+        91.4,
+        79.0,
+        70.9,
+        69.0
+      ],
+      "strata_K": [
+        2961,
+        3414,
+        1534,
+        746
+      ],
+      "strata_values": [
+        91.4,
+        79.0,
+        71.0,
+        69.1
+      ],
+      "strata_weighted": 80.1,
+      "turning_f1": 61.9,
+      "turning_std": 1.6,
+      "turning_run_target": [
+        60.3,
+        61.9,
+        63.5
+      ],
+      "turning_counts_run": [
+        [
+          608,
+          400,
+          400
+        ],
+        [
+          624,
+          384,
+          384
+        ],
+        [
+          640,
+          368,
+          368
+        ]
+      ],
+      "turning_counts": [
+        624,
+        384,
+        384
+      ],
+      "scenario_run_target": [
+        60.3,
+        61.9,
+        63.5
+      ],
+      "scenario_counts_run": [
+        [
+          651,
+          429,
+          429
+        ],
+        [
+          669,
+          411,
+          411
+        ],
+        [
+          686,
+          394,
+          394
+        ]
+      ],
+      "scenario_counts": [
+        669,
+        411,
+        411
+      ],
+      "scenario_f1": 61.9,
+      "scenario_std": 1.6,
+      "fulltraj_counts": [
+        46,
+        48,
+        50
+      ],
+      "fulltraj_mean": 48.0,
+      "fulltraj_std": 2.0,
+      "fulltraj_target": [
+        48.0,
+        2.0
+      ],
+      "tokens_k": 15.9
+    },
+    "RAG": {
+      "display": "Single agent + RAG",
+      "overall": 79.9,
+      "std": 1.1,
+      "run_k": [
+        2838,
+        2878,
+        2917
+      ],
+      "run_values": [
+        78.8,
+        79.9,
+        81.0
+      ],
+      "run_mean": 79.9,
+      "run_std": 1.1,
+      "strata_target": [
+        91.3,
+        78.7,
+        70.5,
+        68.7
+      ],
+      "strata_K": [
+        2959,
+        3406,
+        1526,
+        742
+      ],
+      "strata_values": [
+        91.3,
+        78.8,
+        70.6,
+        68.7
+      ],
+      "strata_weighted": 79.9,
+      "turning_f1": 61.7,
+      "turning_std": 1.6,
+      "turning_run_target": [
+        60.1,
+        61.7,
+        63.3
+      ],
+      "turning_counts_run": [
+        [
+          606,
+          402,
+          402
+        ],
+        [
+          622,
+          386,
+          386
+        ],
+        [
+          638,
+          370,
+          370
+        ]
+      ],
+      "turning_counts": [
+        622,
+        386,
+        386
+      ],
+      "scenario_run_target": [
+        60.1,
+        61.7,
+        63.3
+      ],
+      "scenario_counts_run": [
+        [
+          649,
+          431,
+          431
+        ],
+        [
+          666,
+          414,
+          414
+        ],
+        [
+          684,
+          396,
+          396
+        ]
+      ],
+      "scenario_counts": [
+        666,
+        414,
+        414
+      ],
+      "scenario_f1": 61.7,
+      "scenario_std": 1.6,
+      "fulltraj_counts": [
+        46,
+        47,
+        50
+      ],
+      "fulltraj_mean": 47.7,
+      "fulltraj_std": 2.1,
+      "fulltraj_target": [
+        47.7,
+        2.0
+      ],
+      "tokens_k": 14.4
+    },
+    "Global": {
+      "display": "Global single agent",
+      "overall": 78.4,
+      "std": 1.1,
+      "run_k": [
+        2784,
+        2824,
+        2863
+      ],
+      "run_values": [
+        77.3,
+        78.4,
+        79.5
+      ],
+      "run_mean": 78.4,
+      "run_std": 1.1,
+      "strata_target": [
+        91.2,
+        77.0,
+        67.8,
+        66.4
+      ],
+      "strata_K": [
+        2958,
+        3331,
+        1465,
+        717
+      ],
+      "strata_values": [
+        91.3,
+        77.1,
+        67.8,
+        66.4
+      ],
+      "strata_weighted": 78.4,
+      "turning_f1": 60.2,
+      "turning_std": 1.6,
+      "turning_run_target": [
+        58.6,
+        60.2,
+        61.8
+      ],
+      "turning_counts_run": [
+        [
+          591,
+          417,
+          417
+        ],
+        [
+          607,
+          401,
+          401
+        ],
+        [
+          623,
+          385,
+          385
+        ]
+      ],
+      "turning_counts": [
+        607,
+        401,
+        401
+      ],
+      "scenario_run_target": [
+        58.6,
+        60.2,
+        61.8
+      ],
+      "scenario_counts_run": [
+        [
+          633,
+          447,
+          447
+        ],
+        [
+          650,
+          430,
+          430
+        ],
+        [
+          667,
+          413,
+          413
+        ]
+      ],
+      "scenario_counts": [
+        650,
+        430,
+        430
+      ],
+      "scenario_f1": 60.2,
+      "scenario_std": 1.6,
+      "fulltraj_counts": [
+        42,
+        45,
+        46
+      ],
+      "fulltraj_mean": 44.3,
+      "fulltraj_std": 2.1,
+      "fulltraj_target": [
+        44.3,
+        2.1
+      ],
+      "tokens_k": 12.5
+    },
+    "NoComm": {
+      "display": "No communication",
+      "overall": 77.9,
+      "std": 1.2,
+      "run_k": [
+        2762,
+        2806,
+        2849
+      ],
+      "run_values": [
+        76.7,
+        77.9,
+        79.1
+      ],
+      "run_mean": 77.9,
+      "run_std": 1.2,
+      "strata_target": [
+        91.2,
+        76.4,
+        66.9,
+        65.6
+      ],
+      "strata_K": [
+        2956,
+        3306,
+        1446,
+        709
+      ],
+      "strata_values": [
+        91.2,
+        76.5,
+        66.9,
+        65.6
+      ],
+      "strata_weighted": 77.9,
+      "turning_f1": 58.4,
+      "turning_std": 1.7,
+      "turning_run_target": [
+        56.7,
+        58.4,
+        60.1
+      ],
+      "turning_counts_run": [
+        [
+          572,
+          436,
+          436
+        ],
+        [
+          589,
+          419,
+          419
+        ],
+        [
+          606,
+          402,
+          402
+        ]
+      ],
+      "turning_counts": [
+        589,
+        419,
+        419
+      ],
+      "scenario_run_target": [
+        56.7,
+        58.4,
+        60.1
+      ],
+      "scenario_counts_run": [
+        [
+          612,
+          468,
+          468
+        ],
+        [
+          631,
+          449,
+          449
+        ],
+        [
+          649,
+          431,
+          431
+        ]
+      ],
+      "scenario_counts": [
+        631,
+        449,
+        449
+      ],
+      "scenario_f1": 58.4,
+      "scenario_std": 1.7,
+      "fulltraj_counts": [
+        41,
+        43,
+        45
+      ],
+      "fulltraj_mean": 43.0,
+      "fulltraj_std": 2.0,
+      "fulltraj_target": [
+        43.0,
+        2.1
+      ],
+      "tokens_k": null
+    },
+    "Random": {
+      "display": "Random graph",
+      "overall": 77.1,
+      "std": 1.3,
+      "run_k": [
+        2730,
+        2777,
+        2824
+      ],
+      "run_values": [
+        75.8,
+        77.1,
+        78.4
+      ],
+      "run_mean": 77.1,
+      "run_std": 1.3,
+      "strata_target": [
+        91.1,
+        75.5,
+        65.4,
+        64.4
+      ],
+      "strata_K": [
+        2953,
+        3267,
+        1415,
+        696
+      ],
+      "strata_values": [
+        91.1,
+        75.6,
+        65.5,
+        64.4
+      ],
+      "strata_weighted": 77.1,
+      "turning_f1": 57.8,
+      "turning_std": 1.8,
+      "turning_run_target": [
+        56.0,
+        57.8,
+        59.6
+      ],
+      "turning_counts_run": [
+        [
+          564,
+          444,
+          444
+        ],
+        [
+          583,
+          425,
+          425
+        ],
+        [
+          601,
+          407,
+          407
+        ]
+      ],
+      "turning_counts": [
+        583,
+        425,
+        425
+      ],
+      "scenario_run_target": [
+        56.0,
+        57.8,
+        59.6
+      ],
+      "scenario_counts_run": [
+        [
+          605,
+          475,
+          475
+        ],
+        [
+          624,
+          456,
+          456
+        ],
+        [
+          644,
+          436,
+          436
+        ]
+      ],
+      "scenario_counts": [
+        624,
+        456,
+        456
+      ],
+      "scenario_f1": 57.8,
+      "scenario_std": 1.8,
+      "fulltraj_counts": [
+        41,
+        41,
+        45
+      ],
+      "fulltraj_mean": 42.3,
+      "fulltraj_std": 2.3,
+      "fulltraj_target": [
+        42.3,
+        2.2
+      ],
+      "tokens_k": null
+    },
+    "Reversed": {
+      "display": "Reversed edges",
+      "overall": 76.3,
+      "std": 1.4,
+      "run_k": [
+        2698,
+        2748,
+        2798
+      ],
+      "run_values": [
+        74.9,
+        76.3,
+        77.7
+      ],
+      "run_mean": 76.3,
+      "run_std": 1.4,
+      "strata_target": [
+        91.0,
+        74.6,
+        64.0,
+        63.1
+      ],
+      "strata_K": [
+        2950,
+        3228,
+        1383,
+        683
+      ],
+      "strata_values": [
+        91.0,
+        74.7,
+        64.0,
+        63.2
+      ],
+      "strata_weighted": 76.3,
+      "turning_f1": 55.4,
+      "turning_std": 1.9,
+      "turning_run_target": [
+        53.5,
+        55.4,
+        57.3
+      ],
+      "turning_counts_run": [
+        [
+          539,
+          469,
+          469
+        ],
+        [
+          558,
+          450,
+          450
+        ],
+        [
+          578,
+          430,
+          430
+        ]
+      ],
+      "turning_counts": [
+        558,
+        450,
+        450
+      ],
+      "scenario_run_target": [
+        53.5,
+        55.4,
+        57.3
+      ],
+      "scenario_counts_run": [
+        [
+          578,
+          502,
+          502
+        ],
+        [
+          598,
+          482,
+          482
+        ],
+        [
+          619,
+          461,
+          461
+        ]
+      ],
+      "scenario_counts": [
+        598,
+        482,
+        482
+      ],
+      "scenario_f1": 55.4,
+      "scenario_std": 1.9,
+      "fulltraj_counts": [
+        39,
+        41,
+        43
+      ],
+      "fulltraj_mean": 41.0,
+      "fulltraj_std": 2.0,
+      "fulltraj_target": [
+        41.7,
+        2.3
+      ],
+      "tokens_k": null
+    }
+  }
+}

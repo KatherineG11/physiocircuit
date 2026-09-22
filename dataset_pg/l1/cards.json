@@ -1,0 +1,59 @@
+{
+ "cards": {
+  "digestive": [
+   "MC-01",
+   "MC-02",
+   "MC-03",
+   "MC-04",
+   "MC-05",
+   "MC-06",
+   "MC-07",
+   "MC-08",
+   "MC-09",
+   "MC-10",
+   "MC-11",
+   "MC-12"
+  ],
+  "pneumonia": [
+   "PM-01",
+   "PM-02",
+   "PM-03",
+   "PM-04",
+   "PM-05",
+   "PM-06",
+   "PM-07",
+   "PM-08",
+   "PM-09",
+   "PM-10",
+   "PM-11",
+   "PM-12",
+   "PM-13",
+   "PM-14"
+  ],
+  "cardio": [
+   "CM-01",
+   "CM-02",
+   "CM-03",
+   "CM-04",
+   "CM-05",
+   "CM-06",
+   "CM-07",
+   "CM-08",
+   "CM-09",
+   "CM-10",
+   "CM-11",
+   "CM-12"
+  ]
+ },
+ "counts": {
+  "digestive": 12,
+  "pneumonia": 14,
+  "cardio": 12
+ },
+ "source": {
+  "digestive": "pre-built benchmark",
+  "pneumonia": "pre-built benchmark",
+  "cardio": "pre-built benchmark"
+ },
+ "note": "Mechanism card inventory per domain; the count is the size of the mechanism graph for that domain."
+}
