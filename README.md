@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/pdf/2610.33022">Paper</a> |
-  <a href="https://katherineg11.github.io/physiocircuit_site/">Project Website</a>
+  <a href="https://katherineg11.github.io/physiocircuit_site/">Website</a>
 </p>
 
 <p align="center">
