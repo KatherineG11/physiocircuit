@@ -35,5 +35,3 @@ __all__ = [
     "PatientCase",
     "Verdict",
 ]
-
-__version__ = "0.1.0"

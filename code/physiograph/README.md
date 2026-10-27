@@ -1,8 +1,6 @@
 # PhysioCircuit reference implementation
 
-This package implements the inference logic described in
-`PhysioCircuit_iclr2027.tex`. It is independent of the older `plan1_*` and
-`plan2_*` prototypes.
+This package implements the inference logic described in the manuscript. It is independent of the prototype implementations.
 
 ## Implemented pipeline
 

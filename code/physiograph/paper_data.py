@@ -1,4 +1,4 @@
-"""Reproducible data assets for the 9.22 PhysioCircuit paper.
+"""Reproducible data assets for the PhysioCircuit paper.
 
 This module is deliberately separate from inference.  It turns the checked-in
 legacy case files into prompt-safe/public JSONL and private gold JSONL, builds
@@ -184,7 +184,7 @@ def export(config_path: str | Path = DEFAULT_CONFIG, output: str | Path = "runs/
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit/export PhysioCircuit 9.22 paper data")
+    parser = argparse.ArgumentParser(description="Audit/export PhysioCircuit paper data")
     parser.add_argument("command", choices=("audit", "export", "all"))
     parser.add_argument("--config", default=str(DEFAULT_CONFIG))
     parser.add_argument("--output", default="runs/paper_data")

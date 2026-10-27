@@ -165,8 +165,8 @@ class PaperConfig:
         if self.main_model not in models:
             errors.append(f"main_model {self.main_model!r} is not present in models")
         generation = self.generation
-        if float(generation.get("temperature", 0)) != 0.0:
-            errors.append("paper main configuration requires temperature=0")
+        if float(generation.get("temperature", 0)) != 0.2:
+            errors.append("paper main configuration requires temperature=0.2")
         if int(generation.get("max_tokens", 0)) != 1024:
             errors.append("paper main configuration requires max_tokens=1024")
         alpha_max = float(self.inference.get("alpha_max", 0.6))
@@ -225,4 +225,3 @@ def load_graph(path: str | os.PathLike[str], cards: Iterable[MechanismCard]) -> 
                     f"{card.source}->{card.target}"
                 )
     return graph
-
