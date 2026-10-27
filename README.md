@@ -36,7 +36,7 @@ The repository contains the configuration-only inference engine, mechanism cards
 ## Overview
 
 <p align="center">
-  <img src="assets/architecture.png" alt="PhysioCircuit architecture" width="960" />
+  <img src="assets/case_demo.png" alt="PhysioCircuit case demonstration" width="960" />
 </p>
 
 The same patient case can produce different trajectories when one named mechanism is edited. This is the central evaluation interface: hold the case and model fixed, change one mechanism, and score the affected organ's direction and lag.
@@ -87,7 +87,7 @@ The final manuscript reports direction accuracy of **91.3% / 87.8% / 89.0%** on 
 PhysioCircuit-Bench is a **synthetic** mechanism-controlled benchmark. It covers digestive, pneumonia, and cardiovascular-sepsis systems, with 120 cases per system, 480 treatment events per system, and controlled mechanism interventions.
 
 <p align="center">
-  <img src="assets/architecture.png" alt="PhysioCircuit architecture" width="960" />
+  <img src="assets/performance.png" alt="PhysioCircuit benchmark performance" width="960" />
 </p>
 
 Start with:
@@ -113,12 +113,14 @@ These labels are computed retrospectively from later observations; they are not 
 See the BibTeX entry below for citation metadata.
 
 ```bibtex
-@article{physiocircuit,
-  title   = {Physiology as Topology: Intervenable Organ Graphs for Longitudinal Patient Forecasting},
-  author  = {Liang, Xinru},
-  journal = {arXiv preprint},
-  eprint  = {}
-% Code and benchmark: https://github.com/KatherineG11/physiocircuit
+@misc{liang2026physiologytopologyintervenableorgan,
+  title={Physiology as Topology: Intervenable Organ Graphs for Longitudinal Patient Forecasting},
+  author={Xinru Liang and Yongchao Chen},
+  year={2026},
+  eprint={2610.33022},
+  archivePrefix={arXiv},
+  primaryClass={q-bio.QM},
+  url={https://arxiv.org/abs/2610.33022},
 }
 ```
 
